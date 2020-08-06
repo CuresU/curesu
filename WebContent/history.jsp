@@ -36,62 +36,53 @@
                 <h3 class="tittle text-center mb-lg-4 mb-3">
                     <span>User</span>History</h3>
 		         		<div class="col-lg-8 job_info_left" >
-                    <%
+                     <%
                     System.out.println("In History");
                  	//user u=null;
                  	if(session!=null)
                  	{		
                  		List<Appointment> list=usermaster_dao.getAllAppointment();
+                 		
                  			
                     for(Appointment d:list)
                     	{
-                    		System.out.println("d.speciality: " + d.getSpeciality());
-                    		if(d.uid().equalsIgnoreCase(u.getUid()))
-                    		{
+                    		System.out.println("user name: " + um.getId());
+                    		System.out.println("user name: " + d.getU().getUm().getId());
+                    		  if(um.getId()==d.getU().getUm().getId())
+                    		 { 
+                    			 
+                    			 List<Doctor> list1=usermaster_dao.getAllDoctors();
+                                 for(Doctor doc:list1)
+                                 {
+                              		if(Integer.parseInt(d.getDid()) == doc.getDid())
+                              		{
+                          	 
+                              
                     %>
                                                
                <div class="emply-resume-list row mb-3" style="height:170px; width: 1100px;">
                             <div class="col-md-9 emply-info">
                                 <div class="emply-img">
-                                    <img src="" alt="Doctor Image" class="img-fluid">
+                                    <img src="doctorimages/<%=doc.getDimage() %>" alt="Doctor Image" class="img-fluid" height="500px" width="600px">
                                     
                                 </div>
                                 <div class="emply-resume-info">
-                                    <h4><a href="#">Doctor Name</a></h4>
-                                    <h5 class="mt-2">Skin Specialist</h5>
+                  <h4><a href="#"><%= doc.getFname() %>&nbsp;<%= doc.getLname() %></a></h4>
+                                    <h5 class="mt-2"><%= doc.getSpeciality() %></h5>
                                     <h5 class="mt-2">VisitDate</h5>
-                                    <h5 class="mt-2">Payment : 300 Rs. | Online<br></h5>                       
+                                    <h5 class="mt-2">Payment : <%= doc.getFees() %> Rs. | Online<br></h5>                                                           
                                 </div>
+                                
                                 <div class="clearfix"></div>
                             </div>
                            <div class="col-md-3 emp_btn text-right">
                                 <a>Prescription(pdf)</a>
                             </div>
                         </div>
-                        
-                
-                <div class="emply-resume-list row mb-3" style="height:170px; width: 1100px;">
-                            <div class="col-md-9 emply-info">
-                                <div class="emply-img">
-                                    <img src="" alt="Doctor Image" class="img-fluid">                                    
-                                </div>
-                                <div class="emply-resume-info">
-                                    <h4><a href="#">Doctor Name</a></h4>
-                                    <h5 class="mt-2">Skin Specialist</h5>
-                                    <h5 class="mt-2">VisitDate</h5>
-                                    <h5 class="mt-2">Payment : 300 Rs. | Online<br></h5>                       
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                           <div class="col-md-3 emp_btn text-right">
-                                <a>Prescription(pdf)</a>
-                            </div>
-                        </div>
-                        
-                        <%
-                    		 		}
- 								}
-                 	} 
+                        <%}}
+                    		 }	
+ 								
+                    	}
                         %>
                      </div>
                 </div>
@@ -102,5 +93,12 @@
     
     
 <jsp:include page="footer.jsp" />
+ <%
+  	}
+ 	else
+ 	{
+ 		response.sendRedirect("login.jsp");
+ 	}
+%>
 </body>
 </html>

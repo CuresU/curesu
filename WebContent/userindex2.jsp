@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <body>
-<%
+<%-- <%
 	user_master um=null;
 	if(session!=null)
 	{
@@ -13,12 +13,12 @@
 		{
 			um=(user_master)session.getAttribute("um");
 			System.out.println("um id = " + um.getId());
-%>
+%> --%>
     <!-- banner-inner -->
     <div id="demo-1" data-zs-src='["imagesuser/1.jpg", "imagesuser/2.jpg","imagesuser/3.jpg", "imagesuser/4.jpg"]' data-zs-overlay="dots">
         <div class="demo-inner-content">
             <div class="header-top">
- <jsp:include page="header.jsp" />
+ <%@ include file="header.jsp" %>
    </div>
             <!--/banner-info-w3layouts-->
             <div class="banner-info-w3layouts text-center">
@@ -139,7 +139,7 @@
                             <div class="category_text_box">
                                 <i class="fas fa-users"></i>
                                 <h3>child specialist </h3>
-                                <p>(8 open flow-positions)</p>
+                                
                             </div>
                             <div class="mask">
                                 <a href="UParticulardoc.jsp?&cat=child specialist">
@@ -232,7 +232,7 @@
         <jsp:include page="footer.jsp" />
 
     <!--//model-form-->
-     <%
+    <%--  <%
 		}
  		else
  		{
@@ -243,7 +243,7 @@
  	{
  		response.sendRedirect("login.jsp");
  	}
-     %>      
+     %>  --%>     
 </body>
 
 </html>

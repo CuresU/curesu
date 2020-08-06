@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unsupported
-	License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-    <title>DoctorFinder Login Page</title>
+    <title>CuresU Login Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Replenish a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -40,15 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="demo-inner-content">
             <div class="header-top">
                 <header>
-                
-              
-
-    <!--model-forms-->
-    <!--/Login -->
- <!--    <div class="modal fade" id="#" tabindex="-1" role="dialog" aria-hidden="true">               -->
- 
-    
-                        
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -162,15 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <script>
         $(document).ready(function() {
-            /*
-            						var defaults = {
-            							  containerID: 'toTop', // fading element id
-            							containerHoverID: 'toTopHover', // fading element hover id
-            							scrollSpeed: 1200,
-            							easingType: 'linear' 
-            						 };
-            						*/
-
+           
             $().UItoTop({
                 easingType: 'easeOutQuart'
             });
