@@ -60,16 +60,15 @@
                               
                     %>
                                                
-               <div class="emply-resume-list row mb-3" style="height:170px; width: 1100px;">
+               <div class="emply-resume-list row mb-3" style="height:270px; width: 1100px;">
                             <div class="col-md-9 emply-info">
-                                <div class="emply-img">
-                                    <img src="doctorimages/<%=doc.getDimage() %>" alt="Doctor Image" class="img-fluid" height="500px" width="600px">
-                                    
+                                <div class="emply-img" style="height:170px">
+                                    <img src="doctorimages/<%=doc.getDimage() %>" alt="Doctor Image" class="img-fluid" >                                    
                                 </div>
                                 <div class="emply-resume-info">
                   <h4><a href="#"><%= doc.getFname() %>&nbsp;<%= doc.getLname() %></a></h4>
                                     <h5 class="mt-2"><%= doc.getSpeciality() %></h5>
-                                    <h5 class="mt-2">VisitDate</h5>
+                                    <h5 class="mt-2"><%= d.getAppoint_date() %></h5>
                                     <h5 class="mt-2">Payment : <%= doc.getFees() %> Rs. | Online<br></h5>                                                           
                                 </div>
                                 
