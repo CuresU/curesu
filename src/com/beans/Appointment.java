@@ -79,7 +79,7 @@ public class Appointment {
 		this.did = did;
 	}
 	
-	@ManyToOne
+	@ManyToOne	
 	@JoinColumn(name="uid")
 	public user getU() {
 		return u;
