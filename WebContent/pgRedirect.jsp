@@ -14,7 +14,7 @@ String orderId = "order"+r1;
 String channelId = "WEB";
 String custId = "cust123";
 String mobileNo = "9904221600";
-String email = "dheerajnair1997@gmail.com";
+String email = "curesu003@gmail.com";
 String txnAmount = "300";
 System.out.println(txnAmount);
 String website = "WEBSTAGING";

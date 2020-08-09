@@ -733,6 +733,12 @@ public class ActionController extends HttpServlet {
 							System.out.println("forwarding");
 							rd.forward(request,response);
 						}
+						else {
+							System.out.println("Password Incorrect");
+							RequestDispatcher rd1=request.getRequestDispatcher("login.jsp");
+							//System.out.println("Pre"+response);
+							rd1.forward(request,response);
+						}
 					}
 				}
 			}

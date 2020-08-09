@@ -60,11 +60,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label class="mb-2">Password</label>
                                 <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+             
                             </div>
-                            <div class="form-check mb-2">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
+                           
                             <button type="submit" name = "action"  value="sign_in" class="btn btn-primary submit mb-4">Sign In</button>
                             <button type="submit" name = "action" class="btn btn-primary submit mb-4"><a href="forgotemail.jsp">Forgot Password</a></button>
                             <p class="text-center pb-4">
@@ -101,34 +99,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $(this).toggleClass('open');
                 }
             );
+            
+            
         });
+        
     </script>
+    <%
+    if(response!=null){
+    	%>
+    	<script>
+    	alert("Incorrect Password");
+    	</script>
+    	<%	
+    }%>
     <!-- //dropdown nav -->
     <!-- password-script -->
-    <script>
-        window.onload = function() {
-            document.getElementById("password1").onchange = validatePassword;
-            document.getElementById("password2").onchange = validatePassword;
-        }
-
-        function validatePassword() {
-            var pass2 = document.getElementById("password2").value;
-            var pass1 = document.getElementById("password1").value;
-            if (pass1 != pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-            else
-                document.getElementById("password2").setCustomValidity('');
-            //empty string means no validation error
-        }
-    </script>
+    
     <!-- //password-script -->
 
     <!-- stats -->
     <script src="jsuser/jquery.waypoints.min.js"></script>
     <script src="jsuser/jquery.countup.js"></script>
-    <script>
-        $('.counter').countUp();
-    </script>
+    
     <!-- //stats -->
 
     <!-- //js -->
@@ -146,15 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    <script>
-        $(document).ready(function() {
-           
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-
-        });
-    </script>
+    
     <!--// end-smoth-scrolling -->
 </body>
 

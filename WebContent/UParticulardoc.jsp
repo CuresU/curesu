@@ -14,7 +14,7 @@
 
 <body>
  <%
- System.out.println("us=particulardoccccccccc");
+ System.out.println("usparticulardoccccccccc");
  	//user u=null;
  	if(session!=null)
  	{		
@@ -85,7 +85,11 @@
                         </div>
                         
                         <%
-                    				}
+                    				break;
+                        }
+                    		else{
+                    			System.out.println("In else doc not display");                    			
+                    		}
  								}
  							
                         %>
