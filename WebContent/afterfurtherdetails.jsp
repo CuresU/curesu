@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>DoctorFinder</title>
+<title>CuresU</title>
 </head>
 <body>
 <h1>Thanks for your further details!!</h1>

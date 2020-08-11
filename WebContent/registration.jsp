@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>CuresU Registration Page </title>
+    <title>Registration Page </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Replenish a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 

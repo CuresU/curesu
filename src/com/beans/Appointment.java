@@ -17,7 +17,7 @@ public class Appointment {
 	private int aapoint_id;
 	private String am10to11am,am11to12pm,pm12to1pm,pm1to2pm,did,appoint_date;
 	private user u;
-	//private Doctor d;
+	private Doctor d;
 	
 	@Id
 	@GenericGenerator(name="inc",strategy="increment")
@@ -79,7 +79,7 @@ public class Appointment {
 		this.did = did;
 	}
 	
-	@ManyToOne
+	@ManyToOne	
 	@JoinColumn(name="uid")
 	public user getU() {
 		return u;
@@ -88,13 +88,11 @@ public class Appointment {
 		this.u = u;
 	}
 	
-	/*@ManyToOne
-	@JoinColumn(name="did")
-	public Doctor getD() {
-		return d;
-	}
-	public void setD(Doctor d) {
-		this.d = d;
-	}*/
+	/*
+	 * @ManyToOne
+	 * 
+	 * @JoinColumn(name="did") public Doctor getD() { return d; } public void
+	 * setD(Doctor d) { this.d = d; }
+	 */
 	
 }

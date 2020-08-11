@@ -14,13 +14,13 @@
 
 <body>
  <%
- System.out.println("us=particulardoccccccccc");
+ System.out.println("usparticulardoccccccccc");
  	//user u=null;
  	if(session!=null)
  	{		
  			List<Doctor> list=usermaster_dao.getAllDoctors();
  			String cat=request.getParameter("cat");
- 			System.out.println("catttttttttttttttttttttttttttttttttttttttt is : " + cat);
+ 			System.out.println("cattttttttttttttttttttttt is : " + cat);
  %>
 
     <!-- banner-inner -->
@@ -80,12 +80,16 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="col-md-3 emp_btn text-right">
-                                <a href="ActionController?action=bookappointment&did=<%=d.getDid() %>&uid=<%=u.getUid() %>" title="">Book Appointment</a>
+                                <a href="ActionController?action=bookappointment&did=<%=d.getDid() %>&uid=<%=um.getId() %>" title="">Book Appointment</a>
                             </div>
                         </div>
                         
                         <%
-                    				}
+                    				break;
+                        }
+                    		else{
+                    			System.out.println("In else doc not display");                    			
+                    		}
  								}
  							
                         %>
@@ -95,156 +99,11 @@
             </div>
         </div>
     </section>
+    <%@ include file="footer.jsp" %>
     <!--//preocess-->
 <!---728x90--->
     <!--footer -->
-    <footer class="footer-emp-w3layouts bg-dark dotts py-lg-5 py-3">
-        <div class="container-fluid px-lg-5 px-3">
-            <div class="row footer-top">
-                <div class="col-lg-3 footer-grid-wthree-w3ls">
-                    <div class="footer-title">
-                        <h3>About Us</h3>
-                    </div>
-                    <div class="footer-text">
-                        <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
-                        <ul class="footer-social text-left mt-lg-4 mt-3">
-
-                            <li class="mx-2">
-                                <a href="#">
-                                    <span class="fab fa-facebook-f"></span>
-                                </a>
-                            </li>
-                            <li class="mx-2">
-                                <a href="#">
-                                    <span class="fab fa-twitter"></span>
-                                </a>
-                            </li>
-                            <li class="mx-2">
-                                <a href="#">
-                                    <span class="fab fa-google-plus-g"></span>
-                                </a>
-                            </li>
-                            <li class="mx-2">
-                                <a href="#">
-                                    <span class="fab fa-linkedin-in"></span>
-                                </a>
-                            </li>
-                            <li class="mx-2">
-                                <a href="#">
-                                    <span class="fas fa-rss"></span>
-                                </a>
-                            </li>
-                            <li class="mx-2">
-                                <a href="#">
-                                    <span class="fab fa-vk"></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 footer-grid-wthree-w3ls">
-                    <div class="footer-title">
-                        <h3>Get in touch</h3>
-                    </div>
-                    <div class="contact-info">
-                        <h4>Location :</h4>
-                        <p>0926k 4th block building, king Avenue, New York City.</p>
-                        <div class="phone">
-                            <h4>Contact :</h4>
-                            <p>Phone : +121 098 8907 9987</p>
-                            <p>Email :
-                                <a href="mailto:curesu003@gmail.com">doctor1finder@gmail.com</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 footer-grid-wthree-w3ls">
-                    <div class="footer-title">
-                        <h3>Quick Links</h3>
-                    </div>
-                    <ul class="links">
-                        <li>
-                            <a href="userindex2.jsp">Home</a>
-                        </li>
-                      
-                        <li>
-                            <a href="contact.jsp">Contact Us</a>
-                        </li>
-                    </ul>
-                    <ul class="links">
-                       
-                    </ul>
-
-                    <div class="clearfix"></div>
-                </div>
-                <div class="col-lg-3 footer-grid-wthree-w3ls">
-                    <div class="footer-title">
-                        <h3>Sign up for your offers</h3>
-                    </div>
-                    <div class="footer-text">
-                        <p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
-                        <form action="#" method="post">
-                            <input class="form-control" type="email" name="Email" placeholder="Enter your email..." required="">
-                            <button class="btn2">
-                                <i class="far fa-envelope" aria-hidden="true"></i>
-                            </button>
-                            <div class="clearfix"> </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright mt-4">
-              
-            </div>
-        </div>
-    </footer>
-    <!-- //footer -->
-
-    <!--model-forms-->
-      <!--/Login-->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="login px-4 mx-auto mw-100">
-                        <h5 class="text-center mb-4">Login Now</h5>
-                        <form name="login" action="UserActionController" method="post">
-                        	<div class="form-group">
-                        	 <label class="mb-2"></label>
-                        		<input class="mb-2" type="radio" name="user-type" value="Doctor">Doctor
-                        		<input type="radio" name="user-type" value="Patient" style="margin-left:100px;">Patient<br>
-                        	</div>
-                            <div class="form-group">
-                                <label class="mb-2">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
-                            <div class="form-group">
-                                <label class="mb-2">Password</label>
-                                <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="" required="">
-                            </div>
-                            <div class="form-check mb-2">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" name = "action"  value="sign_in" class="btn btn-primary submit mb-4">Sign In</button>
-                            <button type="submit" name = "action"  value="Forgot Password" class="btn btn-primary submit mb-4">Forgot Password</button>
-                            <p class="text-center pb-4">
-                                <a href="#" data-toggle="modal2" data-target="#exampleModalCenter"> Don't have an account?</a>
-                            </p>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+        <!-- //footer -->
         <!--/slider-->
     <script src="jsuser/jquery-1.11.1.min.js"></script>
     <script src="jsuser/modernizr-2.6.2.min.js"></script>

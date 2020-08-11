@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unsupported
-	License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-    <title>DoctorFinder Login Page</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Replenish a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -40,15 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="demo-inner-content">
             <div class="header-top">
                 <header>
-                
-              
-
-    <!--model-forms-->
-    <!--/Login -->
- <!--    <div class="modal fade" id="#" tabindex="-1" role="dialog" aria-hidden="true">               -->
- 
-    
-                        
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -74,12 +60,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label class="mb-2">Password</label>
                                 <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+             
                             </div>
-                            <div class="form-check mb-2">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <button type="submit" name = "action"  value="sign_in" class="btn btn-primary submit mb-4">Sign In</button>
+                           
+                            <button type="submit" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4">Sign In</button>
                             <button type="submit" name = "action" class="btn btn-primary submit mb-4"><a href="forgotemail.jsp">Forgot Password</a></button>
                             <p class="text-center pb-4">
                                 <a href="registration.jsp" data-toggle="modal2" data-target="#exampleModalCenter"> Don't have an account?</a>
@@ -114,35 +98,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $('.dropdown-menu', this).stop(true, true).slideUp("fast");
                     $(this).toggleClass('open');
                 }
-            );
+            ); 
         });
+        
     </script>
+    		
+    		
+    	
     <!-- //dropdown nav -->
     <!-- password-script -->
-    <script>
-        window.onload = function() {
-            document.getElementById("password1").onchange = validatePassword;
-            document.getElementById("password2").onchange = validatePassword;
-        }
-
-        function validatePassword() {
-            var pass2 = document.getElementById("password2").value;
-            var pass1 = document.getElementById("password1").value;
-            if (pass1 != pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-            else
-                document.getElementById("password2").setCustomValidity('');
-            //empty string means no validation error
-        }
-    </script>
+    
     <!-- //password-script -->
 
     <!-- stats -->
     <script src="jsuser/jquery.waypoints.min.js"></script>
     <script src="jsuser/jquery.countup.js"></script>
-    <script>
-        $('.counter').countUp();
-    </script>
+    
     <!-- //stats -->
 
     <!-- //js -->
@@ -160,23 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    <script>
-        $(document).ready(function() {
-            /*
-            						var defaults = {
-            							  containerID: 'toTop', // fading element id
-            							containerHoverID: 'toTopHover', // fading element hover id
-            							scrollSpeed: 1200,
-            							easingType: 'linear' 
-            						 };
-            						*/
-
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
-
-        });
-    </script>
+    
     <!--// end-smoth-scrolling -->
 </body>
 
