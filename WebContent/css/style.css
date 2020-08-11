@@ -1,9 +1,3 @@
-/*
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
-*/
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
@@ -13,7 +7,7 @@ html, body{
   	font-family: 'Cabin', sans-serif;
     font-size: 100%;
   	overflow-x: hidden;
-	background: #f9f9f9;
+	/* background: #f9f9f9; */
 }
 body a{
 	transition:0.5s all;
@@ -4704,7 +4698,7 @@ span.badge1 {
 .signin {
     padding: 2em;
 	position:relative;
-	background: #fff;
+	background: transparent; /* change */
 }
 .signin:after {
     content: '';
@@ -7347,7 +7341,7 @@ span.checkbox1 {
     margin: 0em 0em 1em 0em;
 }
 .signin {
-    padding: 1em;
+    /* padding: 1em; */
 }
 .sign-in-form-top p {
     font-size: 1.5em;

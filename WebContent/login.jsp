@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              
                             </div>
                            
-                            <button type="submit" name = "action"  value="sign_in" class="btn btn-primary submit mb-4">Sign In</button>
+                            <button type="submit" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4">Sign In</button>
                             <button type="submit" name = "action" class="btn btn-primary submit mb-4"><a href="forgotemail.jsp">Forgot Password</a></button>
                             <p class="text-center pb-4">
                                 <a href="registration.jsp" data-toggle="modal2" data-target="#exampleModalCenter"> Don't have an account?</a>
@@ -98,20 +98,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $('.dropdown-menu', this).stop(true, true).slideUp("fast");
                     $(this).toggleClass('open');
                 }
-            );
-            
-            
+            ); 
         });
         
     </script>
-    <%
-    if(response!=null){
-    	%>
-    	<script>
-    	alert("Incorrect Password");
-    	</script>
-    	<%	
-    }%>
+    		
+    		
+    	
     <!-- //dropdown nav -->
     <!-- password-script -->
     

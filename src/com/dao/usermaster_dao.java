@@ -91,6 +91,7 @@ public class usermaster_dao {
 	{
 		Session session=user_masterutil.createsession();
 		List<Doctor> list=session.createQuery("from Doctor").list();
+		session.close();
 		return list;
 	}
 	
@@ -98,6 +99,7 @@ public class usermaster_dao {
 	{
 		Session session=user_masterutil.createsession();
 		Doctor d=session.get(Doctor.class, did);
+		session.close();
 		return d;
 	}
 	
@@ -150,6 +152,7 @@ public class usermaster_dao {
 	{
 		Session session=user_masterutil.createsession();
 		Appointment a=session.get(Appointment.class, aapoint_id);
+		session.close();
 		return a;
 	}
 	
@@ -174,35 +177,20 @@ public class usermaster_dao {
 	{
 		System.out.println("dao");
 		Session session=user_masterutil.createsession();
+		System.out.println("after util");
 		Transaction tr=session.beginTransaction();
 		session.update(um);
 		tr.commit();
 		session.close();
 	}
 	
-	public static String doEncryption(String password) throws Exception{
-		String enc_pass=null;
-		try 
-		{
-			Key key=new SecretKeySpec("masira12".getBytes(), "DES");
-			Cipher ed=Cipher.getInstance("DES/ECB/PKCS5Padding");
-			byte[] plain=password.getBytes();
-			ed.init(Cipher.ENCRYPT_MODE,key);
-			byte[] cipher=ed.doFinal(plain);
-			enc_pass=new String(cipher).trim();
-
-		} 
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return enc_pass;
-	}
+	
 	
 	public static List<contact> getallcontacts()
 	{
 		Session session=user_masterutil.createsession();
 		List<contact> list=session.createQuery("from contact").list();
+		session.close();
 		return list;
 	}
 
@@ -220,6 +208,7 @@ public class usermaster_dao {
 		Query query=session.createQuery("from user where um = :id");
 		query.setInteger("id", id );
 		user u=(user) query.uniqueResult();
+		session.close();
 		return u;
 	}
 	
@@ -229,6 +218,26 @@ public class usermaster_dao {
 		Query query=session.createQuery("from Doctor where um = :id");
 		query.setInteger("id", id );
 		Doctor d=(Doctor) query.uniqueResult();
+		session.close();
 		return d;
+	}
+	
+	public static String doEncryption(String password) throws Exception{
+		String enc_pass=null;
+		try 
+		{
+			Key key=new SecretKeySpec("cures_u0".getBytes(), "DES");
+			Cipher ed=Cipher.getInstance("DES/ECB/PKCS5Padding");
+			byte[] plain=password.getBytes();
+			ed.init(Cipher.ENCRYPT_MODE,key);
+			byte[] cipher=ed.doFinal(plain);
+			enc_pass=new String(cipher).trim();
+
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return enc_pass;
 	}
 }
