@@ -92,7 +92,7 @@ addEventListener("load", function() {
 								<h4>Upload image* :</h4>
 							</div>
 							<div class="sign-up2" style="margin-top:22px;">
-										<input type="file" name="d_image" accept="image/*">
+										<input type="file" name="d_image" accept="image/jpg , image/png , image/jpeg" required="required">
 	                 			
                  				
 							</div>
@@ -166,7 +166,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_email" placeholder=" " required/>
+									<input type="email" name="d_email" placeholder=" " required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>

@@ -987,8 +987,12 @@ public class ActionController extends HttpServlet {
 			String c_pass=request.getParameter("c_pass");
 			try 
 			{
+				System.out.println("fname = " + um.getFname());
+				System.out.println("um.getpass = " + um.getPassword());	
+				System.out.println("cur_pass enc = " + usermaster_dao.doEncryption(cur_pass));
 				if(um.getPassword().equals(usermaster_dao.doEncryption(cur_pass)))
 				{
+					System.out.println("in if");
 					if(new_pass.equals(c_pass))
 					{
 						System.out.println(" newpass = " + usermaster_dao.doEncryption(new_pass));
@@ -999,12 +1003,14 @@ public class ActionController extends HttpServlet {
 							user u=usermaster_dao.getuserbyumid(um_id);
 							u.setPassword(usermaster_dao.doEncryption(new_pass));
 							usermaster_dao.updateuser(u);
+							response.sendRedirect("login.jsp");
 						}
 						else
 						{
 							Doctor d=usermaster_dao.getdoctorbyumid(um_id);
 							d.setPassword(usermaster_dao.doEncryption(new_pass));
 							usermaster_dao.updatedoc(d);
+							response.sendRedirect("login.jsp");
 						}
 					}
 				}

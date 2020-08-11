@@ -3,7 +3,6 @@
 
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <title>CuresU Registration Page </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,8 +32,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div id="demo-1" data-zs-src='["imagesuser/1.jpg", "imagesuser/2.jpg","imagesuser/3.jpg", "imagesuser/4.jpg"]' data-zs-overlay="dots">
         <div class="demo-inner-content">
             <div class="header-top">
-
-
     <!--/Register-->
   
         <div class="modal-dialog modal-dialog-centered" role="document">
