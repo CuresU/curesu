@@ -42,8 +42,6 @@
             window.scrollTo(0, 1);
         }
 		
-  
-
     </script>
     <link href="cssre/bootstrap.css" rel='stylesheet' type='text/css' />
     <link href="cssre/zoomslider.css" rel='stylesheet' type='text/css' />
@@ -106,8 +104,9 @@
 		<!-- left side end-->
     </section>
     
+    			<div class="header-section">
     <!--toggle button start-->
-			<a class="toggle-btn"><i class="fab fa-elementor"></i></a>
+			<a class="toggle-btn" style="margin-top:20px "><i class="fab fa-elementor"></i></a>
 			<!--toggle button end-->
 				
 				<div class="profile_details">		
@@ -117,7 +116,7 @@
 									<div class="profile_img">	
 										<span style="background:url(images/1.jpg) no-repeat center"> </span> 
 										 <div class="user-name">
-											<p>Michael<span>Administrator</span></p>
+											<p>Admin<span>Administrator</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -132,16 +131,16 @@
 							</li>
 							<div class="clearfix"> </div>
 						</ul>
-					</div>		
+					</div>		</div>
 					
 		
     <!--banner -->
-    <br><br><br>
+    
     <section class="banner-bottom-wthree mid py-lg-5 py-3">
         <div class="container">
             <div class="inner-sec-w3ls py-lg-5  py-3">
                 <div class="mid-info text-center pt-3">
-                    <h3 class="tittle text-center cen mb-lg-5 mb-3">
+                    <h3 class="tittle text-center cen mb-lg-5 mb-4">
                         CuresU</h3>
                 </div>
             </div>
