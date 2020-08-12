@@ -84,7 +84,7 @@ tr:nth-child(even)
 			<!--toggle button end-->
 
 			<!--notification menu start -->
-			<div class="menu-right">
+<!-- 			<div class="menu-right">
 				<div class="user-panel-top">  	
 					<div class="profile_details_left">
 						<ul class="nofitications-dropdown">
@@ -138,13 +138,13 @@ tr:nth-child(even)
 											</form>
 										</div>
 									</div>
-										<!-- search-scripts -->
+										search-scripts
 										<script src="js/classie.js"></script>
 										<script src="js/uisearch.js"></script>
 											<script>
 												new UISearch( document.getElementById( 'sb-search' ) );
 											</script>
-										<!-- //search-scripts -->
+										//search-scripts
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
@@ -277,7 +277,7 @@ tr:nth-child(even)
 					</div>		             	
 					<div class="clearfix"></div>
 				</div>
-			</div>
+			</div> -->
 			<!--notification menu end -->
 			</div>
 	<!-- //header-ends -->
@@ -305,6 +305,10 @@ tr:nth-child(even)
 									String con=null;
 									con=d.getC_contact();
 									System.out.println("con=" + con);
+									if(d.getIsactive().equalsIgnoreCase("not active")){
+										System.out.println("Not active");
+									}
+									else{
 									if(d.getIsverified().equalsIgnoreCase("not verified"))
 									{
 							%>
@@ -385,7 +389,7 @@ tr:nth-child(even)
 							</tr>
 							<%		
 									}
-								}
+								}}
 							%>
 						  </tbody>
 						</table>

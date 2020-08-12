@@ -341,6 +341,7 @@ public class ActionController extends HttpServlet {
 					  {
 						  fileSaveDir5.mkdir();
 					  } 
+					  
 					  Part file5 =request.getPart("d_others");
 					  System.out.println(file5);
 					  if(file5!=null) {
@@ -373,7 +374,7 @@ public class ActionController extends HttpServlet {
 					d.setC_email(request.getParameter("c_email"));
 				    d.setC_contact(request.getParameter("c_contact"));
 				    d.setFees(request.getParameter("fees"));
-				    
+				    d.setIsactive("active");
 				    System.out.println("updatttttttttttttttttttiiiiiiiiiiiiiiiiiiiiiinnnnnnnnnnnnnggggggggggg");
 				    usermaster_dao.updatedoc(d);
 				    System.out.println("updated");
