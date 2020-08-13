@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
              
                             </div>
                            
-                            <button type="submit" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4">Sign In</button>
+                            <button type="submit" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4" onclick="logincheck()">Sign In</button>
                             <button type="submit" name = "action" class="btn btn-primary submit mb-4"><a href="forgotemail.jsp">Forgot Password</a></button>
                             <p class="text-center pb-4">
                                 <a href="registration.jsp" data-toggle="modal2" data-target="#exampleModalCenter"> Don't have an account?</a>
@@ -104,10 +104,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     		
     		
-    	
     <!-- //dropdown nav -->
     <!-- password-script -->
-    
+    <script>
+    var request=new XMLHttpRequest();
+    function logincheck()
+    {
+        var emailid=document.login.email.value;
+        var pass=document.login.pass.value;
+        var url="Logincheck.jsp?val="+email+"&pass="+pass;
+        alert(emailid + " " + pass);
+		alert("url " +url);
+	  	try
+	  	{  
+	  		 //alert("in try"); 
+			request.onreadystatechange=function()
+			{  
+				
+			 //alert("in functionfunction"); 
+				if(request.readyState==4)
+				{  
+					
+					var val=request.responseText;
+					
+					document.getElementById('email').innerHTML=val;
+					if(val.trim()=="false")
+					{
+						document.getElementById('registersubmit').disabled="";	
+					}
+					else
+					{
+						alert("This email address is already registered! Please enter valid Email Address!!");
+						document.getElementById('registersubmit').disabled=true;
+					}
+				}  
+			}  
+			request.open("GET",url,true);  
+			request.send();  
+		}
+	  	catch(e)
+	  	{
+	  		System.out.println("in catch");
+	  		alert("Unable to connect to server");
+	  	}  
+    }
+    </script>
     <!-- //password-script -->
 
     <!-- stats -->

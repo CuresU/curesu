@@ -92,9 +92,7 @@ addEventListener("load", function() {
 								<h4>Upload image* :</h4>
 							</div>
 							<div class="sign-up2" style="margin-top:22px;">
-										<input type="file" name="d_image" accept="image/jpg , image/png , image/jpeg" required="required">
-	                 			
-                 				
+							<input type="file" name="d_image" accept="image/*" required="">
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -105,19 +103,20 @@ addEventListener("load", function() {
 								<h4>First Name* :</h4>
 							</div>
 							<div class="sign-up2">
-								<!-- <form> -->
-									<input type="text" name="d_fname" placeholder=" " <%-- value="<%=d.getFname() %> --%> required/>
-								<!-- </form> -->
+				
+				<input type="text" name="d_fname" placeholder="First Name " required=""/>
+				
 							</div>
 							<div class="clearfix"> </div>
 						</div>
+				
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>Last Name* :</h4>
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_lname" placeholder=" " <%-- value="<%=d.getLname()  %>" --%>  required/>
+					<input type="text" name="d_lname" placeholder="Last Name "  required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -125,12 +124,12 @@ addEventListener("load", function() {
 						
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>Gender :</h4>
+								<h4>Gender* :</h4>
 							</div>
 							<div class="sign-up2" style="margin-top:35px;margin-bottom:10px;">
-									<input type="radio" name="user-type" value="Male" style="margin-left:100px;">Male
-						             <input type="radio" name="user-type" value="Female" style="margin-left:100px;">Female
-						            <input type="radio" name="user-type" value="Others" style="margin-left:100px;">Other
+									<input type="radio" name="user-type" value="Male" style="margin-left:100px;" required="">Male
+						             <input type="radio" name="user-type" value="Female" style="margin-left:100px;" required="">Female
+						            <input type="radio" name="user-type" value="Others" style="margin-left:100px;" required="">Other
 							</div>
 						</div>
 												
@@ -141,32 +140,19 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_add" placeholder=" " required/>
+									<input type="text" name="d_add" placeholder="Address" required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 						
-						<!-- 
-						
 						<div class="sign-u">
-							<div class="sign-up1">
-								<h4>Address* :</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="text" name="d_add" placeholder=" " required>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						 --><div class="sign-u">
 							<div class="sign-up1">
 								<h4>Email Address* :</h4>
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="email" name="d_email" placeholder=" " required/>
+									<input type="text" name="d_email" placeholder=" Email Address" required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -177,7 +163,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_contact" placeholder=" " required/>
+									<input type="text" name="d_contact" placeholder="Contact " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -188,7 +174,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_aadhar" placeholder=" " required/>
+									<input type="text" name="d_aadhar" placeholder="AadharCard " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -199,7 +185,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_qua" placeholder=" " required/>
+									<input type="text" name="d_qua" placeholder="Highest Qualification" required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -212,7 +198,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<select name="d_speciality" style="margin-top:35px;">
+									<select name="d_speciality" style="margin-top:35px;" required="">
 										<option>NeuroSurgeon</option>
 										<option>Physiotherapist</option>
 										<option>Skin Specialist</option>
@@ -224,18 +210,13 @@ addEventListener("load", function() {
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						
-						
-						
-						
-						
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>SSC Certificate* :</h4>
 							</div>
 							<div class="sign-up2" style="margin-top:22px;">
 								<!-- <form> -->
-									<input type="file" name="d_ssc" accept="pdf/*">
+							<input type="file" name="d_ssc" accept="pdf/*" required="">
                  				<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -246,7 +227,7 @@ addEventListener("load", function() {
 								<h4>HSC Certificate* :</h4>
 							</div>
 							<div class="sign-up2" style="margin-top:22px;">
-									<input type="file" name="d_hsc" accept="pdf/*">
+									<input type="file" name="d_hsc" accept="pdf/*" required="">
                  				
 							</div>
 							<div class="clearfix"> </div>
@@ -258,7 +239,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2" style="margin-top:22px;">
 								<!-- <form> -->
-									<input type="file" name="d_bac" accept="pdf/*">
+									<input type="file" name="d_bac" accept="pdf/*" required="">
                  				<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -266,11 +247,11 @@ addEventListener("load", function() {
 						
 						<div class="sign-u">
 							<div class="sign-up1">
-								<h4>Masters Certificate :</h4>
+								<h4>Masters Certificate* :</h4>
 							</div>
 							<div class="sign-up2" style="margin-top:22px;">
 								<!-- <form> -->
-									<input type="file" name="d_mas" accept="pdf/*">
+									<input type="file" name="d_mas" accept="pdf/*" required="">
                  				<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -299,7 +280,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2" style="margin-top:23px;">
 								<!-- <form> -->
-									<input type="file" name="d_clinic" accept="image/*">
+									<input type="file" name="d_clinic" accept="image/*" required="">
                  				<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -310,7 +291,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_name" placeholder=" " required/>
+									<input type="text" name="c_name" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -321,7 +302,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_add" placeholder=" " required/>
+									<input type="text" name="c_add" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -333,7 +314,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_landmark" placeholder=" " required/>
+									<input type="text" name="c_landmark" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -345,7 +326,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_city" placeholder=" " required/>
+									<input type="text" name="c_city" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -357,7 +338,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_state" placeholder=" " required/>
+									<input type="text" name="c_state" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -369,7 +350,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_pin" placeholder=" " required/>
+									<input type="text" name="c_pin" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -381,7 +362,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_email" placeholder=" " required/>
+									<input type="text" name="c_email" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -392,7 +373,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_contact" placeholder=" " required/>
+									<input type="text" name="c_contact" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -404,48 +385,12 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="fees" placeholder=" " required/>
+									<input type="text" name="fees" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
 						</div>
-						<!-- <h6>Login Information</h6>
 						
-						<div class="sign-u">
-							<div class="sign-up1">
-								<h4>Email Address* :</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="text" placeholder=" " required=" "/>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="sign-u">
-							<div class="sign-up1">
-								<h4>Password* :</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="password" name="d_pass" placeholder=" " required=" "/>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div> -->
-	<!--
-						<div class="sign-u">
-							<div class="sign-up1">
-								<h4>Confirm Password* :</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="password" placeholder=" " required=" "/>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-	-->
 						<div class="sub_home">
 							<div class="sub_home_left">
 								<!-- <form> -->
@@ -453,7 +398,7 @@ addEventListener("load", function() {
 								<!-- </form> -->
 							</div>
 							<div class="sub_home_right">
-								<p>Go Back to <a href="Index.jsp">Home</a></p>
+								<p>Go Back to <a href="userindex.jsp">Home</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
