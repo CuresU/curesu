@@ -62,7 +62,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
+<<<<<<< HEAD
                                 <input type="text" id="email" name="email" value="creamsyshah@gmail.com" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
+=======
+                                <input type="text" id="email" name="email" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
+                            	<span id="emailtaken" style="color:red;"></span>
+>>>>>>> 3be731ec1b771a344c791f653f2758929f025321
                             </div>
                             
 
@@ -73,9 +78,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label>Confirm Password</label>
                                 <input type="password" name="cpass" minlength="6" class="form-control" id="password2" placeholder="" required="">
+                            	<span id="passcheck" style="color: red;"></span>
                             </div>
 
-                            <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster">Register</button>
+                            <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" disabled="disabled">Register</button>
                             <p class="text-center pb-4">
                                 <a href="#">By clicking Register, I agree to your terms</a>
                             </p>
@@ -127,9 +133,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var pass2 = document.getElementById("password2").value;
             var pass1 = document.getElementById("password1").value;
             if (pass1 != pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            {
+            	document.getElementById('registersubmit').disabled=true;	
+            	document.getElementById('passcheck').innerHTML="Passwords doesn't match!";
+                document.getElementById("password2").setCustomValidity("Passwords Doesn't Match");
+            }
             else
+            {
+            	document.getElementById('registersubmit').disabled=false;
+            	document.getElementById('passcheck').innerHTML="";	
                 document.getElementById("password2").setCustomValidity('');
+            }
             //empty string means no validation error
         }
     </script>
@@ -193,11 +207,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					document.getElementById('email').innerHTML=val;
 					if(val.trim()=="false")
 					{
-						document.getElementById('registersubmit').disabled="";	
+						document.getElementById('registersubmit').disabled=false;	
+						document.getElementById('emailtaken').innerHTML="";
 					}
 					else
 					{
-						alert("This email address is already registered! Please enter valid Email Address!!");
+						document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
+						//alert("This email address is already registered! Please enter valid Email Address!!");
 						document.getElementById('registersubmit').disabled=true;
 					}
 				}  
