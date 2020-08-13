@@ -10,7 +10,8 @@
 <%@ page import="java.sql.*" %>  
     <%  
     String email=request.getParameter("val");  
-    String password=request.getParameter("pass");
+    String pass=request.getParameter("pass");
+    String password=usermaster_dao.doEncryption(pass);
     System.out.println("Email is      ::::::::::::::::::::::::" + email);
     System.out.println("Password is ::::::::::" + password);
     if(email==null||email.trim().equals(""))
@@ -25,40 +26,13 @@
     	
     	try
     	{  
-    		/* Class.forName("com.mysql.jdbc.Driver");
-    		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/krrunchy","root","");  
-    		 */
-    		//userutil.createsession();
-    		/* PreparedStatement ps=con.prepareStatement("select * from users where Email=?");  
-    		ps.setString(1, Email);
-    		ResultSet rs=ps.executeQuery();   */
-    		/* System.out.println("in");
-    		
-    		SessionFactory sf=new Configuration()
-					.addAnnotatedClass(user.class)
-					.configure()
-					.buildSessionFactory();
-			Session session1=sf.openSession();
-    		
-			user u=null;
-			/* session1=userutil.createsession(); */
-			/*u=session1.get(user.class, Email);
-			
-			
-    		System.out.println("out");
-      		if(u!=null) 
-      		{      
-     			out.println("true");   
-    		}
-      		else
-      		{  
-    			out.println("false"); 
-    		}    */
       		System.out.println("in email check.jsppppppppppppppppppppppppppppppppppppppppppppppppppppppp");
       		tr=session2.beginTransaction();
-    		String hql="FROM user u where u.email=:email";
+    		String hql="FROM user_master u where u.email=:email AND u.password=:password";
+    		System.out.println("in email check.jsppppppppppppppppppppppppppppppppppppppppppppppppppppppp2222222222");
       		Query query=session2.createQuery(hql);
       		query.setParameter("email", email);
+      		query.setParameter("password", password);
       		
       		@SuppressWarnings("unchecked")
       			List<user_master> result=query.list();
@@ -67,10 +41,12 @@
       			System.out.println("cccrrrreeeeeaaaaammmmssssssssssssyyyyyyyyyy");
       			if(!result.isEmpty())
       			{
+      				System.out.println("result is not empty!");
       				out.println("true");
       			}
       			else
       			{
+      				System.out.println("result is empty!");
       				out.println("false");
       			}
     	}
