@@ -16,7 +16,9 @@ public class user_masterutil {
 	public static Session createsession()
 	{
 		System.out.println("util");
-		SessionFactory sf=new Configuration().addAnnotatedClass(user_master.class).addAnnotatedClass(user.class)
+		SessionFactory sf=new Configuration()
+				.addAnnotatedClass(user_master.class)
+				.addAnnotatedClass(user.class)
 				.addAnnotatedClass(Doctor.class)
 				.addAnnotatedClass(Appointment.class)
 				.addAnnotatedClass(Admin.class)

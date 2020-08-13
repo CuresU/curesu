@@ -80,7 +80,7 @@ function searchInfo()
                         <div class="row">
 
                             <div class="col-md-4">
-                                <span>Welcome <%=um.getFname() %>!</span>
+                                <span>Welcome <%=um.getFname() %> !</span>
                             </div>
                             <div class="col-md-3 sign-btn">
                                 <a href="Ulogout.jsp" data-toggle="modal" data-target="#exampleModalCenter">

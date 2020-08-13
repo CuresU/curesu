@@ -62,8 +62,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="" required="">
              
                             </div>
-                           
-                            <button type="submit" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4">Sign In</button>
+                           <span id="logininvalid" style="color:red;"></span><br>
+                            <button type="button" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4" onclick="logincheck()">Sign In</button>
                             <button type="submit" name = "action" class="btn btn-primary submit mb-4"><a href="forgotemail.jsp">Forgot Password</a></button>
                             <p class="text-center pb-4">
                                 <a href="registration.jsp" data-toggle="modal2" data-target="#exampleModalCenter"> Don't have an account?</a>
@@ -104,10 +104,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     		
     		
-    	
     <!-- //dropdown nav -->
     <!-- password-script -->
-    
+    <script>
+    var request=new XMLHttpRequest();
+    function logincheck()
+    {
+        //alert(1);
+        var emailid=document.login.email.value;
+        var pass=document.login.pass.value;
+        //alert(emailid + " " + pass);
+        //alert(11);
+        /* var url="Logincheck.jsp?val="+emailid; 
+		alert("url " +url); */
+        var url="Logincheck.jsp?val="+emailid+"&pass="+pass;
+        
+		//alert("url " +url);
+	  	try
+	  	{  
+	  		 //alert("in try"); 
+			request.onreadystatechange=function()
+			{  
+			 //alert("in functionfunction"); 
+				if(request.readyState==4)
+				{  
+					
+					var val=request.responseText;
+					
+					//document.getElementById('email').innerHTML=val;
+					if(val.trim()=="true")
+					{
+						document.getElementById("action").type="submit";
+						//alert(document.getElementById("action").type);
+						//document.getElementById('action').disabled=false;	
+					}
+					else
+					{
+						var x=document.getElementById("action").type;
+						//alert(x);
+						//document.getElementById('action').disabled=true;
+						document.getElementById('logininvalid').innerHTML="Your username or Password is wrong!";
+						//alert(2);
+						
+						//alert("Your username or Password is wrong!");
+						
+					}
+				}  
+			}  
+			request.open("GET",url,true);  
+			request.send();  
+		}
+	  	catch(e)
+	  	{
+	  		System.out.println("in catch");
+	  		alert("Unable to connect to server");
+	  	}  
+    }
+    </script>
     <!-- //password-script -->
 
     <!-- stats -->
