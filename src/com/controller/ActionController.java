@@ -668,7 +668,8 @@ public class ActionController extends HttpServlet {
 							System.out.println("verified:" + d.getIsverified());
 							if(d.getIsactive().equalsIgnoreCase("not active") && d.getIsverified().equalsIgnoreCase("verified"))
 							{
-								System.out.println("iffffffffff");
+								
+								System.out.println("will never happen iffffffffff");
 								String role1="doctor";
 								Random r=new Random();
 								int otp=r.nextInt(1000000);

@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" id="email" name="email" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
+                                <input type="text" id="email" name="email" value="creamsyshah@gmail.com" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
                             </div>
                             
 

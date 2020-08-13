@@ -104,7 +104,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 				
-				<input type="text" name="d_fname" placeholder="First Name " required=""/>
+				<input type="text" name="d_fname" pattern="[a-zA-Z]*" placeholder="First Name " required=""/>
 				
 							</div>
 							<div class="clearfix"> </div>
@@ -116,7 +116,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-					<input type="text" name="d_lname" placeholder="Last Name "  required=""/>
+					<input type="text" name="d_lname" pattern="[a-zA-Z]*" placeholder="Last Name "  required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -128,8 +128,8 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2" style="margin-top:35px;margin-bottom:10px;">
 									<input type="radio" name="user-type" value="Male" style="margin-left:100px;" required="">Male
-						             <input type="radio" name="user-type" value="Female" style="margin-left:100px;" required="">Female
-						            <input type="radio" name="user-type" value="Others" style="margin-left:100px;" required="">Other
+						             <input type="radio" name="user-type" value="Female" style="margin-left:100px;" >Female
+						            <input type="radio" name="user-type" value="Others" style="margin-left:100px;" >Other
 							</div>
 						</div>
 												
@@ -163,7 +163,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_contact" placeholder="Contact " required=""/>
+									<input type="text" name="d_contact" pattern="[6-9]{1}[0-9]{9}" placeholder="Contact " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -408,7 +408,72 @@ addEventListener("load", function() {
 			</div>
 		
 	</section>
-	
+	<script type="text/javascript">
+	function validate1(){
+		  //var d_fname = document.getElementById('d_fname').value;
+		  //var d_lname = document.getElementById('d_lname').value;
+		  //var d_add = document.getElementById('d_add').value;
+		  var d_email = document.getElementById('d_email').value;
+		  //var d_contact = document.getElementById('d_contact').value;
+		  var d_aadhar = document.getElementById('d_aadhar').value;
+		  //var d_qua = document.getElementById('d_qua').value;
+		  //var c_name = document.getElementById('c_name').value;
+		  //var c_add = document.getElementById('c_add').value;
+		  //var c_landmark = document.getElementById('c_landmark').value;
+		  var c_state = document.getElementById('c_state').value;
+		  var c_city = document.getElementById('c_city').value;
+		  var c_pin = document.getElementById('c_pin').value;
+		  var c_email = document.getElementById('c_email').value;
+		  //var c_contact = document.getElementById('c_contact').value;
+		  var fees = document.getElementById('fees').value;
+
+		  var adhar= /^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$/;
+		  if(d_aadhar.value.match(adhar)){
+			  return true;
+			}
+		  else{
+			  alert("Please Enter valid Aadhar Number!!!");
+				return false;
+			  } 
+		  
+		  var email= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;		  
+		  if((c_email.value.match(email) && (d_email.value.match(email))
+					{
+						return true;
+					}
+					else{
+						alert("Please Enter valid Email Id!!!");
+						return false;
+					}
+					
+		  var phoneno = /^\d{10}$/;
+		if((d_contact.value.match(phoneno) && (c_contact.value.match(phoneno))
+		{
+			return true;
+		}
+		else{
+			alert("Please Enter valid Mobile Number!!!");
+			return false;
+		}
+			        
+		  var postalRGEX = /^[A-Z]{1,2}[0-9]{1,2} ?[0-9][A-Z]{2}$/i;
+		  var phoneResult = phoneRGEX.test(phoneNumber);
+		  var postalResult = postalRGEX.test(postalCode);
+		  if(phoneResult == false)
+		  {
+		    alert('Please enter a valid phone number');
+		    return false;
+		  }
+
+		  if(postalResult == false)
+		  {
+		    alert('Please enter a valid postal number');
+		    return false;
+		  }
+
+		  return true;
+		}
+	</script>
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->

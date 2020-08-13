@@ -65,11 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="signin">
  							<div class="signin-rit">
-<!--								<span class="checkbox1">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Appointment Booking</label>
-								</span>
-								<p><a href="#">Click Here</a> </p>
--->								<div class="clearfix"> </div>
+								<div class="clearfix"> </div>
 							</div>
 							<form name="ONE TIME PASSWORD" method="post" action="ActionController">
 							<input type="hidden" name="id" value="<%=id %>">
@@ -78,21 +74,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="log-input-left">
 								   <input type="text" class="user" name="receiveotp" Placeholder="Enter OTP" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
 								</div>
-<!-- 								<span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span>
- -->								<div class="clearfix"> </div>
+								<div class="clearfix"> </div>
 							</div>
  							<div class="log-input">
 								<div class="log-input-left">
-<!--				 				   <input type="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
-								<input type="text" class="user" value="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
--->								</div>
-<!-- 								<span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span>
-								<div class="clearfix"> </div>
- -->							</div>
+								</div>
+							</div>
  							<table>
  							<tr colspan="2">
 								<td><input type="submit" name="action" value="Submitotp" style="margin-left:40px; width:150px;"></td>
@@ -101,20 +88,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</table>
 						</form>	 
 						</div>
-<!-- 						<div class="new_people">
-							<h4>For New People</h4>
-							<p>Having hands on experience in creating innovative designs,I do offer design 
-								solutions which harness.</p>
-							<a href="sign-up.html">Register Now!</a>
-						</div>
- -->					</div>
+					</div>
 				</div>
 			</div>
-		<!--footer section start-->
-<!-- 			<footer>
-			   <p>&copy 2015 Easy Admin Panel. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts.</a></p>
-			</footer>
- -->        <!--footer section end-->
 	</section>
 	
 <script src="js/jquery.nicescroll.js"></script>
