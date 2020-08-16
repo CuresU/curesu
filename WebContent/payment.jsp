@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <%
 	System.out.println("ap.jsp");
-	user u=null;
+	user_master um=null;
 	System.out.println("u dc");
 	Doctor d=null;
 	System.out.println("d dc");
@@ -41,12 +41,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	if(session!=null)
 	{
 		System.out.println("in if");
-		if(session.getAttribute("u")!=null && request.getAttribute("d")!=null && request.getAttribute("a")!=null)
+		if(session.getAttribute("um")!=null && request.getAttribute("d")!=null && request.getAttribute("a")!=null)
 		{
 			System.out.println("in if if");
-			u=(user)session.getAttribute("u");
-			d=(Doctor)request.getAttribute("d");
-			a=(Appointment)request.getAttribute("a");
+			um=(user_master)session.getAttribute("um");
+			 d=(Doctor)request.getAttribute("d");
+			a=(Appointment)request.getAttribute("a"); 
 			String adate=null;
 			if(a.getAm10to11am().equalsIgnoreCase("10 am to 11 am"))
 				adate=a.getAm10to11am();
@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="login px-4 mx-auto mw-100">
                         <h5 class="text-center mb-4">Book Appointment</h5>
                         <form name="login" action="ActionController" method="post">
-                        	<input type="hidden" name="uid" value="<%=u.getUid() %>">
+                        	<input type="hidden" name="uid" value="1"><%-- <%=um.getU()%>"> --%>
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
                         	<input type="hidden" name="did" value="<%=a.getAapoint_id() %>">
                          	<input type="hidden" name="txnAmount" value="300">
@@ -98,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         	<div class="form-group">
                                 <label class="mb-2">patient Name : </label>
                                <!--  <input type="date" name="appointdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required=""> -->
-                              	<label class="form-control">Mr/Mrs. <%=u.getFname() %> <%=u.getLname() %></label>
+                              	<label class="form-control">Mr/Mrs. <%=um.getFname() %> <%=um.getLname() %></label>
                                 <!-- <small id="emailHelp" class="form-text text-muted">Please choose your appointment date wisely.</small> -->
                             </div>
                             

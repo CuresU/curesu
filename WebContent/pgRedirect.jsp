@@ -6,22 +6,22 @@
 <%
 Random r  = new Random();
 int r1 = r.nextInt(10000000);
-String merchantMid = "RCanzV95104229614871";
+String merchantMid = "JGdKLy60175996680868";
 //Key in your staging and production MID available in your dashboard
-String merchantKey = "fLsNB#HOUp68e9jO";
+String merchantKey = "iQzCKrnOW_A9KY1B";
 //Key in your staging and production merchant key available in your dashboard
 String orderId = "order"+r1;
 String channelId = "WEB";
 String custId = "cust123";
-String mobileNo = "9904221600";
+String mobileNo = "9998418277";
 String email = "curesu003@gmail.com";
-String txnAmount = "300";
+String txnAmount = "500";
 System.out.println(txnAmount);
 String website = "WEBSTAGING";
 //This is the staging value. Production value is available in your dashboard
 String industryTypeId = "Retail";
 //This is the staging value. Production value is available in your dashboard
-String callbackUrl = "http://localhost:8080/Doctorfinder_admin/pgResponse.jsp";
+String callbackUrl = "http://localhost:8080/E_Cure/pgResponse.jsp";
 TreeMap<String, String> paytmParams = new TreeMap<String, String>();
 paytmParams.put("MID",merchantMid);
 paytmParams.put("ORDER_ID",orderId);
