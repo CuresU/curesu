@@ -85,7 +85,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_fname" value="<%= d.getFname() %>" <%-- value=" --%> required/>
+									<input type="text" name="d_fname" value="<%= d.getFname() %>" pattern="[a-zA-Z]*" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -96,7 +96,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_lname" value="<%= d.getLname() %> " <%-- value="<%=d.getLname()  %>" --%>  required/>
+									<input type="text" name="d_lname" value="<%= d.getLname() %> " pattern="[a-zA-Z]*"  required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -107,9 +107,9 @@ addEventListener("load", function() {
 								<h4>Gender :</h4>
 							</div>
 							<div class="sign-up2" style="margin-top:35px;margin-bottom:10px;">
-									<input type="radio" name="user-type" value="Male" style="margin-left:100px;">Male
-						             <input type="radio" name="user-type" value="Female" style="margin-left:100px;">Female
-						            <input type="radio" name="user-type" value="Others" style="margin-left:100px;">Other
+									<input type="radio" name="user-type" value="Male" style="margin-left:100px;" required="">Male<br>
+						             <input type="radio" name="user-type" value="Female" style="margin-left:100px;">Female<br>
+						            <input type="radio" name="user-type" value="Others" style="margin-left:100px;">Other<br>
 							</div>
 						</div>
 												
@@ -132,7 +132,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_email" value="<%= d.getEmail() %> " required/>
+									<input type="text" name="d_email" value="<%= d.getEmail() %> " pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -143,7 +143,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_contact" value="<%= d.getContact() %>  " required/>
+									<input type="text" name="d_contact" value="<%= d.getContact() %>  " pattern="[6-9]{1}[0-9]{9}" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -154,7 +154,18 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="d_aadhar" value="<%= d.getAadharno() %>  " required/>
+									<input type="text" name="d_aadhar" value="<%= d.getAadharno() %>  " pattern="[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}" required/>
+								<!-- </form> -->
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>Registered Id* :</h4>
+							</div>
+							<div class="sign-up2">
+								<!-- <form> -->
+									<input type="text" name="regid" placeholder="Doctor Registration Number " value="<%= d.getRegisteredid() %>" pattern="[0-9]{6}" required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -300,7 +311,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_landmark" value=" <%= d.getLandmark() %>" required/>
+									<input type="text" name="c_landmark" value="<%= d.getLandmark()%>" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -311,7 +322,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_landmark" value=" <%= d.getPincode() %>" required/>
+									<input type="text" name="c_landmark" value="<%= d.getPincode()%>" pattern="[0-9]{6}" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -322,7 +333,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_city" value=" <%= d.getCity() %>" required/>
+									<input type="text" name="c_city" value="<%= d.getCity() %>" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -334,7 +345,11 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_state" value=" <%= d.getState() %>" required/>
+									<select name="c_state" style="margin-top:35px;" required="" >
+										<option selected="<%= d.getState()%>">Gujarat</option>
+										<option>Rajasthan</option>
+										<option>Maharashtra</option>										
+									</select>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -346,7 +361,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_email" value=" <%= d.getC_email() %>" required/>
+									<input type="text" name="c_email" value="<%= d.getC_email() %>" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -357,7 +372,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_contact" value="<%= d.getC_contact() %> " required/>
+									<input type="text" name="c_contact" value="<%= d.getC_contact() %>" pattern="[6-9]{1}[0-9]{9}" required/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
@@ -370,6 +385,19 @@ addEventListener("load", function() {
 							<div class="sign-up2">
 								<!-- <form> -->
 									<input type="text" name="fees" value=" <%= d.getFees() %>" required/>
+								<!-- </form> -->
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+		
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>Clinic Timing* :</h4>
+							</div>
+							<div class="sign-up2">
+								<!-- <form> -->
+			From: <input type="time" id="from" value="<%= d.getFrom_time() %>" name="from"
+       min="07:00" max="19:00" required> &nbsp;&nbsp;&nbsp; To: <input type="time" id="to" name="to" value="<%= d.getTo_time() %>" min="07:00" max="19:00" required>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>

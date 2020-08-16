@@ -402,7 +402,8 @@ public class ActionController extends HttpServlet {
 				int id=Integer.parseInt(request.getParameter("id"));
 				if(d1.getDid()==id) 
 				{
-					usermaster_dao.deleteDoc(d1);
+					doctor.deleteDoc(d1);
+					usermaster_dao.deleteDoc(d1);					
 					response.sendRedirect("Adoctor_table.jsp");
 				}	
 			}							

@@ -111,6 +111,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><h3><label>Doctor Name : </label></h3></td>
 									<td><h3><label>Dr. <%=d.getFname()%> <%=d.getLname() %></label></h3></td>
 								</tr>
+								<tr>
+									<td><h3><label>Registration Number : </label></h3></td>
+									<td><h3><label> <%=d.getRegisteredid() %> </label></h3></td>
+								</tr>
+								<tr>
+									<td><h3><label>Contact NUmber : </label></h3></td>
+									<td><h3><label><%=d.getContact()%></label></h3></td>
+								</tr>
 								</div>
 								<div class="log-input-left">
 								<tr>
@@ -160,6 +168,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><h3><label>Clinic Address : </label></h3></td>
 									<td><h3><label><%=d.getC_address() %> , <%=d.getCity() %> , <%=d.getState() %></label></h3></td>
 								</tr>
+								<tr>
+									<td><h3><label>Clinic Contact NUmber : </label></h3></td>
+									<td><h3><label><%=d.getC_contact()%></label></h3></td>
+								</tr>
+								<tr>
+									<td><h3><label>Clinic Timing : </label></h3></td>
+									<td><h3><label><%=d.getFrom_time() %> To: <%=d.getTo_time() %><br>Monday - Saturday</label></h3></td>
+								</tr>
 								</div>
 								<div class="log-input-left">
 								<tr>
@@ -167,38 +183,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><h3><label></label></h3></td>
 								</tr>
 								</div>
-								<!-- <span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span> -->
+								
 								<div class="clearfix"> </div>
 							</div>
 							<div class="log-input">
-								<!-- <div class="log-input-left">
-								   <input type="password" class="lock" name="pass"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
-								</div> -->
-								<!-- <span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span> -->
+								
 								<div class="clearfix"> </div>
 							</div>
 							<tr><td colspan=2><center><button type="submit" class="btn" name="action" value="verifydoctor" style="margin-top:-20px;">Verify</button></center></td></tr>
 							</table>
 						</form>	 
 						</div>
-						<!-- <div class="new_people">
-							<h4>For New People</h4>
-							<p>Having hands on experience in creating innovative designs,I do offer design 
-								solutions which harness.</p>
-							<a href="sign-up.html">Register Now!</a>
-						</div> -->
+						
 					</div>
 				</div>
 			</div>
-		<!--footer section start-->
-			<!-- <footer>
-			   <p>&copy 2015 Easy Admin Panel. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts.</a></p>
-			</footer> -->
-        <!--footer section end-->
+		
 	</section>
 	
 <script src="js/jquery.nicescroll.js"></script>
