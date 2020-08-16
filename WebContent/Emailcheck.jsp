@@ -18,7 +18,7 @@
     else
     {  
     	Transaction tr=null;
-    	Session session2=user_masterutil.createsession();
+    	Session session2 = user_masterutil.createsession();
     	user_master u=null;
     	
     	try

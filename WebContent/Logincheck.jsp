@@ -14,7 +14,7 @@
     String password=usermaster_dao.doEncryption(pass);
     System.out.println("Email is      ::::::::::::::::::::::::" + email);
     System.out.println("Password is ::::::::::" + password);
-    if(email==null||email.trim().equals(""))
+    if(email==null || email.trim().equals("") || password.trim().equals("") || password==null)
     {  
     	out.println("Please enter Email!");  
     }
