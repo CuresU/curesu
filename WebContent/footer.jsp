@@ -17,7 +17,7 @@
                         <h3>About Us</h3>
                     </div>
                     <div class="footer-text">
-                        <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
+                        <p>CuresU is a platform for private doctors and patients. This web-app can be used to consult doctors online as well as book appointments for visiting doctor's clinic. Patient can pay online or cash on appointment for each appointment. Here prescription will be mailed to patient and his/her history will also be maintained.</p>
                         <ul class="footer-social text-left mt-lg-4 mt-3">
 
                             <li class="mx-2">
@@ -59,12 +59,12 @@
                     </div>
                     <div class="contact-info">
                         <h4>Location :</h4>
-                        <p>0926k 4th block building, king Avenue, Ahmedabad City.</p>
+                        <p>Gujrat, India.</p>
                         <div class="phone">
                             <h4>Contact :</h4>
-                            <p>Phone : +91 9638671433</p>
+                            <p>Phone : +91 9638002052</p>
                             <p>Email :
-                                <a href="mailto:doctor1finder@gmail.com">doctor1finder@gmail.com</a>
+                                <a href="mailto:curesu003@gmail.com">curesu003@gmail.com</a>
                             </p>
                         </div>
                     </div>
