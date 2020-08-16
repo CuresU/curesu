@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Doctor {
 
 	private int did;
-	private String fname,lname,email,password,isverified,isactive,otp,fees;
+	private String fname,registeredid,lname,email,password,isverified,isactive,otp,fees,from_time,to_time;
 	private String dimage,gender,d_address,contact,aadharno,high_qua,speciality,ssc,hsc,bac,mas,other,c_contact,c_image,c_name,c_email,c_address,address,landmark,pincode,city,state;
 	private user_master um;
 	/*private Set<Appointment> ap;*/
@@ -56,6 +56,7 @@ public class Doctor {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	
 	@Column(name="password")
 	public String getPassword() {
@@ -273,6 +274,16 @@ public class Doctor {
 	public void setFees(String fees) {
 		this.fees = fees;
 	}
+	
+	@Column(name="registeredid")
+	public String getRegisteredid() {
+		return registeredid;
+	}
+	public void setRegisteredid(String registeredid) {
+		this.registeredid = registeredid;
+	}
+	
+	
 	@ManyToOne
 	@JoinColumn(name="id")
 	public user_master getUm() {
@@ -282,6 +293,22 @@ public class Doctor {
 		this.um = um;
 	}
 	
+	
+	@Column(name="from_time")
+	public String getFrom_time() {
+		return from_time;
+	}	
+	public void setFrom_time(String from_time) {
+		this.from_time = from_time;
+	}
+	
+	@Column(name="to_time")
+	public String getTo_time() {
+		return to_time;
+	}
+	public void setTo_time(String to_time) {
+		this.to_time = to_time;
+	}
 	/*@OneToMany(cascade=CascadeType.ALL,mappedBy="d")
 	public Set<Appointment> getAp() {
 		return ap;

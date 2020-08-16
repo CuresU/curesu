@@ -406,6 +406,20 @@ addEventListener("load", function() {
 							<div class="clearfix"> </div>
 						</div>
 						
+						<div class="sign-u">
+							<div class="sign-up1">
+								<h4>Clinic Timing* :</h4>
+							</div>
+							<div class="sign-up2">
+								<!-- <form> -->
+			From: <input type="time" id="from" name="from"
+       min="07:00" max="19:00" required> &nbsp;&nbsp;&nbsp; To: <input type="time" id="to" name="to"
+       min="07:00" max="19:00" required>
+								<!-- </form> -->
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						
 						<div class="sub_home">
 							<div class="sub_home_left">
 								<!-- <form> -->

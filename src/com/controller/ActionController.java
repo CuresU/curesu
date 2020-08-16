@@ -374,6 +374,9 @@ public class ActionController extends HttpServlet {
 					d.setC_email(request.getParameter("c_email"));
 				    d.setC_contact(request.getParameter("c_contact"));
 				    d.setFees(request.getParameter("fees"));
+				    d.setRegisteredid(request.getParameter("regid"));
+				    d.setFrom_time(request.getParameter("from"));
+				    d.setTo_time(request.getParameter("to"));
 				    d.setIsactive("active");
 				    System.out.println("updatttttttttttttttttttiiiiiiiiiiiiiiiiiiiiiinnnnnnnnnnnnnggggggggggg");
 				    usermaster_dao.updatedoc(d);
@@ -427,6 +430,7 @@ public class ActionController extends HttpServlet {
 			user_master um=new user_master();
 			um.setRole(request.getParameter("u-type"));
 			um.setFname(request.getParameter("fname"));
+			
 			um.setLname(request.getParameter("lname"));
 			um.setEmail(request.getParameter("email"));
 			String Password = request.getParameter("password");
@@ -470,6 +474,7 @@ public class ActionController extends HttpServlet {
 				user u=new user();
 				u.setFname(um.getFname());
 				u.setLname(um.getLname());
+				u.setContact(request.getParameter("cnum"));
 				u.setEmail(um.getEmail());
 				u.setPassword(um.getPassword());
 				u.setIsactive("not active");

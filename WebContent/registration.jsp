@@ -61,6 +61,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <input type="text" name="lname" minlength="3"  class="form-control" id="validationDefault02" placeholder="" required="">
                             </div>
                             <div class="form-group">
+                                <label>Contact Number</label>
+                                <input type="text" name="cnum" pattern="[6-9]{1}[0-9]{9}" class="form-control" id="" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
                                 <label>Email</label>
 
                                 <input type="text" id="email" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
@@ -81,9 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
 
                             <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" disabled="disabled">Register</button>
-                            <p class="text-center pb-4">
-                                <a href="#">By clicking Register, I agree to your terms</a>
-                            </p>
+                            
                         </form>
 
                     </div>
