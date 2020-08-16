@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label>Email</label>
 
-                                <input type="text" id="email" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
+                                <input type="email" id="email" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
                                 
                             	<span id="emailtaken" style="color:red;"></span>
 
@@ -76,7 +76,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <div class="form-group">
                                 <label class="mb-2">Password</label>
-                                <input type="password" name="password" minlength="6"  class="form-control" id="password1" placeholder="" required="">
+                                <input type="password" name="password" minlength="6"  class="form-control" id="password1" placeholder="" required="" onchange="checkpass()">
+                            	<span id="passwordvalidation" style="color:red;"></span>
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password</label>
@@ -84,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             	<span id="passcheck" style="color: red;"></span>
                             </div>
 
-                            <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" disabled="disabled">Register</button>
+                            <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" disabled="disabled" onclick="searchInfo(); validatePassword();">Register</button>
                             
                         </form>
 
@@ -126,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- password-script -->
     <script>
         window.onload = function() {
-            document.getElementById("password1").onchange = validatePassword;
+            /* document.getElementById("password1").onchange = validatePassword; */
             document.getElementById("password2").onchange = validatePassword;
         }
 
@@ -144,6 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             	document.getElementById('registersubmit').disabled=false;
             	document.getElementById('passcheck').innerHTML="";	
                 document.getElementById("password2").setCustomValidity('');
+                
             }
             //empty string means no validation error
         }
@@ -184,49 +186,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!--// end-smoth-scrolling -->
       <script>
+
+      function checkpass()
+      {
+   	   alert("checkpass");
+   	    var passvalidation=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+   		var passval=document.getElementById("password1").value;
+   		if(passval.match(passvalidation))
+   		{
+   			document.getElementById("password1").style.border="1px solid #ced4da";
+   			document.getElementById('passwordvalidation').innerHTML="";
+			document.getElementById('registersubmit').disabled=false;
+   		}
+   		else
+   		{
+   			document.getElementById("password1").style.border="2px solid red"; 
+   			document.getElementById('passwordvalidation').innerHTML="Password must contain atleast a Lowercase, Uppercase, digit and special character and must contain atleast 6 characters!";
+			document.getElementById('registersubmit').disabled=true;
+   		}
+   	}
+
+      
 	var request=new XMLHttpRequest();  
 	 function searchInfo()
 	{  
-		 //alert("in function"); 
 		var email=document.userindex.email.value;  
-		//alert("Email");
-		
-		var url="Emailcheck.jsp?val="+email; 
-		//alert("url " +url);
-	  	try
-	  	{  
-	  		 //alert("in try"); 
-			request.onreadystatechange=function()
-			{  
-				
-			 //alert("in functionfunction"); 
-				if(request.readyState==4)
-				{  
-					
-					var val=request.responseText;
-					
-					document.getElementById('email').innerHTML=val;
-					if(val.trim()=="false")
-					{
-						document.getElementById('registersubmit').disabled=false;	
-						document.getElementById('emailtaken').innerHTML="";
-					}
-					else
-					{
-						document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
-						//alert("This email address is already registered! Please enter valid Email Address!!");
-						document.getElementById('registersubmit').disabled=true;
-					}
-				}  
-			}  
-			request.open("GET",url,true);  
-			request.send();  
+		if(email.trim()==="" || email.trim()===null)
+		{
+			document.getElementById('emailtaken').innerHTML="Please Enter Email Id";
+			document.getElementById('registersubmit').disabled=true;
 		}
-	  	catch(e)
-	  	{
-	  		System.out.println("in catch");
-	  		alert("Unable to connect to server");
-	  	}  
+		else
+		{
+			var url="Emailcheck.jsp?val="+email; 
+		  	try
+		  	{  
+				request.onreadystatechange=function()
+				{  
+					if(request.readyState==4)
+					{  
+						
+						var val=request.responseText;
+						document.getElementById('email').innerHTML=val;
+						if(val.trim()=="false")
+						{
+							document.getElementById('registersubmit').disabled=false;	
+							document.getElementById('emailtaken').innerHTML="";
+						}
+						else
+						{
+							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
+							document.getElementById('registersubmit').disabled=true;
+						}
+					}  
+				}  
+				request.open("GET",url,true);  
+				request.send();  
+			}
+		  	catch(e)
+		  	{
+		  		System.out.println("in catch");
+		  		alert("Unable to connect to server");
+		  	}
+		}  
 	}   
 
 	</script>
