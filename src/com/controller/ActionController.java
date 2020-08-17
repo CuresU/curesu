@@ -52,8 +52,8 @@ public class ActionController extends HttpServlet {
 			user u=usermaster_dao.getuserbyid(uid);
 			request.setAttribute("d", d);
 			request.setAttribute("u", u);
-			RequestDispatcher rd=request.getRequestDispatcher("appoint.jsp");
-			System.out.println("appoint.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("mode.jsp");
+			System.out.println("mode.jsp");
 			rd.forward(request,response);
 		}
 		
