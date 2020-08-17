@@ -246,6 +246,7 @@ public class ActionController extends HttpServlet {
 		if(action.equalsIgnoreCase("registerdoctordetails") || action.equalsIgnoreCase("updateregisterdoctordetails"))
 		{
 			System.out.println("controllerrrrrrrrrrrrrrrrrrrrr");
+			System.out.println("Time : " + request.getParameter("from"));
 			String email=request.getParameter("d_email");
 			List<Doctor> list=usermaster_dao.getAllDoctors();
 			System.out.println("Before for");
