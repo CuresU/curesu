@@ -8,7 +8,7 @@
 <%@page import="com.dao.usermaster_dao"%>
 <%@page import="com.util.user_masterutil"%>
 <%@ page import="java.sql.*" %>  
-    <%  
+<%  
     String email=request.getParameter("val");  
     String pass=request.getParameter("pass");
     String password=usermaster_dao.doEncryption(pass);
