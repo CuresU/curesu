@@ -246,6 +246,7 @@ public class ActionController extends HttpServlet {
 		if(action.equalsIgnoreCase("registerdoctordetails") || action.equalsIgnoreCase("updateregisterdoctordetails"))
 		{
 			System.out.println("controllerrrrrrrrrrrrrrrrrrrrr");
+			System.out.println("Time : " + request.getParameter("from"));
 			String email=request.getParameter("d_email");
 			List<Doctor> list=usermaster_dao.getAllDoctors();
 			System.out.println("Before for");
@@ -1050,6 +1051,27 @@ public class ActionController extends HttpServlet {
 			{
 				e.printStackTrace();
 			}
+		}
+		
+		else if(action.equalsIgnoreCase("onlinebooking"))
+		{
+			String did=request.getParameter("did");
+			String uid=request.getParameter("uid");
+			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));
+			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
+			Appointment a=new Appointment();
+			a.setIssue(request.getParameter("issue"));
+			a.setU(u);
+			a.setDid(did);
+				
+			usermaster_dao.insertappointment(a);
+			request.setAttribute("u", u);
+			request.setAttribute("d", d);
+			request.setAttribute("a", a);
+			System.out.println("apooi");
+			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
+			System.out.println("forwarding");
+			rd.forward(request,response);
 		}
 		
 	}
