@@ -15,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Appointment {
 
 	private int aapoint_id;
-	private String am10to11am,am11to12pm,pm12to1pm,pm1to2pm,did,appoint_date,issue;
+	private String am10to11am,am11to12pm,pm12to1pm,pm1to2pm,did,appoint_date,issue,mode;
 	
 	
 	private user u;
@@ -31,6 +31,14 @@ public class Appointment {
 		this.aapoint_id = aapoint_id;
 	}
 	//edited
+	@Column(name="mode")
+	public String getMode() {
+		return mode;
+	}
+	public void setMode(String mode) {
+		this.mode = mode;
+	}
+	
 	@Column(name="issue")
 	public String getIssue() {
 		return issue;

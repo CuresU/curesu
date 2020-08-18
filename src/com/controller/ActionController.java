@@ -783,6 +783,7 @@ public class ActionController extends HttpServlet {
 			String aptime=request.getParameter("appointtime");
 			Appointment a=new Appointment();
 			a.setAppoint_date(request.getParameter("appointdate"));
+			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
 			a.setDid(did);
 			
@@ -821,9 +822,9 @@ public class ActionController extends HttpServlet {
 			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
 			Appointment a=new Appointment();
 			a.setIssue(request.getParameter("issue"));
+			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
 			a.setDid(did);
-			
 			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);
@@ -837,6 +838,13 @@ public class ActionController extends HttpServlet {
 			
 				response.sendRedirect("pgRedirect.jsp");
 			
+		}
+		else if (action.equalsIgnoreCase("viewissue")) {
+			System.out.println("View Issue");
+			Appointment a=new Appointment();
+			request.setAttribute("aid", a);			
+			RequestDispatcher rd=request.getRequestDispatcher("Prescription.jsp");
+			rd.forward(request,response);
 		}
 		else if (action.equalsIgnoreCase("Cash_on_meeting")) {
 			response.sendRedirect("lastpage.jsp");
@@ -995,7 +1003,6 @@ public class ActionController extends HttpServlet {
 			System.out.println("forwarding");
 			rd.forward(request, response);
 		}
-		
 		
 		else if(action.equalsIgnoreCase("prescriptionupload"))
 		{

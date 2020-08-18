@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  		if(session.getAttribute("d")!=null)
  		{
  			d=(Doctor)session.getAttribute("d");
- 			a=(Appointment)request.getAttribute("a");
+ 			a=(Appointment)request.getAttribute("aid");
  %>
     <section>
     <!-- left side start-->

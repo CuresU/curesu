@@ -79,6 +79,7 @@
 						 <br><center>
 						 <input type="hidden" name="uid" value="<%=um.getId() %>">
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
+                        	<input type="hidden" name="onmode" value="online">
                           	
 						 <textarea rows="14" cols="120" name="issue" ></textarea><br>
 						<div class="col-md-3 emp_btn text-right">
@@ -94,6 +95,7 @@
                         <form name="login" action="ActionController" method="post">
                         	<input type="hidden" name="uid" value="<%=um.getId() %>">
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
+                        	<input type="hidden" name="onmode" value="offline">
                           	
                         	<div class="form-group">
                                 <label class="mb-2">Doctor Name : </label>

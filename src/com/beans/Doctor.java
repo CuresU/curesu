@@ -20,7 +20,7 @@ public class Doctor {
 
 	private int did;
 	private String fname,registeredid,lname,email,password,isverified,isactive,otp,fees,from_time,to_time;
-	private String dimage,gender,d_address,contact,aadharno,high_qua,speciality,ssc,hsc,bac,mas,other,c_contact,c_image,c_name,c_email,c_address,address,landmark,pincode,city,state;
+	private String dimage,gender,contact,aadharno,high_qua,speciality,ssc,hsc,bac,mas,other,c_contact,c_image,c_name,c_email,c_address,address,landmark,pincode,city,state;
 	private user_master um;
 	/*private Set<Appointment> ap;*/
 	@Id
@@ -104,14 +104,6 @@ public class Doctor {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-	
-	@Column(name="d_address")
-	public String getD_address() {
-		return d_address;
-	}
-	public void setD_address(String d_address) {
-		this.d_address = d_address;
 	}
 	
 	@Column(name="contact")

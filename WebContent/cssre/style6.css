@@ -173,8 +173,7 @@ button#trigger-overlay {
 		top: -26px;
 		z-index: 9;
 	}
-s
-}
+
 @media(max-width:600px) {
 	.overlay-door form {
 		width: 90%;
@@ -204,4 +203,4 @@ s
 		right: 95px;
 		top: 30px;
 	}
-}
+}}

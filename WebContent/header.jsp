@@ -154,6 +154,10 @@ function searchInfo()
                                     <a class="nav-link" href="resetpassword.jsp">Reset Password</a>
                                 </li>
                                 
+                                <li class="nav-item">
+                                    <a class="nav-link" href="history.jsp">History</a>
+                                </li>
+                                
                             </ul>
 
                         </div>
