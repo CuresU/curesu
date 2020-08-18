@@ -773,6 +773,7 @@ public class ActionController extends HttpServlet {
 		
 		else if(action.equalsIgnoreCase("Appointment"))
 		{
+			System.out.println("in Offlinebooking");
 			String did=request.getParameter("did");
 			String uid=request.getParameter("uid");
 			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));
@@ -812,6 +813,7 @@ public class ActionController extends HttpServlet {
 		}
 		else if(action.equalsIgnoreCase("onlinebooking"))
 		{
+			System.out.println("in Onlinebooking");
 			String did=request.getParameter("did");
 			String uid=request.getParameter("uid");
 			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));
@@ -820,7 +822,7 @@ public class ActionController extends HttpServlet {
 			a.setIssue(request.getParameter("issue"));
 			a.setU(u);
 			a.setDid(did);
-				
+			
 			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);

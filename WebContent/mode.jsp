@@ -62,8 +62,8 @@
                     Select Mode</h3>
             <!--  Button Start-->        
             <div class="emp_btn " >
-            <h2 align="left"><a href="" name="online" id="online"  >Online</a></h2>
-            <h2 align="right"><a href="" name="offline" id="offline">Offline</a></h2>
+            <h2 align="left"><a name="online" id="online"  >Online</a></h2>
+            <h2 align="right"><a name="offline" id="offline">Offline</a></h2>
             </div>
                      
          <!--  Button End-->
@@ -75,12 +75,16 @@
 				<!--  Online Mode-->
 					<div class="display1">
 						<h3 class="tittle text-center mb-lg-4 mb-3"> <span><h2>Write Your Issue Here:</h2></span></h3>
+						 <form name="login" action="ActionController" method="post">
 						 <br><center>
-						<textarea rows="14" cols="120" name="issue" ></textarea><br>
+						 <input type="hidden" name="uid" value="<%=um.getId() %>">
+                        	<input type="hidden" name="did" value="<%=d.getDid() %>">
+                          	
+						 <textarea rows="14" cols="120" name="issue" ></textarea><br>
 						<div class="col-md-3 emp_btn text-right">
-                                <a href="ActionController?action=onlinebooking" title="">Book Appointment</a></center>
+                                <button type="submit" name = "action"  value="onlinebooking" class="btn btn-primary">Book Appointment</button></center>
                             </div>
-                  	
+                  	</form>
                   	
                   	
                  <!--  Offline Mode -->
@@ -90,17 +94,11 @@
                         <form name="login" action="ActionController" method="post">
                         	<input type="hidden" name="uid" value="<%=um.getId() %>">
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
-                          	<!-- <div class="form-group">
-                        	 <label class="mb-2"></label>
-                        		<input class="mb-2" type="radio" name="user-type" value="Doctor">Doctor
-                        		<input type="radio" name="user-type" value="Patient" style="margin-left:100px;">Patient<br>
-                        	</div> -->
+                          	
                         	<div class="form-group">
                                 <label class="mb-2">Doctor Name : </label>
-                               <!--  <input type="date" name="appointdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required=""> -->
-                              	<label class="form-control">Dr. <%=d.getFname() %> <%=d.getLname() %></label>
-                                <!-- <small id="emailHelp" class="form-text text-muted">Please choose your appointment date wisely.</small> -->
-                            </div>
+                              <label class="form-control">Dr. <%=d.getFname() %> <%=d.getLname() %></label>
+                                </div>
                             <div class="form-group">
                                 <label class="mb-2">Appoinment date : </label>
                                 <input type="date" name="appointdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
@@ -108,8 +106,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="mb-2">Appoinment Time Available : </label><br>
-                               	<!-- <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="" required=""> -->
-                            	<select class="form-control" name="appointtime">
+                               	<select class="form-control" name="appointtime">
                             	<option>10 am to 11 am</option>
                             	<option>11 am to 12 pm</option>
                             	<option>12 pm to 1 pm</option>
@@ -178,22 +175,7 @@
     </script>
     <!-- //dropdown nav -->
     <!-- password-script -->
-    <script>
-        window.onload = function() {
-            document.getElementById("password1").onchange = validatePassword;
-            document.getElementById("password2").onchange = validatePassword;
-        }
-
-        function validatePassword() {
-            var pass2 = document.getElementById("password2").value;
-            var pass1 = document.getElementById("password1").value;
-            if (pass1 != pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-            else
-                document.getElementById("password2").setCustomValidity('');
-            //empty string means no validation error
-        }
-    </script>
+    
     <!-- //password-script -->
     <!-- //js -->
     <script src="jsuser/bootstrap.js"></script>
