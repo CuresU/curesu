@@ -138,7 +138,9 @@ for(Appointment a:list1){
 								 <td><%=a.getMode() %></td>
 						 <%-- <%} %>  --%>
 							<td>
-							<%if(a.getMode().equalsIgnoreCase("online")){%> 
+							<%if(a.getMode().equalsIgnoreCase("online")){
+							
+							%> 
 							<form action="ActionController" method="post">
 							<input type="hidden" name="aid" value="<%=a.getAapoint_id() %>" >
 								<button type="submit"class="btn-primary" name="action" value="viewissue" >View</button>

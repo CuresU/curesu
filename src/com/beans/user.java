@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class user {
 
 	private int uid;
-	private String fname,lname,email,password,contact;
+	private String fname,lname,email,password,contact,age;
 	private String otp;
 	private String isverified,isactive;
 	private user_master um;
@@ -34,6 +34,14 @@ public class user {
 	}
 	public void setUid(int uid) {
 		this.uid = uid;
+	}
+	
+	@Column(name="age")
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
 	}
 	
 	@Column(name="fname")

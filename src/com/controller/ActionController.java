@@ -242,7 +242,7 @@ public class ActionController extends HttpServlet {
 		
 		String action=request.getParameter("action");
 		System.out.println(action);
-		//Edited 
+		
 		if(action.equalsIgnoreCase("registerdoctordetails") || action.equalsIgnoreCase("updateregisterdoctordetails"))
 		{
 			System.out.println("controllerrrrrrrrrrrrrrrrrrrrr");
@@ -409,7 +409,7 @@ public class ActionController extends HttpServlet {
 				}	
 			}							
 		}
-		//Edited End
+		
 		if(action.equalsIgnoreCase("submit"))
 		{
 			contact c=new contact();
@@ -457,6 +457,9 @@ public class ActionController extends HttpServlet {
 				d.setFname(um.getFname());
 				d.setLname(um.getLname());
 				d.setEmail(um.getEmail());
+				//edited
+				d.setAge(request.getParameter("age"));
+				//editedend
 				d.setPassword(um.getPassword());
 				d.setIsverified("not verified");
 				d.setIsactive("not active");
@@ -477,6 +480,9 @@ public class ActionController extends HttpServlet {
 				u.setFname(um.getFname());
 				u.setLname(um.getLname());
 				u.setContact(request.getParameter("cnum"));
+				//edited
+				u.setAge(request.getParameter("age"));
+				//editedend
 				u.setEmail(um.getEmail());
 				u.setPassword(um.getPassword());
 				u.setIsactive("not active");
@@ -813,13 +819,16 @@ public class ActionController extends HttpServlet {
 			rd.forward(request,response);
 			//response.sendRedirect("payment.jsp");
 		}
+		//edited
 		else if(action.equalsIgnoreCase("onlinebooking"))
 		{
 			System.out.println("in Onlinebooking");
 			String did=request.getParameter("did");
 			String uid=request.getParameter("uid");
-			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));
+			//System.out.println("In con "+uid);
+			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));			
 			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
+			//System.out.println("in con u.getUid() "+u.getUid());
 			Appointment a=new Appointment();
 			a.setIssue(request.getParameter("issue"));
 			a.setMode(request.getParameter("onmode"));
@@ -829,23 +838,30 @@ public class ActionController extends HttpServlet {
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);
 			request.setAttribute("a", a);
-			System.out.println("apooi");
+			//System.out.println("apooi");
 			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
 			System.out.println("forwarding");
 			rd.forward(request,response);
 		}
+		//editedend
 		else if (action.equalsIgnoreCase("Paynow")) {
 			
 				response.sendRedirect("pgRedirect.jsp");
 			
 		}
+		//edited
 		else if (action.equalsIgnoreCase("viewissue")) {
+			
 			System.out.println("View Issue");
-			Appointment a=new Appointment();
-			request.setAttribute("aid", a);			
+			int aid=Integer.parseInt(request.getParameter("aid"));	
+			Appointment a=usermaster_dao.getappointmentbyid(aid);
+			
+			request.setAttribute("a", a);	
+			System.out.println(a.getAapoint_id());
 			RequestDispatcher rd=request.getRequestDispatcher("Prescription.jsp");
 			rd.forward(request,response);
 		}
+		//edited end
 		else if (action.equalsIgnoreCase("Cash_on_meeting")) {
 			response.sendRedirect("lastpage.jsp");
 		
@@ -983,7 +999,6 @@ public class ActionController extends HttpServlet {
 					um.setPassword(usermaster_dao.doEncryption(newpass));
 					usermaster_dao.updateusermaster(um);
 					usermaster_dao.updateuser(u);
-
 				} 
 				catch (Exception e) {
 					e.printStackTrace();
@@ -1003,7 +1018,7 @@ public class ActionController extends HttpServlet {
 			System.out.println("forwarding");
 			rd.forward(request, response);
 		}
-		
+		//edited
 		else if(action.equalsIgnoreCase("prescriptionupload"))
 		{
 			int aapoint_id=Integer.parseInt(request.getParameter("aid"));
@@ -1014,7 +1029,7 @@ public class ActionController extends HttpServlet {
 			Appointment a=usermaster_dao.getappointmentbyid(aapoint_id);
 			PdfGen pdfgen=new PdfGen(d,a,meds);
 		}
-		
+		//edited end
 		
 		else if(action.equalsIgnoreCase("Reset Password"))
 		{

@@ -32,7 +32,7 @@
  
 	
 	Doctor d=null;
- 	//user u=null;
+	List<user> list1=usermaster_dao.getAllusers();
  	if(session!=null)
  	{		
  		System.out.println("in if");
@@ -42,6 +42,8 @@
 		{
 			System.out.println("in if if");
 			um=(user_master)session.getAttribute("um");
+			System.out.println("um.getId() "+um.getId());
+			//u=(user)session.getAttribute("um");
 			d=(Doctor)request.getAttribute("d");
  			
  %>
@@ -62,13 +64,13 @@
                     Select Mode</h3>
             <!--  Button Start-->        
             <div class="emp_btn " >
-            <h2 align="left"><a name="online" id="online"  >Online</a></h2>
-            <h2 align="right"><a name="offline" id="offline">Offline</a></h2>
+            <button class="btn-primary" style="width: 48%;height:4em" name="online" id="online"  ><h3>Online</h3></button>
+            <button class="btn-primary" style="width: 48%;height:4em" name="offline" id="offline"><h3>Offline</h3></button>
             </div>
                      
          <!--  Button End-->
 				
-<div class="col-lg-8 job_info_left" >
+<div class="col-lg-8 job_info_left hy" >
 <div class="emply-resume-list" style="height:560px; width: 1100px;">
 				
 				
@@ -77,23 +79,39 @@
 						<h3 class="tittle text-center mb-lg-4 mb-3"> <span><h2>Write Your Issue Here:</h2></span></h3>
 						 <form name="login" action="ActionController" method="post">
 						 <br><center>
-						 <input type="hidden" name="uid" value="<%=um.getId() %>">
+						 <% for(user u:list1){
+							 if(um.getId()==u.getUm().getId()){
+						 %>
+						 <input type="hidden" name="uid" value="<%=u.getUid() %>">
+						 <%}} %>
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
                         	<input type="hidden" name="onmode" value="online">
-                          	
+                        	
 						 <textarea rows="14" cols="120" name="issue" ></textarea><br>
 						<div class="col-md-3 emp_btn text-right">
                                 <button type="submit" name = "action"  value="onlinebooking" class="btn btn-primary">Book Appointment</button></center>
                             </div>
                   	</form>
                   	
+                  	<!-- <script>
+                  	n =  new Date();
+                  	y = n.getFullYear();
+                  	m = n.getMonth() + 1;
+                  	d = n.getDate();
+                  	document.getElementById("date").innerHTML = y + "-" + m + "-" + d;
+                  	</script>
+                  	 -->
                   	
                  <!--  Offline Mode -->
 	                <div class="hide1"> 
                                             <div class="login px-4 mx-auto mw-100">
                         <center><h5>Book Appointment</h5></center><br>
                         <form name="login" action="ActionController" method="post">
-                        	<input type="hidden" name="uid" value="<%=um.getId() %>">
+                         <% for(user u:list1){
+							 if(um.getId()==u.getUm().getId()){
+						%>
+                        	<input type="hidden" name="uid" value="<%=u.getUid() %>">
+                        	<%}} %>
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
                         	<input type="hidden" name="onmode" value="offline">
                           	
@@ -144,16 +162,18 @@
 
      $(document).ready(function () {
          $('.display1').hide();
-
+         $('.hy').hide();
          $('.hide1').hide();
         
         $('#offline').click(function () 
         {
+        	$('.hy').show();
             $('.display1').hide();
             $('.hide1').show();        
         });
         $('#online').click(function () 
         {
+        	$('.hy').show();
             $('.display1').show();
             $('.hide1').hide();        
         });    
