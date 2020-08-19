@@ -36,7 +36,7 @@ public class user {
 		this.uid = uid;
 	}
 	
-	@Column(name="age")
+	@Column
 	public String getAge() {
 		return age;
 	}
@@ -117,14 +117,15 @@ public class user {
 		this.um = um;
 	}
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="u")
-	public Set<Appointment> getAp() {
-		return ap;
-	}
-	public void setAp(Set<Appointment> ap) {
-		this.ap = ap;
-	}
 	
-	
-	
+	  @OneToMany(cascade=CascadeType.ALL,mappedBy="u") 
+	  public Set<Appointment> getAp() 
+	  { 
+		  return ap; 
+	  } 
+	  public void setAp(Set<Appointment> ap) 
+	  { 
+		  this.ap = ap;
+	  }
+	 
 }

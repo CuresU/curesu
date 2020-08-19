@@ -173,6 +173,7 @@ function xyz()
 						//alert(val);
 						if(val.trim()=="true")
 						{
+							document.getElementById('logininvalid').innerHTML="";
 							document.getElementById("action").type="submit";
 							getElementById('action').submit();
 						}

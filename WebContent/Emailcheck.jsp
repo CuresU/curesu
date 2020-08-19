@@ -25,7 +25,7 @@
     	{  
       		System.out.println("in email check.jsppppppppppppppppppppppppppppppppppppppppppppppppppppppp");
       		tr=session2.beginTransaction();
-    		String hql="FROM user u where u.email=:email";
+    		String hql="FROM user_master u where u.email=:email";
       		Query query=session2.createQuery(hql);
       		query.setParameter("email", email);
       		

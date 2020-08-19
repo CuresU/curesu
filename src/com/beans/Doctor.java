@@ -20,10 +20,11 @@ public class Doctor {
 
 	private int did;
 	private String fname,registeredid,lname,email,password,isverified,isactive,otp,fees,from_time,to_time,age;
-	
-	private String dimage,gender,contact,aadharno,high_qua,speciality,ssc,hsc,bac,mas,other,c_contact,c_image,c_name,c_email,c_address,address,landmark,pincode,city,state;
+	private String dimage,gender,d_address,contact,aadharno,high_qua,speciality,ssc,hsc,bac,mas,other,c_contact,c_image,c_name,c_email,c_address,address,landmark,pincode,city,state;
+
 	private user_master um;
-	/*private Set<Appointment> ap;*/
+	private Set<Appointment> ap;
+	
 	@Id
 	@GenericGenerator(name="inc",strategy="increment")
 	@GeneratedValue(generator="inc")
@@ -310,13 +311,13 @@ public class Doctor {
 	public void setTo_time(String to_time) {
 		this.to_time = to_time;
 	}
-	/*@OneToMany(cascade=CascadeType.ALL,mappedBy="d")
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="d")
 	public Set<Appointment> getAp() {
 		return ap;
 	}
 	public void setAp(Set<Appointment> ap) {
 		this.ap = ap;
 	}
-	*/
 	
 }

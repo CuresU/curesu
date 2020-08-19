@@ -16,6 +16,7 @@ import com.beans.Doctor;
 import com.beans.contact;
 import com.beans.user;
 import com.beans.user_master;
+import com.paytm.pg.App;
 /*import com.util.Doctorutil;*/
 import com.util.user_masterutil;
 
@@ -176,9 +177,7 @@ public class usermaster_dao {
 	
 	public static void updateusermaster(user_master um)
 	{
-		System.out.println("dao");
 		Session session=user_masterutil.createsession();
-		System.out.println("after util");
 		Transaction tr=session.beginTransaction();
 		session.update(um);
 		tr.commit();
@@ -221,6 +220,17 @@ public class usermaster_dao {
 		Doctor d=(Doctor) query.uniqueResult();
 		session.close();
 		return d;
+	}
+	
+	public static List<Appointment> getappointmentbyidanddate(int id,String date)
+	{
+		Session session=user_masterutil.createsession();
+		Query query=session.createQuery("from Appointment where d = :id AND appoint_date = :date");
+		query.setInteger("id", id );
+		query.setString("date", date);
+		List<Appointment> list= (List<Appointment>) query.list();
+		session.close();
+		return list;
 	}
 	
 	public static String doEncryption(String password) throws Exception{
