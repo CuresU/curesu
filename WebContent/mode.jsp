@@ -107,15 +107,15 @@
                        <div class="login px-4 mx-auto mw-100">
                         <center><h5>Book Appointment</h5></center><br>
                         <form name="OfflineForm" action="ActionController" method="post">
-<<<<<<< HEAD
+
                         	<input type="hidden" name="uid" value="<%=um.getId() %>">
-=======
+
                          <% for(user u:list1){
 							 if(um.getId()==u.getUm().getId()){
 						%>
                         	<input type="hidden" name="uid" value="<%=u.getUid() %>">
                         	<%}} %>
->>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
+
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
                         	<input type="hidden" name="onmode" value="offline">
                           	
@@ -130,7 +130,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="mb-2">Appoinment Time Available : </label><br>
-<<<<<<< HEAD
+
                                <%-- 	<select class="form-control" name="appointtime">
                             	<option>10 am to 11 am</option>
                             	<option>11 am to 12 pm</option>
@@ -141,9 +141,9 @@
                             	</select> --%>
                             	 <input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
                                 
-=======
+
                                	<input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
->>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
+
                             </div>
                           <center><button type="submit" name = "action"  value="Appointment" class="btn btn-primary submit mb-4">Book Appointment</button></center>
                             

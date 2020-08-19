@@ -791,14 +791,11 @@ public class ActionController extends HttpServlet {
 			String aptime=request.getParameter("appointtime");
 			Appointment a=new Appointment();
 			a.setAppoint_date(request.getParameter("appointdate"));
-<<<<<<< HEAD
 			/* a.setU(u); */
 			a.setD(d);
-=======
 			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
-			a.setDid(did);
->>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
+			a.setD(d);
 			
 			/*
 			 * if(aptime.equalsIgnoreCase("10 am to 11 am")) { a.setAm10to11am(aptime); }
@@ -828,15 +825,12 @@ public class ActionController extends HttpServlet {
 			//System.out.println("in con u.getUid() "+u.getUid());
 			Appointment a=new Appointment();
 			a.setIssue(request.getParameter("issue"));
-<<<<<<< HEAD
 			/* a.setU(u); */
 			a.setD(d);
 			
-=======
 			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
-			a.setDid(did);
->>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
+			a.setD(d);
 			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);
@@ -1078,7 +1072,6 @@ public class ActionController extends HttpServlet {
 			}
 		}
 		
-<<<<<<< HEAD
 		else if(action.equalsIgnoreCase("onlinebooking"))
 		{
 			String did=request.getParameter("did");
@@ -1099,7 +1092,7 @@ public class ActionController extends HttpServlet {
 			System.out.println("forwarding");
 			rd.forward(request,response);
 		}
-=======
+
 		/*
 		 * else if(action.equalsIgnoreCase("onlinebooking")) { String
 		 * did=request.getParameter("did"); String uid=request.getParameter("uid");
@@ -1114,7 +1107,7 @@ public class ActionController extends HttpServlet {
 		 * rd=request.getRequestDispatcher("payment.jsp");
 		 * System.out.println("forwarding"); rd.forward(request,response); }
 		 */
->>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
+
 		
 		else if(action.equalsIgnoreCase("onlinebooking"))
 		{
@@ -1129,7 +1122,7 @@ public class ActionController extends HttpServlet {
 			a.setIssue(request.getParameter("issue"));
 			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
-			a.setDid(did);
+			a.setD(d);
 			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);
