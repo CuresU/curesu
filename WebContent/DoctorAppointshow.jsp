@@ -322,7 +322,7 @@ tr:nth-child(even)
 								for(Appointment a:list1)
 								{
 									
-									if(a.getDid().equalsIgnoreCase(Integer.toString(d.getDid())))
+									if((a.getD().getDid()==d.getDid()))
 									{
 										i+=1;
 										System.out.println("in if if");
@@ -330,14 +330,7 @@ tr:nth-child(even)
 										d=(Doctor)request.getAttribute("d");
 										a=(Appointment)request.getAttribute("a");
 										String adate=null;
-										if(a.getAm10to11am().equalsIgnoreCase("10 am to 11 am"))
-											adate=a.getAm10to11am();
-										else if(a.getAm11to12pm().equalsIgnoreCase("11 am to 12 pm"))
-											adate=a.getAm10to11am();
-										else if(a.getPm12to1pm().equalsIgnoreCase("12 pm to 1 pm"))
-											adate=a.getAm10to11am();
-										else if(a.getPm1to2pm().equalsIgnoreCase("1 pm to 2 pm"))
-											adate=a.getAm10to11am();
+										
 										System.out.println(adate);
 							%>
 							 <tr class="active">

@@ -140,9 +140,7 @@
                             	<option><%=d.getFrom_time() %></option>
                             	</select> --%>
                             	 <input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
-                                
 
-                               	<input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
 
                             </div>
                           <center><button type="submit" name = "action"  value="Appointment" class="btn btn-primary submit mb-4">Book Appointment</button></center>

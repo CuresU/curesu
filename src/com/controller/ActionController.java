@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
 
@@ -791,6 +793,7 @@ public class ActionController extends HttpServlet {
 			String aptime=request.getParameter("appointtime");
 			Appointment a=new Appointment();
 			a.setAppoint_date(request.getParameter("appointdate"));
+			a.setAppoint_time(request.getParameter("appointtime"));
 			/* a.setU(u); */
 			a.setD(d);
 			a.setMode(request.getParameter("onmode"));
@@ -813,7 +816,7 @@ public class ActionController extends HttpServlet {
 			rd.forward(request,response);
 			//response.sendRedirect("payment.jsp");
 		}
-		//edited
+		
 		else if(action.equalsIgnoreCase("onlinebooking"))
 		{
 			System.out.println("in Onlinebooking");
@@ -825,10 +828,16 @@ public class ActionController extends HttpServlet {
 			//System.out.println("in con u.getUid() "+u.getUid());
 			Appointment a=new Appointment();
 			a.setIssue(request.getParameter("issue"));
-			/* a.setU(u); */
-			a.setD(d);
 			
-			a.setMode(request.getParameter("onmode"));
+			/* edited liabrary also */
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+			   LocalDateTime now = LocalDateTime.now();  
+			   System.out.println(dtf.format(now)); 
+			   a.setAppoint_date(dtf.format(now));
+			   a.setAppoint_time("online");
+			   /* edited liabrary also */
+			a.setD(d);
+			a.setMode(request.getParameter("00:00"));
 			a.setU(u);
 			a.setD(d);
 			usermaster_dao.insertappointment(a);
@@ -840,13 +849,13 @@ public class ActionController extends HttpServlet {
 			System.out.println("forwarding");
 			rd.forward(request,response);
 		}
-		//editedend
+		
 		else if (action.equalsIgnoreCase("Paynow")) {
 			
 				response.sendRedirect("pgRedirect.jsp");
 			
 		}
-		//edited
+		
 		else if (action.equalsIgnoreCase("viewissue")) {
 			
 			System.out.println("View Issue");
@@ -858,7 +867,7 @@ public class ActionController extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("Prescription.jsp");
 			rd.forward(request,response);
 		}
-		//edited end
+		
 		else if (action.equalsIgnoreCase("Cash_on_meeting")) {
 			response.sendRedirect("lastpage.jsp");
 		
