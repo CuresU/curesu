@@ -220,7 +220,7 @@ public class ActionController extends HttpServlet {
 			List<Appointment> list1=usermaster_dao.getAllAppointment();
 			for(Appointment a : list1)
 			{
-				if(a.getDid().equalsIgnoreCase(Integer.toString(d.getDid())))
+				if(a.getD().getDid()==d.getDid())
 				{
 					count+=1;
 				}
@@ -458,6 +458,7 @@ public class ActionController extends HttpServlet {
 				d.setLname(um.getLname());
 				d.setEmail(um.getEmail());
 				d.setPassword(um.getPassword());
+				d.setAge(request.getParameter("age"));
 				d.setIsverified("not verified");
 				d.setIsactive("not active");
 				d.setUm(um);
@@ -481,6 +482,7 @@ public class ActionController extends HttpServlet {
 				u.setPassword(um.getPassword());
 				u.setIsactive("not active");
 				u.setIsverified("not verified");
+				u.setAge(request.getParameter("age"));
 				u.setUm(um);
 				
 				Random r=new Random();
@@ -518,7 +520,7 @@ public class ActionController extends HttpServlet {
 					List<Appointment> list=usermaster_dao.getAllAppointment();
 					for(Appointment a : list)
 					{
-						if(a.getDid().equalsIgnoreCase(Integer.toString(d.getDid())))
+						if(a.getD().getDid()==d.getDid())
 						{
 							count+=1;
 						}
@@ -698,7 +700,7 @@ public class ActionController extends HttpServlet {
 								List<Appointment> list1=usermaster_dao.getAllAppointment();
 								for(Appointment a : list1)
 								{
-									if(a.getDid().equalsIgnoreCase(Integer.toString(d.getDid())))
+									if(a.getD().getDid()==d.getDid())
 									{
 										count+=1;
 									}
@@ -783,25 +785,15 @@ public class ActionController extends HttpServlet {
 			String aptime=request.getParameter("appointtime");
 			Appointment a=new Appointment();
 			a.setAppoint_date(request.getParameter("appointdate"));
-			a.setU(u);
-			a.setDid(did);
+			/* a.setU(u); */
+			a.setD(d);
 			
-			if(aptime.equalsIgnoreCase("10 am to 11 am"))
-			{
-				a.setAm10to11am(aptime);
-			}
-			else if(aptime.equalsIgnoreCase("11 am to 12 pm"))
-			{
-				a.setAm11to12pm(aptime);
-			}
-			else if(aptime.equalsIgnoreCase("12 pm to 1 pm"))
-			{
-				a.setPm12to1pm(aptime);
-			}
-			else if(aptime.equalsIgnoreCase("1 pm to 2 pm"))
-			{
-				a.setPm1to2pm(aptime);
-			}
+			/*
+			 * if(aptime.equalsIgnoreCase("10 am to 11 am")) { a.setAm10to11am(aptime); }
+			 * else if(aptime.equalsIgnoreCase("11 am to 12 pm")) { a.setAm11to12pm(aptime);
+			 * } else if(aptime.equalsIgnoreCase("12 pm to 1 pm")) { a.setPm12to1pm(aptime);
+			 * } else if(aptime.equalsIgnoreCase("1 pm to 2 pm")) { a.setPm1to2pm(aptime); }
+			 */
 			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);
@@ -821,8 +813,8 @@ public class ActionController extends HttpServlet {
 			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
 			Appointment a=new Appointment();
 			a.setIssue(request.getParameter("issue"));
-			a.setU(u);
-			a.setDid(did);
+			/* a.setU(u); */
+			a.setD(d);
 			
 			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
@@ -1061,8 +1053,8 @@ public class ActionController extends HttpServlet {
 			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
 			Appointment a=new Appointment();
 			a.setIssue(request.getParameter("issue"));
-			a.setU(u);
-			a.setDid(did);
+			/* a.setU(u); */
+			a.setD(d);
 				
 			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
@@ -1071,6 +1063,41 @@ public class ActionController extends HttpServlet {
 			System.out.println("apooi");
 			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
 			System.out.println("forwarding");
+			rd.forward(request,response);
+		}
+		
+		else if(action.equalsIgnoreCase("onlinebooking"))
+		{
+			System.out.println("in Onlinebooking");
+			String did=request.getParameter("did");
+			String uid=request.getParameter("uid");
+			//System.out.println("In con "+uid);
+			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));			
+			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
+			//System.out.println("in con u.getUid() "+u.getUid());
+			Appointment a=new Appointment();
+			a.setIssue(request.getParameter("issue"));
+			a.setMode(request.getParameter("onmode"));
+			a.setU(u);
+			a.setDid(did);
+			usermaster_dao.insertappointment(a);
+			request.setAttribute("u", u);
+			request.setAttribute("d", d);
+			request.setAttribute("a", a);
+			//System.out.println("apooi");
+			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
+			System.out.println("forwarding");
+			rd.forward(request,response);
+		}
+		else if (action.equalsIgnoreCase("viewissue")) {
+			
+			System.out.println("View Issue");
+			int aid=Integer.parseInt(request.getParameter("aid"));	
+			Appointment a=usermaster_dao.getappointmentbyid(aid);
+			
+			request.setAttribute("a", a);	
+			System.out.println(a.getAapoint_id());
+			RequestDispatcher rd=request.getRequestDispatcher("Prescription.jsp");
 			rd.forward(request,response);
 		}
 		
