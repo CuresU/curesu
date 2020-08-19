@@ -32,7 +32,7 @@
  
 	
 	Doctor d=null;
- 	//user u=null;
+	List<user> list1=usermaster_dao.getAllusers();
  	if(session!=null)
  	{		
  		System.out.println("in if");
@@ -42,6 +42,8 @@
 		{
 			System.out.println("in if if");
 			um=(user_master)session.getAttribute("um");
+			System.out.println("um.getId() "+um.getId());
+			//u=(user)session.getAttribute("um");
 			d=(Doctor)request.getAttribute("d");
  			
  %>
@@ -62,13 +64,13 @@
                     Select Mode</h3>
             <!--  Button Start-->        
             <div class="emp_btn " >
-            <h2 align="left"><a name="online" id="online"  >Online</a></h2>
-            <h2 align="right"><a name="offline" id="offline">Offline</a></h2>
+            <button class="btn-primary" style="width: 48%;height:4em" name="online" id="online"  ><h3>Online</h3></button>
+            <button class="btn-primary" style="width: 48%;height:4em" name="offline" id="offline"><h3>Offline</h3></button>
             </div>
                      
          <!--  Button End-->
 				
-<div class="col-lg-8 job_info_left" >
+<div class="col-lg-8 job_info_left hy" >
 <div class="emply-resume-list" style="height:560px; width: 1100px;">
 				
 				
@@ -77,23 +79,45 @@
 						<h3 class="tittle text-center mb-lg-4 mb-3"> <span><h2>Write Your Issue Here:</h2></span></h3>
 						 <form name="OnlineForm" action="ActionController" method="post">
 						 <br><center>
-						 <input type="hidden" name="uid" value="<%=um.getId() %>">
+						 <% for(user u:list1){
+							 if(um.getId()==u.getUm().getId()){
+						 %>
+						 <input type="hidden" name="uid" value="<%=u.getUid() %>">
+						 <%}} %>
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
-                          	
+                        	<input type="hidden" name="onmode" value="online">
+                        	
 						 <textarea rows="14" cols="120" name="issue" ></textarea><br>
 						<div class="col-md-3 emp_btn text-right">
                                 <button type="submit" name = "action"  value="onlinebooking" class="btn btn-primary">Book Appointment</button></center>
                             </div>
                   	</form>
                   	
+                  	<!-- <script>
+                  	n =  new Date();
+                  	y = n.getFullYear();
+                  	m = n.getMonth() + 1;
+                  	d = n.getDate();
+                  	document.getElementById("date").innerHTML = y + "-" + m + "-" + d;
+                  	</script>
+                  	 -->
                   	
                  <!--  Offline Mode -->
 	                <div class="hide1"> 
                        <div class="login px-4 mx-auto mw-100">
                         <center><h5>Book Appointment</h5></center><br>
                         <form name="OfflineForm" action="ActionController" method="post">
+<<<<<<< HEAD
                         	<input type="hidden" name="uid" value="<%=um.getId() %>">
+=======
+                         <% for(user u:list1){
+							 if(um.getId()==u.getUm().getId()){
+						%>
+                        	<input type="hidden" name="uid" value="<%=u.getUid() %>">
+                        	<%}} %>
+>>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
+                        	<input type="hidden" name="onmode" value="offline">
                           	
                         	<div class="form-group">
                                 <label class="mb-2">Doctor Name : </label>
@@ -106,6 +130,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="mb-2">Appoinment Time Available : </label><br>
+<<<<<<< HEAD
                                <%-- 	<select class="form-control" name="appointtime">
                             	<option>10 am to 11 am</option>
                             	<option>11 am to 12 pm</option>
@@ -116,6 +141,9 @@
                             	</select> --%>
                             	 <input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
                                 
+=======
+                               	<input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
+>>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
                             </div>
                           <center><button type="submit" name = "action"  value="Appointment" class="btn btn-primary submit mb-4">Book Appointment</button></center>
                             
@@ -123,10 +151,7 @@
                     </div></div>
                     </div>					
 </div>
-
-
-
-            </div>
+       </div>
         </div>
     </section>
     <%@ include file="footer.jsp" %>
@@ -146,16 +171,18 @@
 
      $(document).ready(function () {
          $('.display1').hide();
-
+         $('.hy').hide();
          $('.hide1').hide();
         
         $('#offline').click(function () 
         {
+        	$('.hy').show();
             $('.display1').hide();
             $('.hide1').show();        
         });
         $('#online').click(function () 
         {
+        	$('.hy').show();
             $('.display1').show();
             $('.hide1').hide();        
         });    
@@ -234,6 +261,53 @@
     <!--/ start-smoth-scrolling -->
     <script src="jsuser/move-top.js"></script>
     <script src="jsuser/easing.js"></script>
+    <script>
+    var request=new XMLHttpRequest(); 
+    	function gettime(selecteddate)
+    	{
+        	//alert(selecteddate.value);
+        	var appdate=selecteddate.value;
+        	var did=document.OfflineForm.did.value;
+       		/* if(appdate.trim()==="" || appdate.trim()===null)
+       		{
+       			document.getElementById('emailtaken').innerHTML="Please Enter Email Id";
+       			document.getElementById('registersubmit').disabled=true;
+       		}
+       		else
+       		{ */
+       			var url="Appointtime.jsp?appdate="+appdate+"&did="+did; 
+       		  	try
+       		  	{  
+       				request.onreadystatechange=function()
+       				{  
+       					if(request.readyState==4)
+       					{  
+       						var val=request.responseText;
+       						//alert(val);
+       						document.getElementById('allotedtime').value=val;
+       						/* if(val.trim()=="false")
+       						{
+       							document.getElementById('registersubmit').disabled=false;	
+       							document.getElementById('emailtaken').innerHTML="";
+       						}
+       						else
+       						{
+       							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
+       							document.getElementById('registersubmit').disabled=true;
+       						} */
+       					}  
+       				}  
+       				request.open("GET",url,true);  
+       				request.send();  
+       			}
+       		  	catch(e)
+       		  	{
+       		  		System.out.println("in catch");
+       		  		alert("Unable to connect to server");
+       		  	}
+       		/* }  */ 
+        }
+    </script>
     <script>
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event) {

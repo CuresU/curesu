@@ -20,7 +20,12 @@ public class Doctor {
 
 	private int did;
 	private String fname,registeredid,lname,email,password,isverified,isactive,otp,fees,from_time,to_time,age;
+<<<<<<< HEAD
 	private String dimage,gender,d_address,contact,aadharno,high_qua,speciality,ssc,hsc,bac,mas,other,c_contact,c_image,c_name,c_email,c_address,address,landmark,pincode,city,state;
+=======
+	
+	private String dimage,gender,contact,aadharno,high_qua,speciality,ssc,hsc,bac,mas,other,c_contact,c_image,c_name,c_email,c_address,address,landmark,pincode,city,state;
+>>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
 	private user_master um;
 	private Set<Appointment> ap;
 	
@@ -34,7 +39,11 @@ public class Doctor {
 		this.did = did;
 	}
 	
+<<<<<<< HEAD
 	@Column
+=======
+	@Column(name="age")
+>>>>>>> 277ce5d1fadc08483857dd44aab7dee4cb5efac0
 	public String getAge() {
 		return age;
 	}
@@ -113,14 +122,6 @@ public class Doctor {
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-	
-	@Column(name="d_address")
-	public String getD_address() {
-		return d_address;
-	}
-	public void setD_address(String d_address) {
-		this.d_address = d_address;
 	}
 	
 	@Column(name="contact")

@@ -54,20 +54,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <div class="form-group">
                                 <label>First name</label>
-                                <input type="text" name="fname" minlength="3" class="form-control" id="validationDefault01" placeholder="" required="">
+                                <input type="text" name="fname" class="form-control" id="validationDefault01" placeholder="" required="">
                             </div>
                             <div class="form-group">
                                 <label>Last name</label>
-                                <input type="text" name="lname" minlength="3"  class="form-control" id="validationDefault02" placeholder="" required="">
+                                <input type="text" name="lname" class="form-control" id="validationDefault02" placeholder="" required="">
                             </div>
                             <div class="form-group">
                                 <label>Contact Number</label>
                                 <input type="text" name="cnum" pattern="[6-9]{1}[0-9]{9}" class="form-control" id="" placeholder="" required="">
                             </div>
                             <div class="form-group">
+                                <label>Age</label>
+                                <input type="text" name="age" pattern="[0-9]{2}" class="form-control" id="" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
                                 <label>Email</label>
 
-                                <input type="email" id="email" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onblur="searchInfo();">
+                                <input type="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="">
                                 
                             	<span id="emailtaken" style="color:red;"></span>
 
@@ -76,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <div class="form-group">
                                 <label class="mb-2">Password</label>
-                                <input type="password" name="password" minlength="6"  class="form-control" id="password1" placeholder="" required="" onchange="checkpass()">
+                                <input type="password" name="password" minlength="6"  class="form-control" id="password1" placeholder="" required="">
                             	<span id="passwordvalidation" style="color:red;"></span>
                             </div>
                             <div class="form-group">
@@ -190,25 +194,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       function checkpass()
       {
    	   alert("checkpass");
-   	    var passvalidation=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+   	    //var passvalidation=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
    		var passval=document.getElementById("password1").value;
    		if(passval.match(passvalidation))
    		{
    			document.getElementById("password1").style.border="1px solid #ced4da";
    			document.getElementById('passwordvalidation').innerHTML="";
-			document.getElementById('registersubmit').disabled=false;
+			//document.getElementById('registersubmit').disabled=false;
    		}
    		else
    		{
    			document.getElementById("password1").style.border="2px solid red"; 
    			document.getElementById('passwordvalidation').innerHTML="Password must contain atleast a Lowercase, Uppercase, digit and special character and must contain atleast 6 characters!";
-			document.getElementById('registersubmit').disabled=true;
+			//document.getElementById('registersubmit').disabled=true;
    		}
    	}
 
       
 	var request=new XMLHttpRequest();  
-	 function searchInfo()
+	/*  function searchInfo()
 	{  
 		var email=document.userindex.email.value;  
 		if(email.trim()==="" || email.trim()===null)
@@ -250,7 +254,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  	}
 		}  
 	}   
-
+ */
 	</script>
 </body>
 

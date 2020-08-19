@@ -129,6 +129,7 @@ public class usermaster_dao {
 		return u;
 	}
 	
+	
 	public static void updateuser(user u)
 	{
 		System.out.println("in dao before update");

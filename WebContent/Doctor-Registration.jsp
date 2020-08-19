@@ -75,18 +75,6 @@ addEventListener("load", function() {
 						<%-- <input type="hidden" name="did" value="<%=d.getDid() %>"> --%>
 						<h5>Personal Information</h5>
 						
-						<%-- <div class="sign-u">
-							<div class="sign-up1">
-								<h4>Doctor ID* :</h4>
-							</div>
-							<div class="sign-up2">
-								<form>
-									<input type="text" placeholder="<%++did;%>" required=" "/>
-								</form>
-							</div>
-							<div class="clearfix"> </div>
-						</div> --%>
-					 
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>Upload image* :</h4>
@@ -418,6 +406,10 @@ addEventListener("load", function() {
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
+						</div>
+						
+						<div class="sign-u" align="right">
+							<input type="checkbox" value="replyinoneday" required=""> &nbsp;&nbsp;By Clicking I agree to the terms and conditions*	
 						</div>
 						
 						<div class="sub_home">
