@@ -77,7 +77,7 @@
 				<!--  Online Mode-->
 					<div class="display1">
 						<h3 class="tittle text-center mb-lg-4 mb-3"> <span><h2>Write Your Issue Here:</h2></span></h3>
-						 <form name="login" action="ActionController" method="post">
+						 <form name="OnlineForm" action="ActionController" method="post">
 						 <br><center>
 						 <% for(user u:list1){
 							 if(um.getId()==u.getUm().getId()){
@@ -106,7 +106,7 @@
 	                <div class="hide1"> 
                                             <div class="login px-4 mx-auto mw-100">
                         <center><h5>Book Appointment</h5></center><br>
-                        <form name="login" action="ActionController" method="post">
+                        <form name="OfflineForm" action="ActionController" method="post">
                          <% for(user u:list1){
 							 if(um.getId()==u.getUm().getId()){
 						%>
@@ -126,12 +126,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="mb-2">Appoinment Time Available : </label><br>
-                               	<select class="form-control" name="appointtime">
-                            	<option>10 am to 11 am</option>
-                            	<option>11 am to 12 pm</option>
-                            	<option>12 pm to 1 pm</option>
-                            	<option>1 pm to 2 pm</option>
-                            	</select>
+                               	<input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
                             </div>
                           <center><button type="submit" name = "action"  value="Appointment" class="btn btn-primary submit mb-4">Book Appointment</button></center>
                             
@@ -139,10 +134,7 @@
                     </div></div>
                     </div>					
 </div>
-
-
-
-            </div>
+       </div>
         </div>
     </section>
     <%@ include file="footer.jsp" %>
@@ -204,6 +196,53 @@
     <!--/ start-smoth-scrolling -->
     <script src="jsuser/move-top.js"></script>
     <script src="jsuser/easing.js"></script>
+    <script>
+    var request=new XMLHttpRequest(); 
+    	function gettime(selecteddate)
+    	{
+        	//alert(selecteddate.value);
+        	var appdate=selecteddate.value;
+        	var did=document.OfflineForm.did.value;
+       		/* if(appdate.trim()==="" || appdate.trim()===null)
+       		{
+       			document.getElementById('emailtaken').innerHTML="Please Enter Email Id";
+       			document.getElementById('registersubmit').disabled=true;
+       		}
+       		else
+       		{ */
+       			var url="Appointtime.jsp?appdate="+appdate+"&did="+did; 
+       		  	try
+       		  	{  
+       				request.onreadystatechange=function()
+       				{  
+       					if(request.readyState==4)
+       					{  
+       						var val=request.responseText;
+       						//alert(val);
+       						document.getElementById('allotedtime').value=val;
+       						/* if(val.trim()=="false")
+       						{
+       							document.getElementById('registersubmit').disabled=false;	
+       							document.getElementById('emailtaken').innerHTML="";
+       						}
+       						else
+       						{
+       							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
+       							document.getElementById('registersubmit').disabled=true;
+       						} */
+       					}  
+       				}  
+       				request.open("GET",url,true);  
+       				request.send();  
+       			}
+       		  	catch(e)
+       		  	{
+       		  		System.out.println("in catch");
+       		  		alert("Unable to connect to server");
+       		  	}
+       		/* }  */ 
+        }
+    </script>
     <script>
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event) {

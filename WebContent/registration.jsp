@@ -54,11 +54,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <div class="form-group">
                                 <label>First name</label>
-                                <input type="text" name="fname" minlength="3" class="form-control" id="validationDefault01" placeholder="" required="">
+                                <input type="text" name="fname" class="form-control" id="validationDefault01" placeholder="" required="">
                             </div>
                             <div class="form-group">
                                 <label>Last name</label>
-                                <input type="text" name="lname" minlength="3"  class="form-control" id="validationDefault02" placeholder="" required="">
+                                <input type="text" name="lname" class="form-control" id="validationDefault02" placeholder="" required="">
                             </div>
                             <div class="form-group">
                                 <label>Contact Number</label>
@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label>Email</label>
 
-                                <input type="email" id="email" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="">
+                                <input type="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="">
                                 
                             	<span id="emailtaken" style="color:red;"></span>
 
