@@ -110,15 +110,16 @@ addEventListener("load", function() {
 							<div class="clearfix"> </div>
 						</div>
 						
-						<div class="sign-u">
-							<div class="sign-up1">
+						<div class="sign-u" style="margin-top:15px;">
+							<div class="sign-up1" style="margin-top:-25px;">
 								<h4>Gender* :</h4>
 							</div>
-							<div class="sign-up2" style="margin-top:35px;margin-bottom:10px;">
-									<input type="radio" name="user-type" value="Male" style="margin-left:100px;" required="">Male<br>
-						             <input type="radio" name="user-type" value="Female" style="margin-left:100px;" >Female<br>
-						            <input type="radio" name="user-type" value="Others" style="margin-left:100px;" >Other
+							<div class="sign-up2">
+									<input type="radio" name="user-type" value="Male" required="">&nbsp;Male &nbsp;&nbsp;
+						             <input type="radio" name="user-type" value="Female">&nbsp;Female &nbsp;&nbsp;
+						            <input type="radio" name="user-type" value="Others">&nbsp;Other
 							</div>
+							<div class="clearfix"> </div>
 						</div>
 												
 							
@@ -290,7 +291,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_name" pattern="[a-zA-z]*" placeholder=" " required=""/>
+									<input type="text" name="c_name" pattern="[a-zA-z ]*" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>

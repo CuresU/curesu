@@ -1,5 +1,6 @@
 <%
 session.removeAttribute("u");
+session.removeAttribute("d");
 //session.invalidate();
 request.getSession().invalidate();
 //response.sendRedirect("login.jsp");

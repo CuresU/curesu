@@ -13,8 +13,8 @@
 </head>
 
 <body>
-
     <!-- banner-inner -->
+     <!-- banner-inner -->
     <div style="background: url('imagesuser/Banner.jpg');">
         <div class="dotts">
             <div class="header-top">
@@ -62,7 +62,7 @@
                 <h3 class="tittle text-center mb-lg-4 mb-3">
                     Select Mode</h3>
             <!--  Button Start-->        
-            <div class="emp_btn " >
+            <div class="emp_btn " style="margin-left: 70px;">
             <button class="btn-primary" style="width: 48%;height:4em" name="online" id="online"  ><h3>Online</h3></button>
             <button class="btn-primary" style="width: 48%;height:4em" name="offline" id="offline"><h3>Offline</h3></button>
             </div>
@@ -130,7 +130,7 @@
                                 <small id="emailHelp" class="form-text text-muted">Please choose your appointment date wisely.</small>
                             </div>
                           <center><button type="submit" name = "action" id="offlinebutton"  value="Appointment" class="btn btn-primary submit mb-4" disabled="disabled">Book Appointment</button></center>
-                            
+                             
                         </form>
                     </div></div>
                     </div>					
@@ -208,50 +208,23 @@
      	    mm='0'+mm;
      	} 
      	today = yyyy + '-' + mm + '-' + dd;
-     	alert("date = " + today);
-     	alert("selecteddate = " + selecteddate.value);
+     	//alert("date = " + today);
+     	//alert("selecteddate = " + selecteddate.value);
      	
-     	if(selecteddate.value < today)
+     	if(selecteddate.value <= today)
         {
-            alert("past date");
+            //alert("past date");
             document.getElementById('offlinebutton').disabled=true;
             document.getElementById('datecheck').innerHTML="You can book Appointment of current or future dates only!";
             document.getElementById('allotedtime').value="";
         }
      	else
         {
-            alert("Present Or Future Date");
+            //alert("Present Or Future Date");
             document.getElementById('datecheck').innerHTML="";
             document.getElementById('offlinebutton').disabled=false;
-            //gettime(selecteddate,today);
         }   
     }
-    var request=new XMLHttpRequest(); 
-    	function gettime(selecteddate,currentdate)
-    	{
-        	alert(selecteddate.value);
-        	var appdate=selecteddate.value;
-        	var did=document.OfflineForm.did.value;
-        		var url="Appointtime.jsp?appdate="+appdate+"&currentdate="+currentdate+"&did="+did; 
-       		  	try
-       		  	{  
-       				request.onreadystatechange=function()
-       				{  
-       					if(request.readyState==4)
-       					{  
-       						var val=request.responseText;
-       						document.getElementById('allotedtime').value=val;
-       					}  
-       				}  
-       				request.open("GET",url,true);  
-       				request.send();  
-       			}
-       		  	catch(e)
-       		  	{
-       		  		System.out.println("in catch");
-       		  		alert("Unable to connect to server");
-       		  	}
-        }
     </script>
     <!-- //dropdown nav -->
     <!-- password-script -->

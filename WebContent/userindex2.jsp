@@ -84,7 +84,7 @@
                             </div>
                             <div class="mask">
                                 <a href="UParticulardoc.jsp?&cat=NeuroSurgeon">
-                                    <img src="imagesuser/p1.jpg" class="img-fluid" alt="">
+                                    <img src="imagesuser/p1.jpg" style="width: 30em; height: 20em;" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="mask">
                                 <a href="UParticulardoc.jsp?&cat=Physiotherapist">
-                                    <img src="imagesuser/p2.jpg" class="img-fluid" alt="">
+                                    <img src="imagesuser/p2.jpg" style="width: 30em; height: 20em;" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                             </div>
                             <div class="mask">
                                 <a href="UParticulardoc.jsp?&cat=Skin Specialist">
-                                    <img src="imagesuser/p3.jpg" class="img-fluid" alt="">
+                                    <img src="imagesuser/p3.jpg" style="width: 30em; height: 20em;" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="mask">
                                 <a href="UParticulardoc.jsp?&cat=Homeopathy">
-                                    <img src="imagesuser/p4.jpg" class="img-fluid" alt="">
+                                    <img src="imagesuser/p4.jpg" style="width: 30em; height: 20em;" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                             </div>
                             <div class="mask">
                                 <a href="UParticulardoc.jsp?&cat=child specialist">
-                                    <img src="imagesuser/p4.jpg" class="img-fluid" alt="">
+                                    <img src="imagesuser/p4.jpg" style="width: 30em; height: 20em;" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                             </div>
                             <div class="mask">
                                 <a href="UParticulardoc.jsp?&cat=Gynecologist">
-                                    <img src="imagesuser/p4.jpg" class="img-fluid" alt="">
+                                    <img src="imagesuser/p4.jpg" style="width: 30em; height: 20em;" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>

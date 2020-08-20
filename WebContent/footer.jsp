@@ -17,7 +17,7 @@
                         <h3>About Us</h3>
                     </div>
                     <div class="footer-text">
-                        <p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at tellus. Nulla porttitor accumsana tincidunt.</p>
+                        <p>Cures_U is a website that will be handy to the people even in pandemic situation or in regular basis, with their choice of Doctor being available!</p>
                         <ul class="footer-social text-left mt-lg-4 mt-3">
 
                             <li class="mx-2">
@@ -64,7 +64,7 @@
                             <h4>Contact :</h4>
                             <p>Phone : +91 9638671433</p>
                             <p>Email :
-                                <a href="mailto:doctor1finder@gmail.com">doctor1finder@gmail.com</a>
+                                <a href="mailto:curesu003@gmail.com">curesu003@gmail.com</a>
                             </p>
                         </div>
                     </div>
@@ -75,10 +75,10 @@
                     </div>
                     <ul class="links">
                         <li>
-                            <a href="index.jsp">Home</a>
+                            <a href="userindex2.jsp">Home</a>
                         </li>
                         <li>
-                            <a href="about.html">About</a>
+                            <!-- <a href="about.html">About</a> -->
                         </li>
                  <!--        <li>
                             <a href="404.html">Error</a>
@@ -97,9 +97,7 @@
                             <a href="how.html">How it works</a>
                         </li>
                   -->      
-                        <li>
-                            <a href="contact.jsp">Support</a>
-                        </li>
+                        
 <!--                         <li>
                             <a href="employer_list.html">For Employers</a>
                         </li>

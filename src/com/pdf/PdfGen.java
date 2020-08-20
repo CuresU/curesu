@@ -8,6 +8,7 @@ import java.util.Random;
 
 import com.beans.Appointment;
 import com.beans.Doctor;
+import com.dao.usermaster_dao;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -19,6 +20,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.VerticalPositionMark;
 
 
 public class PdfGen 
@@ -45,10 +47,16 @@ public class PdfGen
         	Random r=new Random();
 			int rno=r.nextInt(1000000);
 			System.out.println(rno);
-        	String pdfname="Doctorfinder" + Integer.toString(a.getAapoint_id());
+        	String pdfname="CuresU" + Integer.toString(a.getAapoint_id());
         	System.out.println(pdfname);
         	System.out.println(meds);
-            OutputStream file = new FileOutputStream(new File("C:\\Users\\Ronin\\doc\\Doctorfinder_admin\\WebContent\\prescriptions\\" + pdfname + ".pdf"));
+        	System.out.println(a.getIssue());
+        	
+        	String a1=pdfname+".pdf";
+        	System.out.println(a1);
+        	
+            OutputStream file = new FileOutputStream(new File("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\prescriptions\\" + pdfname + ".pdf"));
+            System.out.println("file "+file);
             Document document = new Document();
             PdfWriter.getInstance(document, file);
 			
@@ -56,15 +64,15 @@ public class PdfGen
             //Inserting Image in PDF
 
 		    // Image image = Image.getInstance ("src/com/pdf/java4s.png");
-            Image image = Image.getInstance ("C:\\Users\\Ronin\\doc\\Doctorfinder_admin\\WebContent\\logo\\logog like.png");
-		     image.scaleAbsolute(550f, 60f);//image width,height	
+//            Image image = Image.getInstance ("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\logo\\logog like.png");
+//		     image.scaleAbsolute(550f, 60f);//image width,height	
 
 		     
 			//Inserting Table in PDF
 
 		     PdfPTable table=new PdfPTable(2);
 
-                     PdfPCell cell = new PdfPCell (new Paragraph ("DoctorFinder"));
+                     PdfPCell cell = new PdfPCell (new Paragraph ("CuresU"));
 
 			      cell.setColspan (2);
 			      cell.setHorizontalAlignment (Element.ALIGN_CENTER);
@@ -111,11 +119,17 @@ public class PdfGen
 							//document.add(image);
 
 						document.add(Chunk.NEWLINE);   //Something like in HTML 🙂
-						document.add(image);
-	                    document.add(new Paragraph("Dear Customer"));
-		                document.add(new Paragraph("Document Generated On - "+new Date().toString()));	
-		                //document.add(new Paragraph("<center><h1>DoctorFiner<h1></center>"));
-						document.add(table);
+						//document.add(image);
+						Chunk glue = new Chunk(new VerticalPositionMark());
+						Paragraph p=new Paragraph("Prescription");
+	                    //document.add(new Paragraph("Prescription"));
+		                //document.add(new Paragraph("Generated Date - "+new Date().toString()));
+						
+		                p.add(new Chunk(glue));
+		                p.add("Generated Date - "+new Date().toString());
+		                //document.add(new Paragraph("<center><h1>CuresU<h1></center>"));
+		                document.add(p);
+		                document.add(table);
 
 						document.add(chunk);
 						document.add(chunk1);
@@ -129,7 +143,8 @@ public class PdfGen
 			         document.close();
 
 				             file.close();
-
+				             a.setPrescription(a1);
+				         	usermaster_dao.updateappointment(a);
 	            System.out.println("Pdf created successfully..");
 
         	} 

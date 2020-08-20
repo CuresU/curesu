@@ -29,7 +29,7 @@ else
 	{  
 		System.out.println("doc searchhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
 		Class.forName("com.mysql.jdbc.Driver");  
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/summerinternship","root","trymysql");  
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/si_try","root","kd25021999");  
 		PreparedStatement ps=con.prepareStatement("select fname from doctor where fname like '"+name+"%'");  
 		ResultSet rs=ps.executeQuery();  
 		  

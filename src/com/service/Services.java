@@ -73,7 +73,7 @@ public class Services {
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(emailid));//to mail address.
 			message.setSubject("check and validate");
-			message.setText("WELCOME TO DOCTORFINDER .For Futher details form " + "<a href="+link1+"> CLICK HERE </a>");
+			message.setText("WELCOME TO CuresU .For Futher details form " + "<a href="+link1+"> CLICK HERE </a>");
  
 			Transport.send(message);
 			
@@ -112,7 +112,7 @@ public class Services {
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(emailid));//to mail address.
 			message.setSubject("check and validate");
-			message.setText("WELCOME TO DOCTORFINDER .For Futher details form " + "<a href="+link1+"> CLICK HERE </a>");
+			message.setText("WELCOME TO CuresU .For Futher details form " + "<a href="+link1+"> CLICK HERE </a>");
  
 			Transport.send(message);
 			

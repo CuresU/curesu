@@ -44,8 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
    
  <body>
+ <%@ include file="DocSidebar.jsp" %>
   <%
- 	Doctor d=null;
+ 	//Doctor d=null;
   	Appointment a=null;
   	List<Appointment> list1=usermaster_dao.getAllAppointment();
  	if(session!=null)
@@ -59,19 +60,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  %>
     <section>
     <center>
+     
     <!-- main content start-->
 		<div style="background:#F8F8F8;">
-				<div class="graphs" style="width:70%;">
+				<div class="graphs" style="width:70%;background-color: #E6E6FA" >
 					<article style="margin: 3px 10px;">
-					<div align="right"><br>
-					<h3 class="blank1" ><a>Dr. <%=d.getFname() %> <%=d.getLname() %></a></h3>
-					<h4 class="blank1" >Clinic Name: <%=d.getC_name() %></h4>
-					<h4 class="blank1" ><%=d.getC_address() %> <br> <%=d.getCity() %>,  <%=d.getPincode() %>, <%=d.getState() %> </h4>
-					<h4 class="blank1" > Contact Number : <%=d.getC_contact() %></h4>
+					<div align="right" ><br>
+					<h4 class="blank1" ><a href="#">Dr. <%=d.getFname() %> <%=d.getLname() %></a></h4><br>
+					<h6 class="blank1" >Clinic Name: <%=d.getC_name() %></h6>
+					<h6 class="blank1" ><%=d.getC_address() %> <br> <%=d.getCity() %>,  <%=d.getPincode() %>, <%=d.getState() %> </h6>
+					<h6 class="blank1" > Contact Number : <%=d.getC_contact() %></h6>
 					<hr>
 					</div>
 					
-					<form class="form-horizontal" method="post" action="ActionController">
+					<form class="form-horizontal" method="post" action="ActionController" style="background-color: #E6E6FA">
 							<input type="hidden" name="aid" value="<%=a.getAapoint_id() %>">
 							<input type="hidden" name="did" value="<%=d.getDid() %>">
 								<div class="form-group">
@@ -81,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 									
 								<div align="left">
-								    <h4>Prescribed to: <%=a.getU().getFname() %> <%=a.getU().getLname() %> <br>Age: <%=a.getU().getAge() %></h4>
+								    <h4>Prescribed to: <a href="#"><%=a.getU().getFname() %> <%=a.getU().getLname() %></a> <br>Age: <%=a.getU().getAge() %></h4>
 								</div>
 								
 								<div align="left"><h4>Issues:</h4></div><br>
@@ -91,7 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 								<div align="left"><h4>Medicine prescribed:</h4></div><br>
 								<div>
-							<textarea name="meds" rows="10" cols="100" id="disabledinput"  placeholder=""> </textarea>
+							<textarea name="meds" rows="10" cols="100" id="meds"  placeholder=""> </textarea>
 								</div> </div>
 								<br>
 				<div align="right"><button class="btn-primary" style="width:30%;height:10%" type="submit" name="action" value="prescriptionupload"><h2>Prescribe</h2></button></div>
@@ -100,11 +102,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 				</article>		
 	</div>
-						
-					  </div>
-				</div>
-			</div>
-		</div>
 		</center>
 	</section>
 	
