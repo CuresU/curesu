@@ -45,10 +45,11 @@ public class PdfGen
         	Random r=new Random();
 			int rno=r.nextInt(1000000);
 			System.out.println(rno);
-        	String pdfname="Doctorfinder" + Integer.toString(a.getAapoint_id());
+        	String pdfname="CuresU" + Integer.toString(a.getAapoint_id());
         	System.out.println(pdfname);
         	System.out.println(meds);
-            OutputStream file = new FileOutputStream(new File("C:\\Users\\Ronin\\doc\\Doctorfinder_admin\\WebContent\\prescriptions\\" + pdfname + ".pdf"));
+            OutputStream file = new FileOutputStream(new File("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\prescriptions\\" + pdfname + ".pdf"));
+            System.out.println("file "+file);
             Document document = new Document();
             PdfWriter.getInstance(document, file);
 			
@@ -56,15 +57,15 @@ public class PdfGen
             //Inserting Image in PDF
 
 		    // Image image = Image.getInstance ("src/com/pdf/java4s.png");
-            Image image = Image.getInstance ("C:\\Users\\Ronin\\doc\\Doctorfinder_admin\\WebContent\\logo\\logog like.png");
-		     image.scaleAbsolute(550f, 60f);//image width,height	
+//            Image image = Image.getInstance ("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\logo\\logog like.png");
+//		     image.scaleAbsolute(550f, 60f);//image width,height	
 
 		     
 			//Inserting Table in PDF
 
 		     PdfPTable table=new PdfPTable(2);
 
-                     PdfPCell cell = new PdfPCell (new Paragraph ("DoctorFinder"));
+                     PdfPCell cell = new PdfPCell (new Paragraph ("CuresU"));
 
 			      cell.setColspan (2);
 			      cell.setHorizontalAlignment (Element.ALIGN_CENTER);
@@ -111,10 +112,10 @@ public class PdfGen
 							//document.add(image);
 
 						document.add(Chunk.NEWLINE);   //Something like in HTML 🙂
-						document.add(image);
+						//document.add(image);
 	                    document.add(new Paragraph("Dear Customer"));
 		                document.add(new Paragraph("Document Generated On - "+new Date().toString()));	
-		                //document.add(new Paragraph("<center><h1>DoctorFiner<h1></center>"));
+		                //document.add(new Paragraph("<center><h1>CuresU<h1></center>"));
 						document.add(table);
 
 						document.add(chunk);

@@ -44,17 +44,17 @@
                  		List<Appointment> list=usermaster_dao.getAllAppointment();
                  		
                  			
-                    for(Appointment d:list)
+                    for(Appointment a:list)
                     	{
                     		System.out.println("user name: " + um.getId());
-                    		System.out.println("user name: " + d.getU().getUm().getId());
-                    		  if(um.getId()==d.getU().getUm().getId())
+                    		System.out.println("user name: " + a.getU().getUm().getId());
+                    		  if(um.getId()==a.getU().getUm().getId())
                     		 { 
                     			 
                     			 List<Doctor> list1=usermaster_dao.getAllDoctors();
                                  for(Doctor doc:list1)
                                  {
-                              		if(d.getD().getDid() == doc.getDid())
+                              		if(a.getD().getDid() == doc.getDid())
                               		{
                           	 
                               
@@ -68,14 +68,16 @@
                                 <div class="emply-resume-info">
                   <h4><a href="#"><%= doc.getFname() %>&nbsp;<%= doc.getLname() %></a></h4>
                                     <h5 class="mt-2"><%= doc.getSpeciality() %></h5>
-                                    <h5 class="mt-2"><%= d.getAppoint_date() %></h5>
-                                    <h5 class="mt-2">Payment : <%= doc.getFees() %> Rs. | Online<br></h5>                                                           
+                                    <h5 class="mt-2"><%= a.getAppoint_date() %></h5>
+                                    <h5 class="mt-2">Payment : <%= doc.getFees() %> Rs. | <%=a.getMode() %><br></h5>                                                           
                                 </div>
                                 
                                 <div class="clearfix"></div>
                             </div>
                            <div class="col-md-3 emp_btn text-right">
-                                <a>Prescription(pdf)</a>
+                           <%if(a.getMode().equalsIgnoreCase("online")){ %>
+                           <form name="login" method="post" action="ActionController" >
+                                <p  style="margin-top:-10px;"><a class="btn"  href="ActionController?action=viewprescription&aid=<%=a.getAapoint_id() %>">Prescription</a></p></form><%} %>
                             </div>
                         </div>
                         <%}}

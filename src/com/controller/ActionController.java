@@ -40,7 +40,23 @@ public class ActionController extends HttpServlet {
 		String action=request.getParameter("action");
 		System.out.println("get");
 		System.out.println(action);
-		
+		/*
+		 * if(action.equalsIgnoreCase("viewprescription")) {
+		 * System.out.println("prescription"); String
+		 * way="D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\prescriptions"; int
+		 * aid=Integer.parseInt(request.getParameter("aid")); Appointment
+		 * a=usermaster_dao.getappointmentbyid(aid); String pdfname=a.getPrescription();
+		 * String filename=way + File.separator + pdfname; File file = new
+		 * File(filename); //("c:\\example.pdf"); byte[] fileData = new
+		 * byte[(int)file.length()]; FileInputStream fis = new FileInputStream(file);
+		 * fis.read(fileData);
+		 * 
+		 * response.reset(); response.setContentType("application/pdf");
+		 * response.setContentLength(fileData.length);
+		 * response.setHeader("Content-Disposition", "inline;filename=example.pdf");
+		 * ServletOutputStream outputStream = response.getOutputStream();
+		 * outputStream.write(fileData); outputStream.flush(); outputStream.close(); }
+		 */
 		if(action.equalsIgnoreCase("bookappointment"))
 		{
 			System.out.println("bookappointment");
@@ -178,7 +194,28 @@ public class ActionController extends HttpServlet {
 		        outputStream.close();
 			
 		}
-		
+		//Edited
+		if(action.equalsIgnoreCase("viewprescription")) { 
+			System.out.println("prescription");
+			String way="D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\prescriptions"; 
+			int aid=Integer.parseInt(request.getParameter("aid")); 
+			Appointment a=usermaster_dao.getappointmentbyid(aid); 
+			
+			String pdfname=a.getPrescription();
+			
+		  String filename=way + File.separator + pdfname; File file = new File(filename);  
+		  byte[] fileData = new byte[(int)file.length()]; 
+		  FileInputStream fis = new FileInputStream(file);
+		  fis.read(fileData);
+		  
+		  response.reset(); 
+		  response.setContentType("application/pdf");
+		  response.setContentLength(fileData.length);
+		  response.setHeader("Content-Disposition", "inline;filename=example.pdf");
+		  ServletOutputStream outputStream = response.getOutputStream();
+		  outputStream.write(fileData); outputStream.flush(); outputStream.close(); 
+		 }
+		//Edited end
 		if(action.equalsIgnoreCase("search"))
 		{
 			System.out.println("in search method");
@@ -240,7 +277,7 @@ public class ActionController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
-		System.out.println("controllerrrrrrrrrrrrrrrrreeeeeeeeeeeeeeeeeedddddddddddddddddd");
+		System.out.println("controllerrrrrrrreeeeeeeeeeedddddddddddd");
 		
 		String action=request.getParameter("action");
 		System.out.println(action);
@@ -405,13 +442,15 @@ public class ActionController extends HttpServlet {
 				int id=Integer.parseInt(request.getParameter("id"));
 				if(d1.getDid()==id) 
 				{
-					//doctor.deleteDoc(d1);
+					//Doc.deleteDoc(d1);
 					usermaster_dao.deleteDoc(d1);					
 					response.sendRedirect("Adoctor_table.jsp");
 				}	
 			}							
 		}
 		
+		
+		 
 		if(action.equalsIgnoreCase("submit"))
 		{
 			contact c=new contact();
@@ -1032,7 +1071,9 @@ public class ActionController extends HttpServlet {
 			String meds=request.getParameter("meds");
 			System.out.println("meds is : " + meds);
 			Doctor d=usermaster_dao.getdocbyid(did);
+			
 			Appointment a=usermaster_dao.getappointmentbyid(aapoint_id);
+			System.out.println("Doc is " + d+" Apoint is "+a);
 			PdfGen pdfgen=new PdfGen(d,a,meds);
 		}
 		//edited end
