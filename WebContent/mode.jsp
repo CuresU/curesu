@@ -13,9 +13,7 @@
 </head>
 
 <body>
- 
-
-    <!-- banner-inner -->
+     <!-- banner-inner -->
     <div style="background: url('imagesuser/Banner.jpg');">
         <div class="dotts">
             <div class="header-top">

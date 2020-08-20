@@ -7,7 +7,7 @@
 <%@page import="org.hibernate.SessionFactory"%>
 <%@page import="com.dao.usermaster_dao"%>
 <%@page import="com.util.user_masterutil"%>
-<%@ page import="java.sql.*" %>  
+<%@page import="java.sql.*" %>  
     <%  
     String date=request.getParameter("appdate"); 
     int did=Integer.parseInt(request.getParameter("did"));
@@ -24,7 +24,7 @@
     	
     	try
     	{  
-      		System.out.println("in email check.jsppppppppppppppppppppppppppppppppppppppppppppppppppppppp");
+      		System.out.println("in email check.jspppppppppppppppppppppppppppppppppp");
       		tr=session2.beginTransaction();
     		/* String hql="FROM user_master u where u.email=:email";
       		Query query=session2.createQuery(hql);

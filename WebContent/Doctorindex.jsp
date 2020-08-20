@@ -51,9 +51,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head> 
    
- <body>
+ <body class="sticky-header left-side-collapsed"  onload="initMap()">
+ <%@ include file="DocSidebar.jsp" %>
  <%
- 	Doctor d=null;
+ 	//Doctor d=null;
 	List<Appointment> list1=usermaster_dao.getAllAppointment();
 
  	if(session!=null)
@@ -75,20 +76,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  %>
  
     <section>
-   <br>
-					<h3 class="tittle text-center mb-lg-4 mb-3" style="color:red;"> <span>Hello Dr. <%=d.getFname() %> <%=d.getLname() %></span></h3>
+   
+       <div class="main-content main-content4">
+
+<h3 class="tittle text-center mb-lg-4 mb-3" style="color:red;"> <span>Hello Dr. <%=d.getFname() %> <%=d.getLname() %></span></h3>
 						
     <hr>
-    <section class="banner-bottom-wthree mid py-lg-5 py-3">
-        <div class="container">
-            <div class="inner-sec-w3ls py-lg-5  py-3">
-                <div class="mid-info text-center pt-3">
-                    <h3 class="tittle text-center cen mb-lg-5 mb-4">
-                        CuresU</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 		<!-- main content start-->
 		
 			<div id="page-wrapper">
@@ -137,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  <th>Last-name</th>
 							  <th>Contact</th>
 							  <th>Application Mode</th>
-							  <th></th>
+							  <th>Time/Issue</th>
 							  
 							</tr>
 						  </thead>
@@ -172,7 +166,7 @@ for(Appointment a:list1){
 								<button type="submit"class="btn-primary" name="action" value="viewissue" >View</button>
 							</form>
 							<%}else{ %>
-							<button disabled="disable" class="btn-primary" >View</button>
+							<%= a.getAppoint_time() %>
 							<%} %> 
 							</td>	
 							</tr>
@@ -186,7 +180,7 @@ for(Appointment a:list1){
 						
 			
 			</div>
-		</div>
+		</div></div>
 		   </section>
   
 <script src="js/jquery.nicescroll.js"></script>
@@ -195,10 +189,7 @@ for(Appointment a:list1){
    <script src="js/bootstrap.min.js"></script>
     <%
  		}
- 		else
- 		{
- 			response.sendRedirect("login.jsp");
- 		}
+ 		
  		}
  		else{
  			response.sendRedirect("login.jsp");
