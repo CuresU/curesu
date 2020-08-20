@@ -203,7 +203,8 @@ public class ActionController extends HttpServlet {
 			
 			String pdfname=a.getPrescription();
 			
-		  String filename=way + File.separator + pdfname; File file = new File(filename);  
+		  String filename=way + File.separator + pdfname; 
+		  File file = new File(filename);  
 		  byte[] fileData = new byte[(int)file.length()]; 
 		  FileInputStream fis = new FileInputStream(file);
 		  fis.read(fileData);

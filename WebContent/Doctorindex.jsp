@@ -171,7 +171,11 @@ for(Appointment a:list1){
 							</td>	
 							</tr>
 							
-							<%}}} %>
+							<%}else{
+								%>
+								<p>No Apoointments till now</p>
+								<% 
+							}}} %>
 						  </tbody>
 						</table>
 					   </div>

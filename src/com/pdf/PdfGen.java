@@ -8,6 +8,7 @@ import java.util.Random;
 
 import com.beans.Appointment;
 import com.beans.Doctor;
+import com.dao.usermaster_dao;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -19,6 +20,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.VerticalPositionMark;
 
 
 public class PdfGen 
@@ -48,6 +50,11 @@ public class PdfGen
         	String pdfname="CuresU" + Integer.toString(a.getAapoint_id());
         	System.out.println(pdfname);
         	System.out.println(meds);
+        	System.out.println(a.getIssue());
+        	
+        	String a1=pdfname+".pdf";
+        	System.out.println(a1);
+        	
             OutputStream file = new FileOutputStream(new File("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\prescriptions\\" + pdfname + ".pdf"));
             System.out.println("file "+file);
             Document document = new Document();
@@ -113,10 +120,16 @@ public class PdfGen
 
 						document.add(Chunk.NEWLINE);   //Something like in HTML 🙂
 						//document.add(image);
-	                    document.add(new Paragraph("Dear Customer"));
-		                document.add(new Paragraph("Document Generated On - "+new Date().toString()));	
+						Chunk glue = new Chunk(new VerticalPositionMark());
+						Paragraph p=new Paragraph("Prescription");
+	                    //document.add(new Paragraph("Prescription"));
+		                //document.add(new Paragraph("Generated Date - "+new Date().toString()));
+						
+		                p.add(new Chunk(glue));
+		                p.add("Generated Date - "+new Date().toString());
 		                //document.add(new Paragraph("<center><h1>CuresU<h1></center>"));
-						document.add(table);
+		                document.add(p);
+		                document.add(table);
 
 						document.add(chunk);
 						document.add(chunk1);
@@ -130,7 +143,8 @@ public class PdfGen
 			         document.close();
 
 				             file.close();
-
+				             a.setPrescription(a1);
+				         	usermaster_dao.updateappointment(a);
 	            System.out.println("Pdf created successfully..");
 
         	} 

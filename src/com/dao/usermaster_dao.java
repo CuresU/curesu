@@ -149,7 +149,14 @@ public class usermaster_dao {
 		tr.commit();
 		session.close();
 	}
-	
+	public static void updateappointment(Appointment a)
+	{
+		Session session=user_masterutil.createsession();
+		Transaction tr=session.beginTransaction();
+		session.update(a);
+		tr.commit();
+		session.close();
+	}
 	public static Appointment getappointmentbyid(int aapoint_id)
 	{
 		Session session=user_masterutil.createsession();
