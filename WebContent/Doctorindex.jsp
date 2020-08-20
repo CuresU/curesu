@@ -53,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  			System.out.println(d.getFname());
  			int income=0,people=0;
  			for(Appointment a:list1){ 				
- 				if(Integer.parseInt(a.getDid())==d.getDid()){
+ 				if(a.getD().getDid()==d.getDid()){
  					income+=Integer.parseInt(d.getFees());
  					people++; 					
  				}
@@ -124,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<%
 
 for(Appointment a:list1){ 				
-		if(Integer.parseInt(a.getDid())==d.getDid()){
+		if(a.getD().getDid()==d.getDid()){
 		
 %>
 							<tr>

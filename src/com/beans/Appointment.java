@@ -15,7 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Appointment {
 
 	private int aapoint_id;
-	private String appoint_date,issue,mode,prescription,appoint_time;
+	private String appoint_date,issue,mode,prescription,appoint_time,ispaid;
 	
 	
 	private user u;
@@ -73,6 +73,7 @@ public class Appointment {
 	public void setAppoint_time(String appoint_time) {
 		this.appoint_time = appoint_time;
 	}
+	
 	
 	@ManyToOne
 	@JoinColumn(name="did")

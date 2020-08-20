@@ -13,7 +13,6 @@
 </head>
 
 <body>
- 
 
     <!-- banner-inner -->
     <div style="background: url('imagesuser/Banner.jpg');">
@@ -108,7 +107,7 @@
                         <center><h5>Book Appointment</h5></center><br>
                         <form name="OfflineForm" action="ActionController" method="post">
 
-                        	<input type="hidden" name="uid" value="<%=um.getId() %>">
+                        	<%-- <input type="hidden" name="uid" value="<%=um.getId() %>"> --%>
 
                          <% for(user u:list1){
 							 if(um.getId()==u.getUm().getId()){
@@ -116,6 +115,7 @@
                         	<input type="hidden" name="uid" value="<%=u.getUid() %>">
                         	<%}} %>
 
+							<input type="hidden" name="umid" value="<%=um.getId()%>">
                         	<input type="hidden" name="did" value="<%=d.getDid() %>">
                         	<input type="hidden" name="onmode" value="offline">
                           	
@@ -125,27 +125,11 @@
                                 </div>
                             <div class="form-group">
                                 <label class="mb-2">Appoinment date : </label>
-                                <input type="date" name="appointdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
+                                <input type="date" name="appointdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="validatedate(this)">
+                                <span id="datecheck" style="color:red;"></span>
                                 <small id="emailHelp" class="form-text text-muted">Please choose your appointment date wisely.</small>
                             </div>
-                            <div class="form-group">
-                                <label class="mb-2">Appoinment Time Available : </label><br>
-
-                               <%-- 	<select class="form-control" name="appointtime">
-                            	<option>10 am to 11 am</option>
-                            	<option>11 am to 12 pm</option>
-                            	<option>12 pm to 1 pm</option>
-                            	<option>1 pm to 2 pm</option>
-                            	
-                            	<option><%=d.getFrom_time() %></option>
-                            	</select> --%>
-                            	 <input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
-                                
-
-                               	<input type="text" id="allotedtime" name="allotedtime" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" onchange="gettime(this)">
-
-                            </div>
-                          <center><button type="submit" name = "action"  value="Appointment" class="btn btn-primary submit mb-4">Book Appointment</button></center>
+                          <center><button type="submit" name = "action" id="offlinebutton"  value="Appointment" class="btn btn-primary submit mb-4" disabled="disabled">Book Appointment</button></center>
                             
                         </form>
                     </div></div>
@@ -206,20 +190,49 @@
     </script>
     
     <script>
+
+    function validatedate(selecteddate)
+    {
+     	var today = new Date();
+     	var dd = today.getDate();
+
+     	var mm = today.getMonth()+1; 
+     	var yyyy = today.getFullYear();
+     	if(dd<10) 
+     	{
+     	    dd='0'+dd;
+     	} 
+
+     	if(mm<10) 
+     	{
+     	    mm='0'+mm;
+     	} 
+     	today = yyyy + '-' + mm + '-' + dd;
+     	alert("date = " + today);
+     	alert("selecteddate = " + selecteddate.value);
+     	
+     	if(selecteddate.value < today)
+        {
+            alert("past date");
+            document.getElementById('offlinebutton').disabled=true;
+            document.getElementById('datecheck').innerHTML="You can book Appointment of current or future dates only!";
+            document.getElementById('allotedtime').value="";
+        }
+     	else
+        {
+            alert("Present Or Future Date");
+            document.getElementById('datecheck').innerHTML="";
+            document.getElementById('offlinebutton').disabled=false;
+            //gettime(selecteddate,today);
+        }   
+    }
     var request=new XMLHttpRequest(); 
-    	function gettime(selecteddate)
+    	function gettime(selecteddate,currentdate)
     	{
-        	//alert(selecteddate.value);
+        	alert(selecteddate.value);
         	var appdate=selecteddate.value;
         	var did=document.OfflineForm.did.value;
-       		/* if(appdate.trim()==="" || appdate.trim()===null)
-       		{
-       			document.getElementById('emailtaken').innerHTML="Please Enter Email Id";
-       			document.getElementById('registersubmit').disabled=true;
-       		}
-       		else
-       		{ */
-       			var url="Appointtime.jsp?appdate="+appdate+"&did="+did; 
+        		var url="Appointtime.jsp?appdate="+appdate+"&currentdate="+currentdate+"&did="+did; 
        		  	try
        		  	{  
        				request.onreadystatechange=function()
@@ -227,18 +240,7 @@
        					if(request.readyState==4)
        					{  
        						var val=request.responseText;
-       						//alert(val);
        						document.getElementById('allotedtime').value=val;
-       						/* if(val.trim()=="false")
-       						{
-       							document.getElementById('registersubmit').disabled=false;	
-       							document.getElementById('emailtaken').innerHTML="";
-       						}
-       						else
-       						{
-       							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
-       							document.getElementById('registersubmit').disabled=true;
-       						} */
        					}  
        				}  
        				request.open("GET",url,true);  
@@ -249,7 +251,6 @@
        		  		System.out.println("in catch");
        		  		alert("Unable to connect to server");
        		  	}
-       		/* }  */ 
         }
     </script>
     <!-- //dropdown nav -->
@@ -261,53 +262,6 @@
     <!--/ start-smoth-scrolling -->
     <script src="jsuser/move-top.js"></script>
     <script src="jsuser/easing.js"></script>
-    <script>
-    var request=new XMLHttpRequest(); 
-    	function gettime(selecteddate)
-    	{
-        	//alert(selecteddate.value);
-        	var appdate=selecteddate.value;
-        	var did=document.OfflineForm.did.value;
-       		/* if(appdate.trim()==="" || appdate.trim()===null)
-       		{
-       			document.getElementById('emailtaken').innerHTML="Please Enter Email Id";
-       			document.getElementById('registersubmit').disabled=true;
-       		}
-       		else
-       		{ */
-       			var url="Appointtime.jsp?appdate="+appdate+"&did="+did; 
-       		  	try
-       		  	{  
-       				request.onreadystatechange=function()
-       				{  
-       					if(request.readyState==4)
-       					{  
-       						var val=request.responseText;
-       						//alert(val);
-       						document.getElementById('allotedtime').value=val;
-       						/* if(val.trim()=="false")
-       						{
-       							document.getElementById('registersubmit').disabled=false;	
-       							document.getElementById('emailtaken').innerHTML="";
-       						}
-       						else
-       						{
-       							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
-       							document.getElementById('registersubmit').disabled=true;
-       						} */
-       					}  
-       				}  
-       				request.open("GET",url,true);  
-       				request.send();  
-       			}
-       		  	catch(e)
-       		  	{
-       		  		System.out.println("in catch");
-       		  		alert("Unable to connect to server");
-       		  	}
-       		/* }  */ 
-        }
-    </script>
     <script>
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event) {

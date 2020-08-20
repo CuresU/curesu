@@ -233,6 +233,21 @@ public class usermaster_dao {
 		return list;
 	}
 	
+	public static boolean getappointmentbyid_date_time(int id,String date,String time)
+	{
+		Session session=user_masterutil.createsession();
+		Query query=session.createQuery("from Appointment where d = :id AND appoint_date = :date AND appoint_time =:time");
+		query.setInteger("id", id );
+		query.setString("date", date);
+		query.setString("time", time);
+		Appointment a=(Appointment)query.uniqueResult();
+		session.close();
+		if(a!=null)
+			return false;
+		else
+			return true;
+	}
+	
 	public static String doEncryption(String password) throws Exception{
 		String enc_pass=null;
 		try 

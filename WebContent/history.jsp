@@ -54,7 +54,7 @@
                     			 List<Doctor> list1=usermaster_dao.getAllDoctors();
                                  for(Doctor doc:list1)
                                  {
-                              		if(Integer.parseInt(d.getDid()) == doc.getDid())
+                              		if(d.getD().getDid() == doc.getDid())
                               		{
                           	 
                               

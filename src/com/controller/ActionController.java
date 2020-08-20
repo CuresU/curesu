@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
 
@@ -176,7 +178,27 @@ public class ActionController extends HttpServlet {
 		        outputStream.close();
 			
 		}
-		
+		if(action.equalsIgnoreCase("viewprescription")) { 
+			System.out.println("prescription");
+			String way="D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\prescriptions"; 
+			int aid=Integer.parseInt(request.getParameter("aid")); 
+			Appointment a=usermaster_dao.getappointmentbyid(aid); 
+			
+			String pdfname=a.getPrescription();
+			
+		  String filename=way + File.separator + pdfname; 
+		  File file = new File(filename);  
+		  byte[] fileData = new byte[(int)file.length()]; 
+		  FileInputStream fis = new FileInputStream(file);
+		  fis.read(fileData);
+		  
+		  response.reset(); 
+		  response.setContentType("application/pdf");
+		  response.setContentLength(fileData.length);
+		  response.setHeader("Content-Disposition", "inline;filename=example.pdf");
+		  ServletOutputStream outputStream = response.getOutputStream();
+		  outputStream.write(fileData); outputStream.flush(); outputStream.close(); 
+		 }
 		if(action.equalsIgnoreCase("search"))
 		{
 			System.out.println("in search method");
@@ -787,33 +809,18 @@ public class ActionController extends HttpServlet {
 			String uid=request.getParameter("uid");
 			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));
 			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
-			System.out.println("appointment time is : " + request.getParameter("appointtime"));
-			String aptime=request.getParameter("appointtime");
-			Appointment a=new Appointment();
-			a.setAppoint_date(request.getParameter("appointdate"));
-			/* a.setU(u); */
-			a.setD(d);
-			a.setMode(request.getParameter("onmode"));
-			a.setU(u);
-			a.setD(d);
-			
-			/*
-			 * if(aptime.equalsIgnoreCase("10 am to 11 am")) { a.setAm10to11am(aptime); }
-			 * else if(aptime.equalsIgnoreCase("11 am to 12 pm")) { a.setAm11to12pm(aptime);
-			 * } else if(aptime.equalsIgnoreCase("12 pm to 1 pm")) { a.setPm12to1pm(aptime);
-			 * } else if(aptime.equalsIgnoreCase("1 pm to 2 pm")) { a.setPm1to2pm(aptime); }
-			 */
-			usermaster_dao.insertappointment(a);
+			user_master um=usermaster_dao.getusermasterbyid(Integer.parseInt(request.getParameter("umid")));
+			String appdate=request.getParameter("appointdate");
+			request.setAttribute("um", um);
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);
-			request.setAttribute("a", a);
+			request.setAttribute("appdate", (String)appdate);
 			System.out.println("apooi");
 			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
-			System.out.println("forwarding");
 			rd.forward(request,response);
-			//response.sendRedirect("payment.jsp");
 		}
 		//edited
+
 		else if(action.equalsIgnoreCase("onlinebooking"))
 		{
 			System.out.println("in Onlinebooking");
@@ -825,10 +832,16 @@ public class ActionController extends HttpServlet {
 			//System.out.println("in con u.getUid() "+u.getUid());
 			Appointment a=new Appointment();
 			a.setIssue(request.getParameter("issue"));
-			/* a.setU(u); */
-			a.setD(d);
 			
-			a.setMode(request.getParameter("onmode"));
+			/* edited liabrary also */
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+			   LocalDateTime now = LocalDateTime.now();  
+			   System.out.println(dtf.format(now)); 
+			   a.setAppoint_date(dtf.format(now));
+			   a.setAppoint_time("online");
+			   /* edited liabrary also */
+			a.setD(d);
+			a.setMode(request.getParameter("00:00"));
 			a.setU(u);
 			a.setD(d);
 			usermaster_dao.insertappointment(a);
@@ -840,13 +853,28 @@ public class ActionController extends HttpServlet {
 			System.out.println("forwarding");
 			rd.forward(request,response);
 		}
+		
 		//editedend
 		else if (action.equalsIgnoreCase("Paynow")) {
 			
+				Appointment a=new Appointment();
+				System.out.println("Date ======================= " + request.getParameter("appointdate"));
+				a.setAppoint_date(request.getParameter("appointdate"));
+				a.setAppoint_time(request.getParameter("apptime"));
+				a.setMode("Offline");
+				a.setIssue("Offline");
+				System.out.println("uid = " + request.getParameter("uid"));
+				Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(request.getParameter("did")));			
+				user u=usermaster_dao.getuserbyid(Integer.parseInt(request.getParameter("uid")));
+				user_master um=usermaster_dao.getusermasterbyid(Integer.parseInt(request.getParameter("umid")));
+				a.setD(d);
+				a.setU(u);
+				usermaster_dao.insertappointment(a);
 				response.sendRedirect("pgRedirect.jsp");
 			
 		}
 		//edited
+		
 		else if (action.equalsIgnoreCase("viewissue")) {
 			
 			System.out.println("View Issue");
@@ -859,10 +887,6 @@ public class ActionController extends HttpServlet {
 			rd.forward(request,response);
 		}
 		//edited end
-		else if (action.equalsIgnoreCase("Cash_on_meeting")) {
-			response.sendRedirect("lastpage.jsp");
-		
-		}
 	
 		else if(action.equalsIgnoreCase("signinAdmin"))
 		{
@@ -1024,6 +1048,7 @@ public class ActionController extends HttpServlet {
 			System.out.println("meds is : " + meds);
 			Doctor d=usermaster_dao.getdocbyid(did);
 			Appointment a=usermaster_dao.getappointmentbyid(aapoint_id);
+			System.out.println("Doc is " + d+" Apoint is "+a);
 			PdfGen pdfgen=new PdfGen(d,a,meds);
 		}
 		//edited end
@@ -1072,66 +1097,7 @@ public class ActionController extends HttpServlet {
 			}
 		}
 		
-		else if(action.equalsIgnoreCase("onlinebooking"))
-		{
-			String did=request.getParameter("did");
-			String uid=request.getParameter("uid");
-			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));
-			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
-			Appointment a=new Appointment();
-			a.setIssue(request.getParameter("issue"));
-			/* a.setU(u); */
-			a.setD(d);
-				
-			usermaster_dao.insertappointment(a);
-			request.setAttribute("u", u);
-			request.setAttribute("d", d);
-			request.setAttribute("a", a);
-			System.out.println("apooi");
-			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
-			System.out.println("forwarding");
-			rd.forward(request,response);
-		}
-
-		/*
-		 * else if(action.equalsIgnoreCase("onlinebooking")) { String
-		 * did=request.getParameter("did"); String uid=request.getParameter("uid");
-		 * Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did)); user
-		 * u=usermaster_dao.getuserbyid(Integer.parseInt(uid)); Appointment a=new
-		 * Appointment(); a.setIssue(request.getParameter("issue")); a.setU(u);
-		 * a.setDid(did);
-		 * 
-		 * usermaster_dao.insertappointment(a); request.setAttribute("u", u);
-		 * request.setAttribute("d", d); request.setAttribute("a", a);
-		 * System.out.println("apooi"); RequestDispatcher
-		 * rd=request.getRequestDispatcher("payment.jsp");
-		 * System.out.println("forwarding"); rd.forward(request,response); }
-		 */
-
 		
-		else if(action.equalsIgnoreCase("onlinebooking"))
-		{
-			System.out.println("in Onlinebooking");
-			String did=request.getParameter("did");
-			String uid=request.getParameter("uid");
-			//System.out.println("In con "+uid);
-			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(did));			
-			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
-			//System.out.println("in con u.getUid() "+u.getUid());
-			Appointment a=new Appointment();
-			a.setIssue(request.getParameter("issue"));
-			a.setMode(request.getParameter("onmode"));
-			a.setU(u);
-			a.setD(d);
-			usermaster_dao.insertappointment(a);
-			request.setAttribute("u", u);
-			request.setAttribute("d", d);
-			request.setAttribute("a", a);
-			//System.out.println("apooi");
-			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
-			System.out.println("forwarding");
-			rd.forward(request,response);
-		}
 		else if (action.equalsIgnoreCase("viewissue")) {
 			
 			System.out.println("View Issue");
