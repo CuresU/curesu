@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label>Email</label>
 
-                                <input type="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="">
+                                <input type="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onchange="searchInfo()">
                                 
                             	<span id="emailtaken" style="color:red;"></span>
 
@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <div class="form-group">
                                 <label class="mb-2">Password</label>
-                                <input type="password" name="password" minlength="6"  class="form-control" id="password1" placeholder="" required="">
+                                <input type="password" name="password" minlength="6"  class="form-control" id="password1" placeholder="" onchange="checkpass()" required="">
                             	<span id="passwordvalidation" style="color:red;"></span>
                             </div>
                             <div class="form-group">
@@ -89,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             	<span id="passcheck" style="color: red;"></span>
                             </div>
 
-                            <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" disabled="disabled" onclick="searchInfo(); validatePassword();">Register</button>
+                            <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" disabled="disabled" onclick="validatePassword()">Register</button>
                             
                         </form>
 
@@ -194,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       function checkpass()
       {
    	   alert("checkpass");
-   	    //var passvalidation=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+   	    var passvalidation=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
    		var passval=document.getElementById("password1").value;
    		if(passval.match(passvalidation))
    		{
@@ -204,6 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    		}
    		else
    		{
+   	   		alert("in else")
    			document.getElementById("password1").style.border="2px solid red"; 
    			document.getElementById('passwordvalidation').innerHTML="Password must contain atleast a Lowercase, Uppercase, digit and special character and must contain atleast 6 characters!";
 			//document.getElementById('registersubmit').disabled=true;
@@ -212,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
       
 	var request=new XMLHttpRequest();  
-	/*  function searchInfo()
+	function searchInfo()
 	{  
 		var email=document.userindex.email.value;  
 		if(email.trim()==="" || email.trim()===null)
@@ -254,7 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  	}
 		}  
 	}   
- */
+ 
 	</script>
 </body>
 
