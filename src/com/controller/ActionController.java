@@ -1092,6 +1092,8 @@ public class ActionController extends HttpServlet {
 			Appointment a=usermaster_dao.getappointmentbyid(aapoint_id);
 			System.out.println("Doc is " + d+" Apoint is "+a);
 			PdfGen pdfgen=new PdfGen(d,a,meds);
+			RequestDispatcher rd=request.getRequestDispatcher("Doctorindex.jsp");
+			rd.forward(request, response);
 		}
 		//edited end
 		
