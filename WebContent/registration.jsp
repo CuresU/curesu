@@ -71,8 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label>Email</label>
 
-                                <input type="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onchange="searchInfo()">
-                                
+                                <input type="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onchange="searchInfo();">
                             	<span id="emailtaken" style="color:red;"></span>
 
                             </div>
@@ -85,11 +84,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password</label>
-                                <input type="password" name="cpass" minlength="6" class="form-control" id="password2" placeholder="" required="">
+                                <input type="password" name="cpass" minlength="6" class="form-control" id="password2" placeholder="" required="" onchange="validatePassword();">
                             	<span id="passcheck" style="color: red;"></span>
                             </div>
-
-                            <button type="submit" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" disabled="disabled" onclick="validatePassword()">Register</button>
+                            <button type="button" id="registersubmit" class="btn btn-primary submit mb-4" name="action" value="insertusermaster" onclick="searchInfo(); checkval();">Register</button>
                             
                         </form>
 
@@ -136,22 +134,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         function validatePassword() {
+            alert("validatePassword");
             var pass2 = document.getElementById("password2").value;
             var pass1 = document.getElementById("password1").value;
             if (pass1 != pass2)
             {
-            	document.getElementById('registersubmit').disabled=true;	
+            	//document.getElementById('registersubmit').disabled=true;	
             	document.getElementById('passcheck').innerHTML="Passwords doesn't match!";
                 document.getElementById("password2").setCustomValidity("Passwords Doesn't Match");
             }
             else
             {
-            	document.getElementById('registersubmit').disabled=false;
+            	//document.getElementById('registersubmit').disabled=false;
             	document.getElementById('passcheck').innerHTML="";	
                 document.getElementById("password2").setCustomValidity('');
                 
             }
             //empty string means no validation error
+        }
+
+        function checkval()
+        {
+            alert("checkval");
+            var emailtext=document.getElementById('emailtaken').value;
+            var matchpass=document.getElementById('passcheck').value;
+            var validpass=document.getElementById('passwordvalidation').value;
+            if((emailtext.trim()==="" || emailtest.trim()===null) || (matchpass.trim()==="" || matchpass.trim()===null) || (validpass.trim()==="" || validpass.trim()===null))
+            {
+            	//document.getElementById('registersubmit').disabled=false;
+            	document.getElementById("registersubmit").type="submit";
+            	document.getElementById("registersubmit").click();
+            }
+            else
+            {
+            	/* document.getElementById('registersubmit').preventDefault();
+            	document.getElementById('registersubmit').disabled=true; */
+            	
+            	//return false;
+            }
         }
     </script>
     <!-- //password-script -->
@@ -235,13 +255,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						document.getElementById('email').innerHTML=val;
 						if(val.trim()=="false")
 						{
-							document.getElementById('registersubmit').disabled=false;	
+							//document.getElementById('registersubmit').disabled=false;	
 							document.getElementById('emailtaken').innerHTML="";
 						}
 						else
 						{
 							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
-							document.getElementById('registersubmit').disabled=true;
+							//document.getElementById('registersubmit').disabled=true;
 						}
 					}  
 				}  
