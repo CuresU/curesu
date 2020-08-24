@@ -11,12 +11,14 @@
 <%  
     String email=request.getParameter("val");  
     String pass=request.getParameter("pass");
+    String role=request.getParameter("roled");
     String password=usermaster_dao.doEncryption(pass);
     System.out.println("Email is      ::::::::::::::::::::::::" + email);
-    System.out.println("Password is ::::::::::" + password);
-    if(email==null || email.trim().equals("") || password.trim().equals("") || password==null)
+    System.out.println("Password is ::::::::::" + pass);
+    System.out.println("Role ============ " + role);
+    if(email==null || email.trim().equals("") || password.trim().equals("") || password==null || role.trim().equals("") || role==null)
     {  
-    	out.println("Please enter Email!");  
+    	out.println("false");  
     }
     else
     {  
@@ -28,11 +30,12 @@
     	{  
       		System.out.println("in email check.jsppppppppppppppppppppppppppppppppppppppppppppppppppppppp");
       		tr=session2.beginTransaction();
-    		String hql="FROM user_master u where u.email=:email AND u.password=:password";
+    		String hql="FROM user_master u where u.email=:email AND u.password=:password AND u.role =:role";
     		System.out.println("in email check.jsppppppppppppppppppppppppppppppppppppppppppppppppppppppp2222222222");
       		Query query=session2.createQuery(hql);
       		query.setParameter("email", email);
       		query.setParameter("password", password);
+      		query.setParameter("role",role);
       		
       		@SuppressWarnings("unchecked")
       			List<user_master> result=query.list();

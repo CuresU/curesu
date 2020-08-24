@@ -67,7 +67,7 @@ function xyz()
              
                             </div>
                            <span id="logininvalid" style="color:red; font-size: 20px;"></span><br><br>
-                            <button type="submit" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4" onclick="logincheck()">Sign In</button>
+                            <button type="button" name = "action"  value="sign_in" id="action" class="btn btn-primary submit mb-4" onclick="logincheck()">Sign In</button>
                             <button type="submit" class="btn btn-primary submit mb-4"><a href="forgotemail.jsp">Forgot Password</a></button>
                             <p class="text-center pb-4">
                                 <a href="registration.jsp" data-toggle="modal2" data-target="#exampleModalCenter"> Don't have an account?</a>
@@ -161,7 +161,7 @@ function xyz()
         	document.getElementById('logininvalid').innerHTML="";
 
         	
-	        var url="Logincheck.jsp?val="+emailid+"&pass="+pass;
+	        var url="Logincheck.jsp?val="+emailid+"&pass="+pass+"&roled="+role;
 		  	try
 		  	{  
 				request.onreadystatechange=function()
@@ -170,16 +170,20 @@ function xyz()
 					{  
 						
 						var val=request.responseText;
-						//alert(val);
+						//alert(val.trim());
 						if(val.trim()=="true")
 						{
+							//alert(true);
 							document.getElementById('logininvalid').innerHTML="";
 							document.getElementById("action").type="submit";
-							getElementById('action').submit();
+							document.getElementById("action").click();
 						}
 						else
 						{
+							//alert("else true");
+							document.getElementById("action").type="button";
 							var x=document.getElementById("action").type;
+							//alert(x);
 							document.getElementById('logininvalid').innerHTML="Your username or Password is wrong!";
 						}
 					}  
