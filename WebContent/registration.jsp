@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="form-group">
                                 <label>Email</label>
 
-                                <input type="email" id="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onchange="searchInfo();">
+                                <input type="email" id="email"  name="email" value="" class="form-control" id="validationDefault02" placeholder="" required="" onchange="searchInfo();">
                             	<span id="emailtaken" style="color:red;"></span>
 
                             </div>
@@ -155,18 +155,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         function checkval()
         {
-            alert("checkval");
-            var emailtext=document.getElementById('emailtaken').value;
-            var matchpass=document.getElementById('passcheck').value;
-            var validpass=document.getElementById('passwordvalidation').value;
-            if((emailtext.trim()==="" || emailtest.trim()===null) || (matchpass.trim()==="" || matchpass.trim()===null) || (validpass.trim()==="" || validpass.trim()===null))
+            //alert("checkval");
+            var emailtext=document.getElementById('emailtaken').text;
+            //alert("emailtext = " + emailtext);
+            if(typeof emailtext==="undefined")
+                //alert("undefined declared");
+            var matchpass=document.getElementById('passcheck').text;
+            if(typeof matchpass==="undefined")
+                //alert("undefined declared");
+            var validpass=document.getElementById('passwordvalidation').text;
+            if(typeof validpass==="undefined")
+                //alert("undefined declared");
+            
+            if(((typeof emailtext==="undefined") || emailtext.trim()==="" || emailtest.trim()===null) && ((typeof matchpass==="undefined") || matchpass.trim()==="" || matchpass.trim()===null) && ((typeof validpass==="undefined") || validpass.trim()==="" || validpass.trim()===null))
             {
+                //alert("in if");
             	//document.getElementById('registersubmit').disabled=false;
             	document.getElementById("registersubmit").type="submit";
             	document.getElementById("registersubmit").click();
             }
             else
             {
+                alert("in else");
             	/* document.getElementById('registersubmit').preventDefault();
             	document.getElementById('registersubmit').disabled=true; */
             	
@@ -185,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //stats -->
 
     <!-- //js -->
-    <script src="jsuser/bootstrap.js"></script>
+     <script src="jsuser/bootstrap.js"></script>
     <!--/ start-smoth-scrolling -->
     <script src="jsuser/move-top.js"></script>
     <script src="jsuser/easing.js"></script>
@@ -239,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		if(email.trim()==="" || email.trim()===null)
 		{
 			document.getElementById('emailtaken').innerHTML="Please Enter Email Id";
-			document.getElementById('registersubmit').disabled=true;
+			//document.getElementById('registersubmit').disabled=true;
 		}
 		else
 		{
