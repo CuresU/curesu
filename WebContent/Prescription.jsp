@@ -87,13 +87,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								
 								<div align="left"><h4>Issues:</h4></div><br>
-								<div><textarea rows="10" cols="100" placeholder="<%= a.getIssue()%>"></textarea>
+								<div><textarea rows="10" cols="100" placeholder="<%= a.getIssue()%>" disabled></textarea>
 								</div><br><br>
 								
 								
 								<div align="left"><h4>Medicine prescribed:</h4></div><br>
 								<div>
-							<textarea name="meds" rows="10" cols="100" id="meds"  placeholder=""> </textarea>
+							<textarea name="meds" rows="10" cols="100" id="meds"  placeholder="" required="required"> </textarea>
 								</div> </div>
 								<br>
 				<div align="right"><button class="btn-primary" style="width:30%;height:10%" type="submit" name="action" value="prescriptionupload"><h2>Prescribe</h2></button></div>

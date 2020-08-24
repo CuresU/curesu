@@ -6,20 +6,22 @@ import java.io.OutputStream;
 import java.util.Date;
 import java.util.Random;
 
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.border.Border;
+
 import com.beans.Appointment;
 import com.beans.Doctor;
-import com.dao.usermaster_dao;
+import com.dao.usermaster_dao; 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.List;
-import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.itextpdf.text.pdf.draw.VerticalPositionMark;
 
 
@@ -35,23 +37,11 @@ public class PdfGen
         try 
         {
         	String dname="Dr. " + d.getFname() + " " + d.getLname();
-        	System.out.println(dname);
-        	String dadd=d.getC_address() + ", " + d.getLandmark() + ", " + d.getCity() + ", " + d.getState() + "- " + d.getPincode();
-        	System.out.println(dadd);
-        	String ddate="Date: " + a.getAppoint_date();
-        	System.out.println(ddate);
-        	String dpres="Prescribed to: " + a.getU().getFname() + " " + a.getU().getLname();
-        	System.out.println(dpres);
-        	String medpre="Medicine Prescribed: ";
-        	System.out.println("pdfgen");
         	Random r=new Random();
 			int rno=r.nextInt(1000000);
 			System.out.println(rno);
-        	String pdfname="CuresU" + Integer.toString(a.getAapoint_id());
-        	System.out.println(pdfname);
-        	System.out.println(meds);
-        	System.out.println(a.getIssue());
-        	
+        	String pdfname="CuresU" + Integer.toString(a.getAapoint_id());        	
+        	       	
         	String a1=pdfname+".pdf";
         	System.out.println(a1);
         	
@@ -62,90 +52,79 @@ public class PdfGen
 			
             
             //Inserting Image in PDF
-
-		    // Image image = Image.getInstance ("src/com/pdf/java4s.png");
-//            Image image = Image.getInstance ("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\logo\\logog like.png");
-//		     image.scaleAbsolute(550f, 60f);//image width,height	
-
+            document.open();
 		     
-			//Inserting Table in PDF
-
-		     PdfPTable table=new PdfPTable(2);
-
-                     PdfPCell cell = new PdfPCell (new Paragraph ("CuresU"));
-
-			      cell.setColspan (2);
-			      cell.setHorizontalAlignment (Element.ALIGN_CENTER);
-			      cell.setPadding (10.0f);
-			      cell.setBackgroundColor (new BaseColor (140, 221, 8));					               
-			      /*cell.setBorderColor("#FFFFFF");*/
-			      table.addCell(cell);						               
-
-			      table.addCell(" ");
-			      table.addCell(dname);
-			      table.addCell(" ");
-			      table.addCell(dadd);
-			      table.addCell(" ");
-                  table.addCell(ddate);
-			      table.addCell(dpres);
-			      table.addCell(" ");
-			      table.addCell(medpre);
-			      table.addCell(" ");
-			      table.addCell(meds);
-			      table.addCell(" ");
-			      table.setSpacingBefore(30.0f);       // Space Before table starts, like margin-top in CSS
-			      table.setSpacingAfter(30.0f);        // Space After table starts, like margin-Bottom in CSS
-			     
-			      
-			//Inserting List in PDF
-
-			      /*List list=new List(true,30);
-		          list.add(new ListItem("Java4s"));
-			      list.add(new ListItem("Php4s"));
-			      list.add(new ListItem("Some Thing..."));		
-*/
-			      
-			//Text formating in PDF
-	                Chunk chunk=new Chunk("");
-
-					chunk.setUnderline(+1f,-2f);//1st co-ordinate is for line width,2nd is space between
-					Chunk chunk1=new Chunk("");
-					chunk1.setUnderline(+4f,-8f);
-					chunk1.setBackground(new BaseColor (17, 46, 193));      
-					
-					//Now Insert Every Thing Into PDF Document
-			         document.open();//PDF document opened........			       
-
-							//document.add(image);
+	     Image img = Image.getInstance ("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\logo\\logo.jpg"); 
+		     img.scaleAbsolute(70f, 40f);//image width,height	
+		     document.add(img);		     
 
 						document.add(Chunk.NEWLINE);   //Something like in HTML 🙂
 						//document.add(image);
 						Chunk glue = new Chunk(new VerticalPositionMark());
-						Paragraph p=new Paragraph("Prescription");
-	                    //document.add(new Paragraph("Prescription"));
-		                //document.add(new Paragraph("Generated Date - "+new Date().toString()));
 						
+						LineSeparator ls = new LineSeparator();		                
+		                
+		                Paragraph p0=new Paragraph();
+		                //p0.add(new Chunk(glue));
+		                p0.add(dname);
+		                document.add(p0);
+		                
+		                Paragraph p=new Paragraph();
 		                p.add(new Chunk(glue));
-		                p.add("Generated Date - "+new Date().toString());
-		                //document.add(new Paragraph("<center><h1>CuresU<h1></center>"));
+		                p.add(d.getC_name());
 		                document.add(p);
-		                document.add(table);
-
-						document.add(chunk);
-						document.add(chunk1);
-
-						document.add(Chunk.NEWLINE);   //Something like in HTML 🙂							    
-
-	       				//document.newPage();            //Opened new page
-
-						//document.add(list);            //In the new page we are going to add list
-
-			         document.close();
-
-				             file.close();
-				             a.setPrescription(a1);
-				         	usermaster_dao.updateappointment(a);
-	            System.out.println("Pdf created successfully..");
+		                
+		                Paragraph p1=new Paragraph();
+		                p1.add(new Chunk(glue));
+		                p1.add(d.getC_address());
+		                document.add(p1);
+		                
+		                Paragraph p2=new Paragraph();
+		                p2.add(new Chunk(glue));
+		                p2.add(d.getCity());
+		                document.add(p2);
+		                
+		                Paragraph p3=new Paragraph();
+		                p3.add(new Chunk(glue));
+		                p3.add(d.getC_contact());
+		                document.add(p3);
+		                
+		         
+		                document.add(new Chunk(ls));		                
+		                document.add(new Paragraph("Patient Name: "+a.getU().getFname()+" "+a.getU().getLname().toString()));
+		                document.add(new Paragraph("Age: "+a.getU().getAge() .toString()));
+		                
+		                document.add(new Paragraph("Issues: "));		                
+		                PdfPTable table=new PdfPTable(1);
+		                PdfPCell cell = new PdfPCell();
+		                cell.setBorder(Rectangle.NO_BORDER);
+		   			  	//cell.setPadding (12.0f); 
+		   			  	cell.setBackgroundColor(new BaseColor (140, 221,8));
+		   			  	table.addCell(a.getIssue().toString());
+		   			  	document.add(table);
+		   			  	
+		   			  	document.add(new Paragraph("Medicines: "));
+		   			  	document.add(new Paragraph(" "));
+		   			  	PdfPTable table1=new PdfPTable(1);
+		   			  	PdfPCell cell1 = new PdfPCell();
+		   			  	cell1.setBorder(Rectangle.NO_BORDER);
+		   			  	//cell1.setPadding (12.0f); 
+		   			  	cell1.setBackgroundColor(new BaseColor (140, 221,8));
+		   			  	table1.addCell(meds.toString());
+		   			  	document.add(table1);
+		                
+		   			  	document.add(new Paragraph(" "));
+		   			  	Paragraph p4=new Paragraph();
+		   			  	p4.add(new Chunk(glue));
+		   			  	p4.add(new Date().toString());
+		   			  	document.add(p4);
+		   			  	
+		   			  	document.close();
+		   			  	file.close();
+				        
+		   			  	a.setPrescription(a1);
+				        usermaster_dao.updateappointment(a);
+				        System.out.println("Pdf created successfully..");
 
         	} 
         	catch (Exception e) 

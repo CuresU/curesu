@@ -291,7 +291,7 @@ addEventListener("load", function() {
 							</div>
 							<div class="sign-up2">
 								<!-- <form> -->
-									<input type="text" name="c_name" pattern="[a-zA-z ]*" placeholder=" " required=""/>
+									<input type="text" name="c_name" placeholder=" " required=""/>
 								<!-- </form> -->
 							</div>
 							<div class="clearfix"> </div>
