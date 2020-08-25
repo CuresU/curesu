@@ -63,7 +63,7 @@
                             <div class="col-md-9 emply-info">
                                 <div class="emply-img">
                                     <img src="doctorimages\<%=d.getDimage() %>" alt="" class="img-fluid">
-                                    <img src="doctorclinics/<%=d.getC_image() %>" alt="" class="img-fluid" style="margin-top:50px;">
+                                    <img src="doctorclinics\" alt="" class="img-fluid">
                                 </div>
                                 <div class="emply-resume-info">
                                     <h4><a href="employer_single.html">Dr. <%=d.getFname() %> <%=d.getLname() %></a></h4>

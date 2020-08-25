@@ -59,12 +59,12 @@ addEventListener("load", function() {
  Doctor d=(Doctor)request.getAttribute("d");
  System.out.println("did" + d.getDid());
  %> --%>
- <img src="D:\Daiict\Sem_2\IP\E_Cure\WebContent\images\logo1.jpg">
+ <img src="D:\Daiict\Sem_2\IP\E_Cure\WebContent\images\logo.jpg">
  
     <section>
 			<div id="page-wrapper" class="sign-in-wrapper" style="width:1000px; margin-left:175px;">
 			
-			<div style="border-style:solid;height:90px;width:100%;"><center><img src="logo/logog like.png" alt="CuresU" height="80px" width="600px"></center></div>
+			<div style="border-style:solid;height:90px;width:100%;"><center><img src="logo/logo.jpg" alt="CuresU" height="80px" width="600px"></center></div>
 				<div class="graphs"  style="border-style:solid;">
 				
 					<div class="sign-up" >

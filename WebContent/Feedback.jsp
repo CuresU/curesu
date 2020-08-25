@@ -85,7 +85,7 @@ tr:nth-child(even)
 						<table class="table">
 						  <thead>
 							<tr>
-							  <th>User-email</th>
+							  <th>User Name</th>
 							  <th>Feedback</th>
 							  <!-- <th>Last-name</th>
 							  <th>Contact</th>
