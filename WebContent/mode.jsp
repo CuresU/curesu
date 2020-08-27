@@ -215,7 +215,7 @@
         {
             //alert("past date");
             document.getElementById('offlinebutton').disabled=true;
-            document.getElementById('datecheck').innerHTML="You can book Appointment of current or future dates only!";
+            document.getElementById('datecheck').innerHTML="You can book Appointment of future dates only!";
             document.getElementById('allotedtime').value="";
         }
      	else

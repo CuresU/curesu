@@ -262,8 +262,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					{  
 						
 						var val=request.responseText;
-						document.getElementById('email').innerHTML=val;
-						if(val.trim()=="false")
+						alert(val);
+						//document.getElementById('email').innerHTML=val;
+						/* if(val.trim()==="false")
 						{
 							//document.getElementById('registersubmit').disabled=false;	
 							document.getElementById('emailtaken').innerHTML="";
@@ -272,6 +273,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						{
 							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
 							//document.getElementById('registersubmit').disabled=true;
+						} */
+
+						if(val.trim()==="false" || val.trim()==="")
+						{
+							//alert(true);
+							document.getElementById('emailtaken').innerHTML="";
+							/* document.getElementById('logininvalid').innerHTML="";
+							document.getElementById("action").type="submit";
+							document.getElementById("action").click(); */
+						}
+						else if(val.trim()==="true")
+						{
+							//alert("else true");
+							/* document.getElementById("action").type="button";
+							var x=document.getElementById("action").type;
+							//alert(x);
+							document.getElementById('logininvalid').innerHTML="Your username or Password is wrong!"; */
+							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
+						}
+						else
+						{
+							/* document.getElementById("action").type="button";
+							var x=document.getElementById("action").type;
+							//alert(x);
+							document.getElementById('logininvalid').innerHTML="Some Error occured! Please try again after sometime!"; */
+							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
 						}
 					}  
 				}  

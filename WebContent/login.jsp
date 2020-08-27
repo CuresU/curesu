@@ -171,20 +171,27 @@ function xyz()
 						
 						var val=request.responseText;
 						//alert(val.trim());
-						if(val.trim()=="true")
+						if(val.trim()==="true")
 						{
 							//alert(true);
 							document.getElementById('logininvalid').innerHTML="";
 							document.getElementById("action").type="submit";
 							document.getElementById("action").click();
 						}
-						else
+						else if(val.trim()==="false")
 						{
 							//alert("else true");
 							document.getElementById("action").type="button";
 							var x=document.getElementById("action").type;
 							//alert(x);
 							document.getElementById('logininvalid').innerHTML="Your username or Password is wrong!";
+						}
+						else
+						{
+							document.getElementById("action").type="button";
+							var x=document.getElementById("action").type;
+							//alert(x);
+							document.getElementById('logininvalid').innerHTML="Some Error occured! Please try again after sometime!";
 						}
 					}  
 				}  
