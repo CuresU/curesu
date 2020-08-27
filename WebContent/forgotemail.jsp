@@ -38,7 +38,7 @@ addEventListener("load", function() {
 
 </head> 
    
- <body style="background-image: url('imagesuser/1.jpg'); background-height:100%;">
+ <body >
     <section>
     	<div>
     		<div>
