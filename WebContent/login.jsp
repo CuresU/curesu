@@ -171,7 +171,7 @@ function xyz()
 						
 						var val=request.responseText;
 						//alert(val.trim());
-						if(val.trim()==="true")
+						if(val.trim()==="true" || val.trim()==="")
 						{
 							//alert(true);
 							document.getElementById('logininvalid').innerHTML="";

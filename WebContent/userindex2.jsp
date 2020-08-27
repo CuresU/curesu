@@ -22,14 +22,14 @@
    </div>
             <!--/banner-info-w3layouts-->
             <div class="banner-info-w3layouts text-center">
-
+<br>
                 <h3>
                     <span>Find the Right Doctor</span> .
                     <span>Right Now.</span>
                 </h3>
                 <p>Your doctor search starts and ends with us.</p>
 
-                <form name="finddoctor" class="ban-form row">
+                <!-- <form name="finddoctor" class="ban-form row">
                     <div class="col-md-3 banf">
                         <input class="form-control" type="text" name="dname" placeholder="Name" onkeyup="searchInfo()" required>
                     	<spam id="edata" style="width:50px; font-color:white;"></spam>
@@ -63,7 +63,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
+ -->            </div>
             <!--//banner-info-w3layouts-->
         </div>
     </div>
