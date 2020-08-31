@@ -62,8 +62,12 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
+<<<<<<< HEAD
                 </form> -->
             </div>
+                </form>
+ -->            </div>
+
             <!--//banner-info-w3layouts-->
         </div>
     </div>

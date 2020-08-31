@@ -69,6 +69,15 @@ tr:nth-child(even)
 </head> 
    
  <body class="sticky-header left-side-collapsed"  onload="initMap()">
+ <%
+	Admin ad=null;
+	if(session!=null)
+	{
+		if(session.getAttribute("ad")!=null)
+		{
+			ad=(Admin)session.getAttribute("ad");
+			
+%>
   <%
 	List<Doctor> list=usermaster_dao.getAllDoctors();
 %>
@@ -401,5 +410,18 @@ tr:nth-child(even)
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
    <script src="js/bootstrap.min.js"></script>
+   
+   <%
+ 		}
+ 		else
+ 		{
+ 			response.sendRedirect("Asign_in.jsp");
+ 		}
+ 	}
+ 	else
+ 	{
+ 		response.sendRedirect("Asign_in.jsp");
+ 	}
+%>
 </body>
 </html>

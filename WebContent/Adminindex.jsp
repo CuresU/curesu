@@ -1,3 +1,4 @@
+<%@page import="com.beans.Admin"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -65,6 +66,15 @@
 </head> 
    
  <body class="sticky-header left-side-collapsed"  onload="initMap()">
+ <%
+	Admin ad=null;
+	if(session!=null)
+	{
+		if(session.getAttribute("ad")!=null)
+		{
+			ad=(Admin)session.getAttribute("ad");
+			
+%>
     <section>
     <%@ include file="sidebar.jsp" %>
 
@@ -133,6 +143,17 @@
    <script src="js/bootstrap.min.js"></script>
    
     
-   
+ <%
+ 		}
+ 		else
+ 		{
+ 			response.sendRedirect("Asign_in.jsp");
+ 		}
+ 	}
+ 	else
+ 	{
+ 		response.sendRedirect("Asign_in.jsp");
+ 	}
+%>
 </body>
 </html>

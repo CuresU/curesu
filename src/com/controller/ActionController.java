@@ -934,20 +934,24 @@ public class ActionController extends HttpServlet {
 			String aemail=request.getParameter("admin_email");
 			String apass=request.getParameter("admin_pass");
 			List<Admin> list=usermaster_dao.getAllAdmin();
+			int flag=0;
 			for(Admin a : list)
 			{
 				if(a.getAdmin_email().equalsIgnoreCase(aemail))
 				{
 					if(a.getAdmin_pass().equalsIgnoreCase(apass))
 					{
+						flag=1;
 						HttpSession session = request.getSession();
-						session.setAttribute("a", a);
+						session.setAttribute("ad", a);
 						RequestDispatcher rd=request.getRequestDispatcher("Adminindex.jsp");
 						System.out.println("forwarding");
 						rd.forward(request,response);
 					}
 				}
 			}
+			if(flag==0)
+				response.sendRedirect("Asign_in.jsp");
 		}
 		
 		else if(action.equalsIgnoreCase("cancel"))

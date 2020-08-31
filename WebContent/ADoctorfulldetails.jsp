@@ -74,6 +74,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head> 
    
  <body class="sign-in-up">
+ <%
+	Admin ad=null;
+	if(session!=null)
+	{
+		if(session.getAttribute("ad")!=null)
+		{
+			ad=(Admin)session.getAttribute("ad");
+			
+%>
 <%
 	/* Admin a=null;
 	if(session!=null)
@@ -218,5 +227,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 
 %> --%>
+<%
+ 		}
+ 		else
+ 		{
+ 			response.sendRedirect("Asign_in.jsp");
+ 		}
+ 	}
+ 	else
+ 	{
+ 		response.sendRedirect("Asign_in.jsp");
+ 	}
+%>
 </body>
 </html>

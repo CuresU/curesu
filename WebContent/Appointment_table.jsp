@@ -69,7 +69,16 @@ tr:nth-child(even)
    
  <body class="sticky-header left-side-collapsed"  onload="initMap()">
  <%
-	List<Doctor> list=usermaster_dao.getAllDoctors();
+	Admin ad=null;
+	if(session!=null)
+	{
+		if(session.getAttribute("ad")!=null)
+		{
+			ad=(Admin)session.getAttribute("ad");
+			
+%>
+ <%
+	List<Appointment> list=usermaster_dao.getAllAppointment();
 %>
     <section>
     <!-- left side start-->
@@ -83,13 +92,13 @@ tr:nth-child(even)
 				<div id="page-wrapper">
 				<div class="graphs">
 					<h3 class="blank1">Appoinments</h3>
-					<table>
+					<!-- <table>
 					<tr>
 					<td><h4 class="blank1">From date : <input type="date" name="fromdate"></h4></td>
 					<td><h4 class="blank1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;To date : <input type="date" name="todate"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</h4></td>
 					<td><button type="submit" class="btn" name="action" value="customizecalender" style="margin-top:-10px;">Get Past Appointments</button></td>
 					</tr>
-					</table><br>
+					</table> --><br>
 					 <div class="xs tabls">
 						<div class="bs-example4" data-example-id="contextual-table">
 						<table class="table">
@@ -105,290 +114,45 @@ tr:nth-child(even)
 							</tr>
 						  </thead>
 						  <tbody>
-						 	<%--  <%
-								for(Doctor d:list)
+						 	 <%
+								for(Appointment a:list)
 								{
-							%> --%>
+							%>
 							 <tr class="active">
-							  <th scope="row">1</th>
-							  <td>4</td>
-							  <td>6</td>
-							  <td>12-02-2019</td>
-							  <td>12pm-1pm</td>
+							  
+							  <td><%=a.getAapoint_id() %></td>
+							  <td><%=a.getU().getUid() %></td>
+							  <td><%=a.getD().getDid() %></td>
+							  <td><%=a.getAppoint_date() %></td>
+							 <%
+							 	if(a.getAppoint_time()==null || a.getAppoint_time().equals("00:00"))
+							 	{
+							 %>
+							  <td>Online</td>
+							  
+							  <%
+							 	}
+							  else
+							 	{
+							 %>
+							  <td><%=a.getAppoint_time() %></td>
+							  <%
+							 	}
+							  %>
+							  
 							</tr>
-							<tr>
-							  <th scope="row">2</th>
-							  <td>2</td>
-							  <td>12</td>
-							  <td>22-03-2019</td>
-							  <td>10am-11am</td>
-							</tr>
-							<tr class="success">
-							  <th scope="row">3</th>
-							  <td>6</td>
-							  <td>8</td>
-							  <td>14-04-2019</td>
-							  <td>4pm-5pm</td>
-							</tr>
-							<!-- <tr>
-							  <th scope="row">4</th>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							</tr>
-							<tr class="info">
-							  <th scope="row">5</th>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							</tr>
-							<tr>
-							  <th scope="row">6</th>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							</tr>
-							<tr class="warning">
-							  <th scope="row">7</th>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							</tr>
-							<tr>
-							  <th scope="row">8</th>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							</tr>
-							<tr class="danger">
-							  <th scope="row">9</th>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							  <td>Column content</td>
-							</tr> -->
-							<%-- <tr>
-								<td><%=d.getDid() %></td>
-								<td><%=d.getFname() %></td>
-								<td><%=d.getLname() %></td>
-								<td><%=d.getContact() %></td>
-								<td><%=d.getEmail() %></td>
-								<td>
-									<form name="edit" method="post" action="ActionController">
-										<input type="hidden" name="id" value="<%=d.getDid()%>">
-										<input type="submit" name="action" value="edit" class="btn">
-									</form>
-								</td>
-								<td>
-									<form name="delete" method="post" action="ActionController">
-									<input type="hidden" name="id" value="<%=d.getDid()%>">
-									<input type="submit" name="action" value="Delete" class="btn">
-									</form>
-								</td>
-							</tr> --%>
-							<%-- <%		
+							<% 
 								}
-							%> --%>
+							%>
+							
+							
 						  </tbody>
 						</table>
 					   </div>
 					   <!-- <div class="panel-body1"> -->
-					   <!-- <table class="table">
-						 <thead>
-							<tr>
-							  <th>#</th>
-							  <th>First Name</th>
-							  <th>Last Name</th>
-							  <th>Username</th>
-							</tr>
-						  </thead>
-						  <tbody>
-							<tr>
-							  <th scope="row">1</th>
-							  <td>Mark</td>
-							  <td>Otto</td>
-							  <td>@mdo</td>
-							</tr>
-							<tr>
-							  <th scope="row">2</th>
-							  <td>Jacob</td>
-							  <td>Thornton</td>
-							  <td>@fat</td>
-							</tr>
-							<tr>
-							  <th scope="row">3</th>
-							  <td>Larry</td>
-							  <td>the Bird</td>
-							  <td>@twitter</td>
-							</tr>
-						  </tbody>
-						</table> 
-						</div>-->
-						<!--<div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
-							 <div class="panel-body no-padding">
-								<table class="table table-striped">
-									<thead>
-										<tr class="warning">
-											<th>#</th>
-											<th>First Name</th>
-											<th>Last Name</th>
-											<th>Username</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>@fat</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Larry</td>
-											<td>the Bird</td>
-											<td>@twitter</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>-->
-						<!-- <div class="panel panel-warning" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="">
-							<div class="panel-heading">
-								<h2>Warning Table</h2>
-								<div class="panel-ctrls" data-actions-container="" data-action-collapse="{&quot;target&quot;: &quot;.panel-body&quot;}"><span class="button-icon has-bg"><i class="ti ti-angle-down"></i></span></div>
-							</div>
-							<div class="panel-body no-padding" style="display: block;">
-								<!-- <table class="table table-striped">
-									<thead>
-										<tr class="warning">
-											<th>#</th>
-											<th>First Name</th>
-											<th>Last Name</th>
-											<th>Username</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>@fat</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Larry</td>
-											<td>the Bird</td>
-											<td>@twitter</td>
-										</tr>
-									</tbody>
-								</table> 
-							</div>
-						</div>-->
-						<!-- <div class="bs-example4" data-example-id="simple-responsive-table">
-						<div class="table-responsive">
-						  <table class="table">
-							<thead>
-							  <tr>
-								<th>#</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-							  </tr>
-							</thead>
-							<tbody>
-							  <tr>
-								<th scope="row">1</th>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-							  </tr>
-							  <tr>
-								<th scope="row">2</th>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-							  </tr>
-							  <tr>
-								<th scope="row">3</th>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-							  </tr>
-							</tbody>
-						  </table>
-						</div> --><!-- /.table-responsive -->
-						<!-- <div class="table-responsive">
-						  <table class="table table-bordered">
-							<thead>
-							  <tr>
-								<th>#</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-								<th>Table heading</th>
-							  </tr>
-							</thead>
-							<tbody>
-							  <tr>
-								<th scope="row">1</th>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-							  </tr>
-							  <tr>
-								<th scope="row">2</th>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-							  </tr>
-							  <tr>
-								<th scope="row">3</th>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-							  </tr>
-							</tbody>
-						  </table>
-						</div> --><!-- /.table-responsive -->
-						<!-- </div>
-					</div>
-				</div>
-			</div>
-		</div> -->
+					   
+						
+						
 		<!--footer section start-->
 			<footer>
 	<!--		   <p>&copy 2015 Easy Admin Panel. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts.</a></p>  -->
@@ -400,5 +164,18 @@ tr:nth-child(even)
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
    <script src="js/bootstrap.min.js"></script>
+   
+   <%
+ 		}
+ 		else
+ 		{
+ 			response.sendRedirect("Asign_in.jsp");
+ 		}
+ 	}
+ 	else
+ 	{
+ 		response.sendRedirect("Asign_in.jsp");
+ 	}
+%>
 </body>
 </html>
