@@ -129,58 +129,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- password-script -->
     <script>
         window.onload = function() {
-            /* document.getElementById("password1").onchange = validatePassword; */
             document.getElementById("password2").onchange = validatePassword;
         }
 
         function validatePassword() {
-            alert("validatePassword");
             var pass2 = document.getElementById("password2").value;
             var pass1 = document.getElementById("password1").value;
             if (pass1 != pass2)
             {
-            	//document.getElementById('registersubmit').disabled=true;	
             	document.getElementById('passcheck').innerHTML="Passwords doesn't match!";
                 document.getElementById("password2").setCustomValidity("Passwords Doesn't Match");
             }
             else
             {
-            	//document.getElementById('registersubmit').disabled=false;
             	document.getElementById('passcheck').innerHTML="";	
                 document.getElementById("password2").setCustomValidity('');
                 
             }
-            //empty string means no validation error
         }
 
         function checkval()
         {
-            //alert("checkval");
             var emailtext=document.getElementById('emailtaken').text;
-            //alert("emailtext = " + emailtext);
             if(typeof emailtext==="undefined")
-                //alert("undefined declared");
             var matchpass=document.getElementById('passcheck').text;
             if(typeof matchpass==="undefined")
-                //alert("undefined declared");
             var validpass=document.getElementById('passwordvalidation').text;
             if(typeof validpass==="undefined")
-                //alert("undefined declared");
             
             if(((typeof emailtext==="undefined") || emailtext.trim()==="" || emailtest.trim()===null) && ((typeof matchpass==="undefined") || matchpass.trim()==="" || matchpass.trim()===null) && ((typeof validpass==="undefined") || validpass.trim()==="" || validpass.trim()===null))
             {
-                //alert("in if");
-            	//document.getElementById('registersubmit').disabled=false;
             	document.getElementById("registersubmit").type="submit";
             	document.getElementById("registersubmit").click();
             }
             else
             {
-                alert("in else");
-            	/* document.getElementById('registersubmit').preventDefault();
-            	document.getElementById('registersubmit').disabled=true; */
-            	
-            	//return false;
             }
         }
     </script>
@@ -223,21 +206,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
       function checkpass()
       {
-   	   alert("checkpass");
+   	   //alert("checkpass");
    	    var passvalidation=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
    		var passval=document.getElementById("password1").value;
    		if(passval.match(passvalidation))
    		{
    			document.getElementById("password1").style.border="1px solid #ced4da";
    			document.getElementById('passwordvalidation').innerHTML="";
-			//document.getElementById('registersubmit').disabled=false;
    		}
    		else
    		{
-   	   		alert("in else")
    			document.getElementById("password1").style.border="2px solid red"; 
    			document.getElementById('passwordvalidation').innerHTML="Password must contain atleast a Lowercase, Uppercase, digit and special character and must contain atleast 6 characters!";
-			//document.getElementById('registersubmit').disabled=true;
    		}
    	}
 
@@ -249,7 +229,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		if(email.trim()==="" || email.trim()===null)
 		{
 			document.getElementById('emailtaken').innerHTML="Please Enter Email Id";
-			//document.getElementById('registersubmit').disabled=true;
 		}
 		else
 		{
@@ -263,41 +242,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 						var val=request.responseText;
 						alert(val);
-						//document.getElementById('email').innerHTML=val;
-						/* if(val.trim()==="false")
-						{
-							//document.getElementById('registersubmit').disabled=false;	
-							document.getElementById('emailtaken').innerHTML="";
-						}
-						else
-						{
-							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
-							//document.getElementById('registersubmit').disabled=true;
-						} */
 
 						if(val.trim()==="false" || val.trim()==="")
 						{
-							//alert(true);
 							document.getElementById('emailtaken').innerHTML="";
-							/* document.getElementById('logininvalid').innerHTML="";
-							document.getElementById("action").type="submit";
-							document.getElementById("action").click(); */
 						}
 						else if(val.trim()==="true")
 						{
-							//alert("else true");
-							/* document.getElementById("action").type="button";
-							var x=document.getElementById("action").type;
-							//alert(x);
-							document.getElementById('logininvalid').innerHTML="Your username or Password is wrong!"; */
 							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
 						}
 						else
 						{
-							/* document.getElementById("action").type="button";
-							var x=document.getElementById("action").type;
-							//alert(x);
-							document.getElementById('logininvalid').innerHTML="Some Error occured! Please try again after sometime!"; */
 							document.getElementById('emailtaken').innerHTML="This email address is already registered! Please enter valid Email Address!";
 						}
 					}  
