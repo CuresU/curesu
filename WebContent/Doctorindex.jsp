@@ -142,7 +142,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					LocalDateTime now = LocalDateTime.now();  
 					System.out.println(dtf.format(now)); 
 					int cnt=0;
-					for(Appointment a:list1){ 				
+					for(Appointment a:list1){ 
+						if(a.getPrescription().equalsIgnoreCase("not prescribed")){
 						if((a.getD().getDid())==d.getDid()){
 							
 							if(a.getAppoint_date().equalsIgnoreCase(dtf.format(now))){
@@ -178,7 +179,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<%
 								}
 						}
-					}
+					}}
 							if(cnt==0)
 									{
 							%>
@@ -187,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<% 
 									}
 						
-					
+ 		
 							%>
 	
 						  </tbody>
@@ -196,6 +197,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   </div>
 	
 						
+						
+						
+					
+					<br><br>	
+<h3 class="blank1">Already Prescribed</h3>	
+					 <div class="xs tabls">
+						<div class="bs-example4" data-example-id="contextual-table">
+						<table class="table">
+						  <thead>
+							<tr>
+							  <th>Application Date</th>
+							  <th>First-name</th>
+							  <th>Last-name</th>
+							  <th>Contact</th>
+							  <th>Application Mode</th>
+							  
+							</tr>
+						  </thead>
+						  <tbody>
+						 	 
+					<%
+					
+					for(Appointment a:list1){
+						if(!a.getPrescription().equalsIgnoreCase("not prescribed")){
+						if((a.getD().getDid())==d.getDid()){
+							
+							if(a.getAppoint_date().equalsIgnoreCase(dtf.format(now))){
+		
+					%>
+							<tr>
+								<td><%=a.getAppoint_date() %></td>
+								<td><%=a.getU().getFname() %></td>
+								<td><%=a.getU().getLname() %></td>
+								<td><%=a.getU().getContact() %></td>
+								 <td><%=a.getMode() %></td>									
+							</tr>
+							
+							<%
+								}
+						}}
+					}
+							%>
+	
+						  </tbody>
+						</table>
+					   </div>
+					   </div>
+					   
+					   
+					   
+					   
 			
 			</div>
 		</div></div>

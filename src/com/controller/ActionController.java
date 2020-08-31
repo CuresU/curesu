@@ -844,6 +844,7 @@ public class ActionController extends HttpServlet {
 			a.setAppoint_time(request.getParameter("appointtime"));
 			/* a.setU(u); */
 			a.setD(d);
+			a.setPrescription("not prescribed");
 			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
 			a.setD(d);
@@ -879,6 +880,7 @@ public class ActionController extends HttpServlet {
 			System.out.println(dtf.format(now));
 			a.setAppoint_date(dtf.format(now));
 			a.setAppoint_time("00:00");
+			a.setPrescription("not prescribed");
 			a.setIssue(request.getParameter("issue"));
 			a.setMode(request.getParameter("onmode"));
 			a.setU(u);

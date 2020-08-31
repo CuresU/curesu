@@ -54,8 +54,8 @@ public class PdfGen
             //Inserting Image in PDF
             document.open();
 		     
-	     Image img = Image.getInstance ("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\logo\\logo.jpg"); 
-		     img.scaleAbsolute(70f, 40f);//image width,height	
+	     Image img = Image.getInstance ("D:\\Daiict\\Sem_2\\IP\\E_Cure\\WebContent\\logo\\logo.png"); 
+		     img.scaleAbsolute(80f, 70f);//image width,height	
 		     document.add(img);		     
 
 						document.add(Chunk.NEWLINE);   //Something like in HTML 🙂

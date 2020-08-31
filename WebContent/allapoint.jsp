@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <%
  	//Doctor d=null;
 	List<Appointment> list1=usermaster_dao.getAllAppointment();
-
+	
  	if(session!=null)
  	{
  		if(session.getAttribute("d")!=null)
@@ -111,7 +111,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					LocalDateTime now = LocalDateTime.now();  
 					   System.out.println(dtf.format(now)); 
 					
-for(Appointment a:list1){ 				
+for(Appointment a:list1){ 	
+	if(a.getPrescription().equalsIgnoreCase("not prescribed")){
 		if((a.getD().getDid())==d.getDid()){
 						
 		
@@ -140,12 +141,61 @@ for(Appointment a:list1){
 							</td>	
 							</tr>
 							
-							<%}}%>
+							<%}}}%>
 						  </tbody>
 						</table>
 					   </div>
 					   </div>
 	
+
+
+
+					<br><br>	
+<h3 class="blank1">Already Prescribed</h3>
+<div class="xs tabls">
+						<div class="bs-example4" data-example-id="contextual-table">
+						<table class="table">
+						  <thead>
+							<tr>
+							  <th>Application Date</th>
+							  <th>First-name</th>
+							  <th>Last-name</th>
+							  <th>Contact</th>
+							  <th>Application Mode</th>
+							 </tr>
+						  </thead>
+						  <tbody>
+						 	 
+					<%
+					   System.out.println(dtf.format(now)); 
+					
+for(Appointment a:list1){ 	
+	if(!a.getPrescription().equalsIgnoreCase("not prescribed")){
+		if((a.getD().getDid())==d.getDid()){
+						
+		
+%>
+							<tr>
+								<td><%=a.getAppoint_date() %></td>
+								<td><%=a.getU().getFname() %></td>
+								<td><%=a.getU().getLname() %></td>
+								<td><%=a.getU().getContact() %></td>
+						<%-- <%if(a.getMode().equalsIgnoreCase("offline")){%> --%>
+						<!-- 		<td>Offline</td> -->
+						<%-- <%}else{ %> --%>								
+								 <td><%=a.getMode() %></td>
+						 <%-- <%} %>  --%>
+								
+							</tr>
+							
+							<%}}}%>
+						  </tbody>
+						</table>
+					   </div>
+					   </div>
+
+
+
 						
 			
 			</div>

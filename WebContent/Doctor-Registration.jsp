@@ -64,7 +64,7 @@ addEventListener("load", function() {
     <section>
 			<div id="page-wrapper" class="sign-in-wrapper" style="width:1000px; margin-left:175px;">
 			
-			<div style="border-style:solid;height:90px;width:100%;"><center><img src="logo/logo.jpg" alt="CuresU" height="80px" width="600px"></center></div>
+			<div style="border-style:solid;height:110px;width:100%;"><center><img src="logo/logo.png" alt="CuresU" height="120px" width="500px"></center></div>
 				<div class="graphs"  style="border-style:solid;">
 				
 					<div class="sign-up" >
