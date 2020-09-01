@@ -114,11 +114,7 @@ function searchInfo()
                         <div class="logo">
                             <h1>
                                 <a class="navbar-brand" href="userindex2.jsp">
-
-                                    <img src="imagesuser/logo.jpg" alt="CuresU"></a>
-
                                     <img src="logo/logo.png" alt="CuresU"/></a>
-
                             </h1>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
