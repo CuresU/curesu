@@ -81,19 +81,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<input type="hidden" name="um_id" value="<%=um.getId()%>">
 							<div class="log-input">
 								<div class="log-input-left">
-								   <input type="text" class="user" name="cur_pass" placeholder="Enter Current Password" required="required">
+								   <input type="password" class="user" name="cur_pass" placeholder="Enter Current Password" required="required">
 								</div>
 								<div class="clearfix"> </div>
 							</div>
 							<div class="log-input">
 								<div class="log-input-left">
-								   <input type="text" class="user" name="new_pass" placeholder="Enter New Password" onchange="checkpass(this)" required="required">
+								   <input type="password" class="user" name="new_pass" placeholder="Enter New Password" onchange="checkpass(this)" required="required">
 								</div>
 								<div class="clearfix"> </div>
 							</div>
 							<div class="log-input">
 								<div class="log-input-left">
-								<input type="text" class="user" name="c_pass" placeholder="Confirm Password" onchange="matchpass(this); checkpass(this);" required="required">
+								<input type="password" class="user" name="c_pass" placeholder="Confirm Password" onchange="matchpass(this); checkpass(this);" required="required">
 								</div>
 							</div>
 							<input type="submit" name="action" value="Reset Password">

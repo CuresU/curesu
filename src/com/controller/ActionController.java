@@ -844,6 +844,7 @@ public class ActionController extends HttpServlet {
 			a.setAppoint_time(request.getParameter("appointtime"));
 			/* a.setU(u); */
 			a.setD(d);
+			a.setPrescription("not prescribed");
 			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
 			a.setD(d);
@@ -879,6 +880,7 @@ public class ActionController extends HttpServlet {
 			System.out.println(dtf.format(now));
 			a.setAppoint_date(dtf.format(now));
 			a.setAppoint_time("00:00");
+			a.setPrescription("not prescribed");
 			a.setIssue(request.getParameter("issue"));
 			a.setMode(request.getParameter("onmode"));
 			a.setU(u);
@@ -909,7 +911,10 @@ public class ActionController extends HttpServlet {
 				a.setD(d);
 				a.setU(u);
 				usermaster_dao.insertappointment(a);
-				response.sendRedirect("pgRedirect.jsp");
+				request.setAttribute("d", d);	
+				RequestDispatcher rd=request.getRequestDispatcher("pgRedirect.jsp");
+				rd.forward(request,response);
+				//response.sendRedirect("pgRedirect.jsp");
 			
 		}
 		//edited
@@ -1160,7 +1165,11 @@ public class ActionController extends HttpServlet {
 		
 		else if(action.equalsIgnoreCase("OnlinePaynow"))
 		{
-			response.sendRedirect("pgRedirect.jsp");
+			Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(request.getParameter("did")));
+			request.setAttribute("d", d);	
+			RequestDispatcher rd=request.getRequestDispatcher("pgRedirect.jsp");
+			rd.forward(request,response);
+			//response.sendRedirect("pgRedirect.jsp");
 		}
 		
 	}

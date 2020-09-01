@@ -62,7 +62,7 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
-<<<<<<< HEAD
+
                 </form> -->
             </div>
                 </form>

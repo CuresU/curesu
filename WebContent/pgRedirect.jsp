@@ -1,9 +1,12 @@
+<%@page import="com.beans.Doctor"%>
 <%@page import="com.itextpdf.text.log.SysoLogger"%>
 <%@page import="paytm_java.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*,com.paytm.pg.merchant.CheckSumServiceHelper"%>    
 <%
+Doctor d=(Doctor)request.getAttribute("d");
+String amount=d.getFees();
 Random r  = new Random();
 int r1 = r.nextInt(10000000);
 String merchantMid = "JGdKLy60175996680868";
@@ -15,7 +18,7 @@ String channelId = "WEB";
 String custId = "cust123";
 String mobileNo = "9998418277";
 String email = "curesu003@gmail.com";
-String txnAmount = "500";
+String txnAmount = amount;
 System.out.println(txnAmount);
 String website = "WEBSTAGING";
 //This is the staging value. Production value is available in your dashboard
