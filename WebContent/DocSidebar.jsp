@@ -88,7 +88,7 @@
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
 						<li class="active">
-							<a href="Ulogout.jsp"><i class="lnr lnr-power-switch"></i>
+							<a href="logout.jsp"><i class="lnr lnr-power-switch"></i>
 							<span>Logout</span></a>
 						</li>
 						<li>
