@@ -8,7 +8,7 @@
 <html lang="zxx">
 
 <head>
-    <title>CuresU Login Page</title>
+    <title>Payment</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Replenish a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -137,21 +137,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	              					{
 	              						int h=Integer.parseInt(time.split(":")[0]);
 		              					String showtime="";
-		              					if(h>12)
+		              					if(h>=12)
 		              					{
 		              						
-		              						showtime=Integer.toString(h-12)+":"+time.split(":")[1]+" PM";
+		              						showtime=Integer.toString(h)+":"+time.split(":")[1]+" PM";
 		              					}
 		              					else
 		              					{
-		              						showtime+=" AM";
+		              						showtime=Integer.toString(h)+":"+time.split(":")[1]+" AM";
 		              					}
 		              					boolean result= usermaster_dao.getappointmentbyid_date_time(d.getDid(),adate,time);
 	              				
 	              					if(result==true)
 	              					{
 	              				%>
-	              						<option value="<%=time%>"><%=showtime %></option>
+	              						<option value="<%=time%>"> <%=showtime %></option>
 	              				<%
 	              					}
 	              					else

@@ -836,34 +836,15 @@ public class ActionController extends HttpServlet {
 			user u=usermaster_dao.getuserbyid(Integer.parseInt(uid));
 			user_master um=usermaster_dao.getusermasterbyid(Integer.parseInt(request.getParameter("umid")));
 			String appdate=request.getParameter("appointdate");
+			//a.setPrescription("not prescribed");
 			request.setAttribute("um", um);
-			System.out.println("appointment time is : " + request.getParameter("appointtime"));
-			String aptime=request.getParameter("appointtime");
-			Appointment a=new Appointment();
-			a.setAppoint_date(request.getParameter("appointdate"));
-			a.setAppoint_time(request.getParameter("appointtime"));
-			/* a.setU(u); */
-			a.setD(d);
-			a.setPrescription("not prescribed");
-			a.setMode(request.getParameter("onmode"));
-			a.setU(u);
-			a.setD(d);
-			
-			/*
-			 * if(aptime.equalsIgnoreCase("10 am to 11 am")) { a.setAm10to11am(aptime); }
-			 * else if(aptime.equalsIgnoreCase("11 am to 12 pm")) { a.setAm11to12pm(aptime);
-			 * } else if(aptime.equalsIgnoreCase("12 pm to 1 pm")) { a.setPm12to1pm(aptime);
-			 * } else if(aptime.equalsIgnoreCase("1 pm to 2 pm")) { a.setPm1to2pm(aptime); }
-			 */
-			usermaster_dao.insertappointment(a);
 			request.setAttribute("u", u);
 			request.setAttribute("d", d);
 			request.setAttribute("appdate", (String)appdate);
 			System.out.println("apooi");
 			RequestDispatcher rd=request.getRequestDispatcher("payment.jsp");
 			rd.forward(request,response);
-		}
-		//edited
+		}		//edited
 
 		
 		else if (action.equalsIgnoreCase("onlinebooking")) {
@@ -904,6 +885,7 @@ public class ActionController extends HttpServlet {
 				a.setAppoint_time(request.getParameter("apptime"));
 				a.setMode("Offline");
 				a.setIssue("Offline");
+				a.setPrescription("not prescribed");
 				System.out.println("uid = " + request.getParameter("uid"));
 				Doctor d=usermaster_dao.getdocbyid(Integer.parseInt(request.getParameter("did")));			
 				user u=usermaster_dao.getuserbyid(Integer.parseInt(request.getParameter("uid")));
